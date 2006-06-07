@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		930A00A70A373F3B005EAB07 /* Letterbox.icns in Resources */ = {isa = PBXBuildFile; fileRef = 930A00A60A373F3B005EAB07 /* Letterbox.icns */; };
 		930AFFE50A3736CE005EAB07 /* LetterboxBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 930AFFE40A3736CE005EAB07 /* LetterboxBundle.m */; };
 		930AFFEA0A3736E4005EAB07 /* LetterboxExpandingSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 930AFFE90A3736E4005EAB07 /* LetterboxExpandingSplitView.m */; };
 		930AFFF00A373793005EAB07 /* Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930AFFEF0A373793005EAB07 /* Message.framework */; };
@@ -37,6 +38,7 @@
 		32DBCF630370AF2F00C91783 /* Letterbox_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Letterbox_Prefix.pch; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Letterbox.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		930A00A60A373F3B005EAB07 /* Letterbox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Letterbox.icns; sourceTree = "<group>"; };
 		930AFFDE0A3736A5005EAB07 /* MVMailBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMailBundle.h; sourceTree = "<group>"; };
 		930AFFE00A3736B9005EAB07 /* ExpandingSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandingSplitView.h; sourceTree = "<group>"; };
 		930AFFE30A3736CE005EAB07 /* LetterboxBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterboxBundle.h; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 		930AFFE80A3736E4005EAB07 /* LetterboxExpandingSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterboxExpandingSplitView.h; sourceTree = "<group>"; };
 		930AFFE90A3736E4005EAB07 /* LetterboxExpandingSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterboxExpandingSplitView.m; sourceTree = "<group>"; };
 		930AFFEF0A373793005EAB07 /* Message.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Message.framework; path = /System/Library/Frameworks/Message.framework; sourceTree = "<absolute>"; };
+		93C289290A3760610028067B /* Letterbox.icns.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = Letterbox.icns.r; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +89,8 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				930A00A60A373F3B005EAB07 /* Letterbox.icns */,
+				93C289290A3760610028067B /* Letterbox.icns.r */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 			);
@@ -180,6 +185,8 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				930A00C90A375166005EAB07 /* Set Icon */,
+				930A00800A373BE8005EAB07 /* Set Bundle Bit */,
 			);
 			buildRules = (
 			);
@@ -220,10 +227,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				930A00A70A373F3B005EAB07 /* Letterbox.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		930A00800A373BE8005EAB07 /* Set Bundle Bit */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Bundle Bit";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# We set the 'bundle bit' so that the plugin\n# appears as a single file, rather than as a folder.\n\n/Developer/Tools/SetFile -a B \"$TARGET_BUILD_DIR/$TARGET_NAME.$WRAPPER_EXTENSION\"\n";
+		};
+		930A00C90A375166005EAB07 /* Set Icon */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Icon";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy icon to the .mailbundle\n\n#\n# This step requires us to have first created a data-fork copy of\n#  an appropriate Icon^M file from a folder with the custom icon we\n#  want.\n#\n# Procedure to do this:\n#  1. Create an empty folder\n#  2. Paste a custom icon onto it\n#  3. in Terminal: cp thefolder/Icon^M/rsrc myicon.icns.r\n#\n\n# set up some paths\ntarget_path=\"$TARGET_BUILD_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\"\nicon_filename=\"$(perl -e 'print \"Icon\\r\"')\"\n\n# make an empty Icon^M file\ntouch \"$target_path/$icon_filename\"\n\n# copy the icon resource into it\ncp \"$SRCROOT/Letterbox.icns.r\" \"$target_path/$icon_filename/rsrc\"\n\n# and set the custom icon bit of the folder\n/Developer/Tools/SetFile -a C \"$target_path\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D5B49B1048680CD000E48DA /* Sources */ = {

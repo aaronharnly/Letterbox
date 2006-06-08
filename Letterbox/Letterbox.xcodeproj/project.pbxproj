@@ -6,6 +6,25 @@
 	objectVersion = 42;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		9358AEAB0A37E12500E13548 /* Letterbox Installer */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9358AEB00A37E15300E13548 /* Build configuration list for PBXAggregateTarget "Letterbox Installer" */;
+			buildPhases = (
+				9358AEB40A37E16F00E13548 /* Compile Installer Applescript */,
+				9358AECA0A37E1D900E13548 /* Create disk image */,
+			);
+			buildSettings = {
+				PRODUCT_NAME = "Letterbox Installer";
+			};
+			dependencies = (
+				9358AEAD0A37E13500E13548 /* PBXTargetDependency */,
+			);
+			name = "Letterbox Installer";
+			productName = "Letterbox Installer";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -32,6 +51,16 @@
 			name = Release;
 		};
 /* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		9358AEAC0A37E13500E13548 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			remoteInfo = Letterbox;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -60,6 +89,7 @@
 		9358ADAC0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageHeaderDisplay+Letterbox.h"; sourceTree = "<group>"; };
 		9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageHeaderDisplay+Letterbox.m"; sourceTree = "<group>"; };
 		9358AE080A37D46E00E13548 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
+		9358AF0B0A37E6AE00E13548 /* Install.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Install.applescript; sourceTree = "<group>"; };
 		93C289290A3760610028067B /* Letterbox.icns.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = Letterbox.icns.r; sourceTree = "<group>"; };
 		93C2892E0A376A240028067B /* Install.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = Install.scpt; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -317,6 +347,7 @@
 		93C2892F0A376A290028067B /* Installer */ = {
 			isa = PBXGroup;
 			children = (
+				9358AF0B0A37E6AE00E13548 /* Install.applescript */,
 				93C2892E0A376A240028067B /* Install.scpt */,
 			);
 			name = Installer;
@@ -332,6 +363,7 @@
 				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
+				9358AEDB0A37E41900E13548 /* Update build number */,
 				930A00C90A375166005EAB07 /* Set Icon */,
 				930A00800A373BE8005EAB07 /* Set Bundle Bit */,
 			);
@@ -364,6 +396,7 @@
 			projectDirPath = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* Letterbox */,
+				9358AEAB0A37E12500E13548 /* Letterbox Installer */,
 			);
 		};
 /* End PBXProject section */
@@ -401,6 +434,7 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Letterbox.icns.r",
 			);
 			name = "Set Icon";
 			outputPaths = (
@@ -408,6 +442,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Copy icon to the .mailbundle\n\n#\n# This step requires us to have first created a data-fork copy of\n#  an appropriate Icon^M file from a folder with the custom icon we\n#  want.\n#\n# Procedure to do this:\n#  1. Create an empty folder\n#  2. Paste a custom icon onto it\n#  3. in Terminal: cp thefolder/Icon^M/rsrc myicon.icns.r\n#\n\n# set up some paths\ntarget_path=\"$TARGET_BUILD_DIR/$PRODUCT_NAME.$WRAPPER_EXTENSION\"\nicon_filename=\"$(perl -e 'print \"Icon\\r\"')\"\n\n# make an empty Icon^M file\ntouch \"$target_path/$icon_filename\"\n\n# copy the icon resource into it\ncp \"$SRCROOT/Letterbox.icns.r\" \"$target_path/$icon_filename/rsrc\"\n\n# and set the custom icon bit of the folder\n/Developer/Tools/SetFile -a C \"$target_path\"\n";
+		};
+		9358AEB40A37E16F00E13548 /* Compile Installer Applescript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Installer Applescript";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "input_script=\"$SRCROOT/Install.applescript\"\ninput_icon=\"$SRCROOT/Install.icns\"\noutput_app=\"$TARGET_BUILD_DIR/Install Letterbox.app\"\n\n# compile the script into an application\nosacompile  -o \"$output_app\" \"$input_script\"\n\n# and set the icon for the application\ncp \"$input_icon\" \"$output_app/Contents/Resources/applet.icns\"\n\n";
+		};
+		9358AECA0A37E1D900E13548 /* Create disk image */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create disk image";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#\n# This build phase creates a disk image containing the plugin and an installer.\n#\nvolume_name=\"Letterbox\"\ndisk_image_name=\"Letterbox.dmg\"\n\noutput_dmg=\"$TARGET_BUILD_DIR/$disk_image_name\"\nif [ -f \"$output_dmg\" ]; then\n\trm \"$output_dmg\"\nfi\n\nhdiutil create -fs HFS+ -srcfolder \"$TARGET_BUILD_DIR\" -volname \"$volume_name\" -format UDZO -imagekey zlig-level=9 -o \"$output_dmg\"\n";
+		};
+		9358AEDB0A37E41900E13548 /* Update build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/perl -w";
+			shellScript = "# Xcode auto-versioning script for Subversion\n# by Axel Andersson, modified by Daniel Jalkut to add\n# \"--revision HEAD\" to the svn info line, which allows\n# the latest revision to always be used.\n\nuse strict;\n\ndie \"$0: Must be run from Xcode\" unless $ENV{\"BUILT_PRODUCTS_DIR\"};\n\n# Get the current subversion revision number and use it to set the CFBundleVersion value\nmy $REV = `/usr/local/bin/svnversion -n ./`;\nmy $INFO = \"$ENV{BUILT_PRODUCTS_DIR}/$ENV{WRAPPER_NAME}/Contents/Info.plist\";\n\nmy $version = $REV;\n\n# (Match the last group of digits and optional letter M/S):\n\n# ugly yet functional (barely) regex by Daniel Jalkut:\n#$version =~ s/([\\d]*:)(\\d+[M|S]*).*/$2/;\n\n# better yet still functional regex via Kevin \"Regex Nerd\" Ballard\n($version =~ m/\\d+[MS]*$/) && ($version = $&);\n\ndie \"$0: No Subversion revision found\" unless $version;\n\nopen(FH, \"$INFO\") or die \"$0: $INFO: $!\";\nmy $info = join(\"\", <FH>);\nclose(FH);\n\n$info =~ s/([\\t ]+<key>CFBundleVersion<\\/key>\\n[\\t ]+<string>).*?(<\\/string>)/$1$version$2/;\n\nopen(FH, \">$INFO\") or die \"$0: $INFO: $!\";\nprint FH $info;\nclose(FH);\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -425,6 +501,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9358AEAD0A37E13500E13548 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			targetProxy = 9358AEAC0A37E13500E13548 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
@@ -504,6 +588,28 @@
 			};
 			name = Release;
 		};
+		9358AEB10A37E15300E13548 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Letterbox Installer";
+			};
+			name = Debug;
+		};
+		9358AEB20A37E15300E13548 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = "Letterbox Installer";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -521,6 +627,15 @@
 			buildConfigurations = (
 				1DEB913F08733D840010E9CD /* Debug */,
 				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9358AEB00A37E15300E13548 /* Build configuration list for PBXAggregateTarget "Letterbox Installer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9358AEB10A37E15300E13548 /* Debug */,
+				9358AEB20A37E15300E13548 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

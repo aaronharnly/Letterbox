@@ -13,6 +13,9 @@
 		930AFFE50A3736CE005EAB07 /* LetterboxBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 930AFFE40A3736CE005EAB07 /* LetterboxBundle.m */; };
 		930AFFEA0A3736E4005EAB07 /* LetterboxExpandingSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 930AFFE90A3736E4005EAB07 /* LetterboxExpandingSplitView.m */; };
 		930AFFF00A373793005EAB07 /* Message.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 930AFFEF0A373793005EAB07 /* Message.framework */; };
+		9358ABC50A37CD4A00E13548 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358ABC40A37CD4A00E13548 /* MessageViewer+Letterbox.m */; };
+		9358AD4C0A37D01800E13548 /* MessageContentController+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358AD4B0A37D01800E13548 /* MessageContentController+Letterbox.m */; };
+		9358ADAE0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildStyle section */
@@ -46,7 +49,19 @@
 		930AFFE80A3736E4005EAB07 /* LetterboxExpandingSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterboxExpandingSplitView.h; sourceTree = "<group>"; };
 		930AFFE90A3736E4005EAB07 /* LetterboxExpandingSplitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterboxExpandingSplitView.m; sourceTree = "<group>"; };
 		930AFFEF0A373793005EAB07 /* Message.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Message.framework; path = /System/Library/Frameworks/Message.framework; sourceTree = "<absolute>"; };
+		9358AB700A37C8CB00E13548 /* MessageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewer.h; sourceTree = "<group>"; };
+		9358ABB10A37CBFE00E13548 /* MVMailboxSelectionOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMailboxSelectionOwner.h; sourceTree = "<group>"; };
+		9358ABC30A37CD4A00E13548 /* MessageViewer+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageViewer+Letterbox.h"; sourceTree = "<group>"; };
+		9358ABC40A37CD4A00E13548 /* MessageViewer+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageViewer+Letterbox.m"; sourceTree = "<group>"; };
+		9358AD470A37CF7500E13548 /* MessageContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageContentController.h; sourceTree = "<group>"; };
+		9358AD4A0A37D01800E13548 /* MessageContentController+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageContentController+Letterbox.h"; sourceTree = "<group>"; };
+		9358AD4B0A37D01800E13548 /* MessageContentController+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageContentController+Letterbox.m"; sourceTree = "<group>"; };
+		9358ADA70A37D13300E13548 /* MessageHeaderDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderDisplay.h; sourceTree = "<group>"; };
+		9358ADAC0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MessageHeaderDisplay+Letterbox.h"; sourceTree = "<group>"; };
+		9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageHeaderDisplay+Letterbox.m"; sourceTree = "<group>"; };
+		9358AE080A37D46E00E13548 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
 		93C289290A3760610028067B /* Letterbox.icns.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = Letterbox.icns.r; sourceTree = "<group>"; };
+		93C2892E0A376A240028067B /* Install.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = Install.scpt; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -67,10 +82,12 @@
 			isa = PBXGroup;
 			children = (
 				930AFFDC0A37369A005EAB07 /* Apple Headers */,
-				930AFFEC0A37373A005EAB07 /* Controllers */,
-				930AFFEB0A373733005EAB07 /* Views */,
+				9358ABBE0A37CC9100E13548 /* Customization Categories */,
+				9358AB8D0A37CA9000E13548 /* Customization Classes */,
+				9358ABC10A37CCDB00E13548 /* Letterbox Classes */,
 				32C88E010371C26100C91783 /* Letterbox Headers */,
 				089C167CFE841241C02AAC07 /* Resources */,
+				93C2892F0A376A290028067B /* Installer */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -144,7 +161,10 @@
 		930AFFDD0A3736A5005EAB07 /* Mail Headers */ = {
 			isa = PBXGroup;
 			children = (
-				930AFFDE0A3736A5005EAB07 /* MVMailBundle.h */,
+				9358AB7E0A37CA0700E13548 /* Controllers */,
+				9358AB7D0A37C9FC00E13548 /* Views */,
+				9358AB7C0A37C9E900E13548 /* Models */,
+				9358AB730A37C96900E13548 /* Protocols */,
 			);
 			name = "Mail Headers";
 			sourceTree = "<group>";
@@ -152,7 +172,9 @@
 		930AFFDF0A3736B9005EAB07 /* Message.framework Headers */ = {
 			isa = PBXGroup;
 			children = (
-				930AFFE00A3736B9005EAB07 /* ExpandingSplitView.h */,
+				9358AB7F0A37CA3500E13548 /* Models */,
+				9358AB800A37CA5400E13548 /* Views */,
+				9358AB810A37CA6200E13548 /* Controllers */,
 			);
 			name = "Message.framework Headers";
 			sourceTree = "<group>";
@@ -173,6 +195,131 @@
 				930AFFE40A3736CE005EAB07 /* LetterboxBundle.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9358AB730A37C96900E13548 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9358ABB10A37CBFE00E13548 /* MVMailboxSelectionOwner.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		9358AB7C0A37C9E900E13548 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9358AB7D0A37C9FC00E13548 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9358AE080A37D46E00E13548 /* MessageHeaderView.h */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9358AB7E0A37CA0700E13548 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9358AB700A37C8CB00E13548 /* MessageViewer.h */,
+				930AFFDE0A3736A5005EAB07 /* MVMailBundle.h */,
+				9358AD470A37CF7500E13548 /* MessageContentController.h */,
+				9358ADA70A37D13300E13548 /* MessageHeaderDisplay.h */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9358AB7F0A37CA3500E13548 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9358AB800A37CA5400E13548 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				930AFFE00A3736B9005EAB07 /* ExpandingSplitView.h */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9358AB810A37CA6200E13548 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9358AB8D0A37CA9000E13548 /* Customization Classes */ = {
+			isa = PBXGroup;
+			children = (
+				9358AB8E0A37CAB000E13548 /* Models */,
+				930AFFEB0A373733005EAB07 /* Views */,
+				930AFFEC0A37373A005EAB07 /* Controllers */,
+			);
+			name = "Customization Classes";
+			sourceTree = "<group>";
+		};
+		9358AB8E0A37CAB000E13548 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9358ABBE0A37CC9100E13548 /* Customization Categories */ = {
+			isa = PBXGroup;
+			children = (
+				9358ABC20A37CD0500E13548 /* Controllers */,
+				9358ABC00A37CCB300E13548 /* Views */,
+				9358ABBF0A37CCAA00E13548 /* Models */,
+			);
+			name = "Customization Categories";
+			sourceTree = "<group>";
+		};
+		9358ABBF0A37CCAA00E13548 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9358ABC00A37CCB300E13548 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9358ABC10A37CCDB00E13548 /* Letterbox Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Letterbox Classes";
+			sourceTree = "<group>";
+		};
+		9358ABC20A37CD0500E13548 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9358ABC30A37CD4A00E13548 /* MessageViewer+Letterbox.h */,
+				9358ABC40A37CD4A00E13548 /* MessageViewer+Letterbox.m */,
+				9358AD4A0A37D01800E13548 /* MessageContentController+Letterbox.h */,
+				9358AD4B0A37D01800E13548 /* MessageContentController+Letterbox.m */,
+				9358ADAC0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.h */,
+				9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93C2892F0A376A290028067B /* Installer */ = {
+			isa = PBXGroup;
+			children = (
+				93C2892E0A376A240028067B /* Install.scpt */,
+			);
+			name = Installer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +418,9 @@
 			files = (
 				930AFFE50A3736CE005EAB07 /* LetterboxBundle.m in Sources */,
 				930AFFEA0A3736E4005EAB07 /* LetterboxExpandingSplitView.m in Sources */,
+				9358ABC50A37CD4A00E13548 /* MessageViewer+Letterbox.m in Sources */,
+				9358AD4C0A37D01800E13548 /* MessageContentController+Letterbox.m in Sources */,
+				9358ADAE0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

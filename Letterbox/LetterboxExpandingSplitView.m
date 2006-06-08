@@ -34,19 +34,51 @@
     [NSBezierPath fillRect:theRect];
     
     // We have a funny little visual bug wherein the NSScrollView in the message pane
-    // is shifted down by three or four pixels
-    // We'll fix that by finding the NSScrollView and adjusting its height to be the
-    //  same as its containing view.
+    // is shifted down 5 pixels.
+    
+    // Our fix: find the *highest* (with the highest top) subview of the container view,
+    //  and tell that subview to adjust its height to reach the height of the container.
+
+    // step 1: get the message pane content view
     NSView *contentContainerView = [[(MessageViewer *)[self delegate] contentController] contentContainerView];
-    NSView *scrollView = [[contentContainerView subviews] objectAtIndex:0];
     NSRect containerFrame = [contentContainerView frame];
-    NSRect scrollFrame = [scrollView frame];
-//    NSLog(@"Container frame: %@",NSStringFromRect(containerFrame));
-//    NSLog(@"Scroll frame: %@",NSStringFromRect(scrollFrame));
-    // Bump up the scroll frame to the height of the container...
-    NSRect newScrollFrame = NSMakeRect(scrollFrame.origin.x,scrollFrame.origin.y,scrollFrame.size.width,containerFrame.size.height);
-    [scrollView setFrame:newScrollFrame];
-    [scrollView setNeedsDisplay:YES];
+    NSLog(@"Container frame: %@",NSStringFromRect(containerFrame));
+    float containerHeight = containerFrame.size.height;
+
+    // step 2: get the subviews of the content view
+    NSArray *theSubviews = [contentContainerView subviews];
+
+    // step 3: find the highest subview
+    NSEnumerator *theEnumerator = [theSubviews objectEnumerator];
+    NSView *thisView;
+    NSView *highestView;
+    float highestTopHeight = 0;    
+    
+    while (thisView = [theEnumerator nextObject]) {
+	// step a: figure out how high the top of this view goes
+	NSRect thisViewFrame = [thisView frame];
+	NSLog(@"View: %@", thisView);
+	NSLog(@"   frame: %@", NSStringFromRect(thisViewFrame));
+	float topOfThisView = (thisViewFrame.origin.y + thisViewFrame.size.height);
+
+	// step b: if this is the highest subview, make a note of it
+	if (topOfThisView > highestTopHeight) {
+	    highestTopHeight = topOfThisView;
+	    highestView = thisView;
+	}	
+    }
+    
+    // step 4: adjust the height of the highest view to reach up to cover the container
+    if (highestView != nil) {
+	NSRect highestFrame = [highestView frame];
+	float heightToSet = (containerHeight - highestFrame.origin.y);
+	NSRect newHighestFrame = NSMakeRect(highestFrame.origin.x,highestFrame.origin.y,highestFrame.size.width,heightToSet);
+	[highestView setFrame:newHighestFrame];
+	
+	// tell everyone they need to draw
+	[contentContainerView setNeedsDisplay:YES];
+    }    
+    
 }
 
 - (float)dividerThickness

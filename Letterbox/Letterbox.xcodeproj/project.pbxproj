@@ -57,7 +57,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = Letterbox;
 		};
 /* End PBXContainerItemProxy section */
@@ -90,8 +90,8 @@
 		9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MessageHeaderDisplay+Letterbox.m"; sourceTree = "<group>"; };
 		9358AE080A37D46E00E13548 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
 		9358AF0B0A37E6AE00E13548 /* Install.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Install.applescript; sourceTree = "<group>"; };
+		9358AF560A37E9FC00E13548 /* Install.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Install.icns; sourceTree = "<group>"; };
 		93C289290A3760610028067B /* Letterbox.icns.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = Letterbox.icns.r; sourceTree = "<group>"; };
-		93C2892E0A376A240028067B /* Install.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.scpt; path = Install.scpt; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +138,7 @@
 			children = (
 				930A00A60A373F3B005EAB07 /* Letterbox.icns */,
 				93C289290A3760610028067B /* Letterbox.icns.r */,
+				9358AF560A37E9FC00E13548 /* Install.icns */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
 			);
@@ -348,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				9358AF0B0A37E6AE00E13548 /* Install.applescript */,
-				93C2892E0A376A240028067B /* Install.scpt */,
 			);
 			name = Installer;
 			sourceTree = "<group>";

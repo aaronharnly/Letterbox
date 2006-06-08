@@ -180,6 +180,11 @@
 			9358AF590A37EA4200E13548 = 9358AF590A37EA4200E13548 /* PBXTextBookmark */;
 			9358AF5C0A37EA5A00E13548 = 9358AF5C0A37EA5A00E13548 /* PBXTextBookmark */;
 			9358AF5E0A37EA5A00E13548 = 9358AF5E0A37EA5A00E13548 /* PBXTextBookmark */;
+			93863DA20A37EAD000668EF8 /* PBXBookmark */ = 93863DA20A37EAD000668EF8 /* PBXBookmark */;
+			93863DA30A37EAD000668EF8 /* PBXTextBookmark */ = 93863DA30A37EAD000668EF8 /* PBXTextBookmark */;
+			93863DA40A37EAD000668EF8 /* PBXTextBookmark */ = 93863DA40A37EAD000668EF8 /* PBXTextBookmark */;
+			93863DA50A37EAD000668EF8 /* PBXBookmark */ = 93863DA50A37EAD000668EF8 /* PBXBookmark */;
+			93863DA60A37EAD000668EF8 /* PBXTextBookmark */ = 93863DA60A37EAD000668EF8 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 930AFFBA0A37366B005EAB07 /* Source Control */;
 		userBuildSettings = {
@@ -1032,11 +1037,54 @@
 		path = /Users/aaron/Documents/projects/letterbox/Letterbox/Letterbox.xcodeproj/aaron.pbxuser;
 		sourceTree = "<absolute>";
 	};
+	93863DA20A37EAD000668EF8 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 9358AF560A37E9FC00E13548 /* Install.icns */;
+	};
+	93863DA30A37EAD000668EF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93C289350A376A3A0028067B /* aaron.pbxuser */;
+		name = "aaron.pbxuser: 1043";
+		rLen = 0;
+		rLoc = 32271;
+		rType = 0;
+		vrLen = 1717;
+		vrLoc = 0;
+	};
+	93863DA40A37EAD000668EF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93C289350A376A3A0028067B /* aaron.pbxuser */;
+		name = "aaron.pbxuser: 1043";
+		rLen = 0;
+		rLoc = 32271;
+		rType = 0;
+		vrLen = 1717;
+		vrLoc = 0;
+	};
+	93863DA50A37EAD000668EF8 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 9358AF560A37E9FC00E13548 /* Install.icns */;
+	};
+	93863DA60A37EAD000668EF8 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 93C289350A376A3A0028067B /* aaron.pbxuser */;
+		name = "aaron.pbxuser: 1043";
+		rLen = 0;
+		rLoc = 32271;
+		rType = 0;
+		vrLen = 1717;
+		vrLoc = 0;
+	};
 	93C289350A376A3A0028067B /* aaron.pbxuser */ = {
 		isa = PBXFileReference;
 		lastKnownFileType = text;
 		name = aaron.pbxuser;
 		path = /Users/aaron/Documents/projects/letterbox/Letterbox/Letterbox.xcodeproj/aaron.pbxuser;
 		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {890, 15274}}";
+			sepNavSelRange = "{33869, 0}";
+			sepNavVisRect = "{{0, 0}, {653, 635}}";
+		};
 	};
 }

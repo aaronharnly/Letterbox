@@ -8,8 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "MessageViewer.h"
+#import "LetterboxExpandingSplitView.h"
 
 @interface MessageViewer (MessageViewer_Letterbox)
-- (MessageContentController *) contentController;
+// window status notifications
+- (void)windowDidBecomeKey:(NSNotification *)aNotification;
+- (void)windowDidResignKey:(NSNotification *)aNotification;
+    // accessors
+- (MessageContentController *) contentController; 
+- (LetterboxExpandingSplitView *) splitView;
 
 @end

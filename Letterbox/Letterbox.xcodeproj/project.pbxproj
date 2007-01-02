@@ -14,9 +14,6 @@
 				9358AEB40A37E16F00E13548 /* Compile Installer Applescript */,
 				9358AECA0A37E1D900E13548 /* Create disk image */,
 			);
-			buildSettings = {
-				PRODUCT_NAME = "Letterbox Installer";
-			};
 			dependencies = (
 				9358AEAD0A37E13500E13548 /* PBXTargetDependency */,
 			);
@@ -35,22 +32,11 @@
 		9358ABC50A37CD4A00E13548 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358ABC40A37CD4A00E13548 /* MessageViewer+Letterbox.m */; };
 		9358AD4C0A37D01800E13548 /* MessageContentController+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358AD4B0A37D01800E13548 /* MessageContentController+Letterbox.m */; };
 		9358ADAE0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9358ADAD0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m */; };
+		936302470A3A0BF70072FBC1 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 936302460A3A0BF70072FBC1 /* NSObject+Swizzle.m */; };
+		937E83650B45E4C000C119EB /* LetterboxMessageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 937E83640B45E4C000C119EB /* LetterboxMessageViewer.m */; };
+		937E844C0B461D7200C119EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 937E844B0B461D7100C119EB /* Localizable.strings */; };
+		93E45C6D0A3CBDFA00A622C5 /* LetterboxExtras.nib in Resources */ = {isa = PBXBuildFile; fileRef = 93E45C6C0A3CBDFA00A622C5 /* LetterboxExtras.nib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXBuildStyle section */
-		014CEA420018CDE011CA2923 /* Debug */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		014CEA430018CDE011CA2923 /* Release */ = {
-			isa = PBXBuildStyle;
-			buildSettings = {
-			};
-			name = Release;
-		};
-/* End PBXBuildStyle section */
 
 /* Begin PBXContainerItemProxy section */
 		9358AEAC0A37E13500E13548 /* PBXContainerItemProxy */ = {
@@ -91,7 +77,14 @@
 		9358AE080A37D46E00E13548 /* MessageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageHeaderView.h; sourceTree = "<group>"; };
 		9358AF0B0A37E6AE00E13548 /* Install.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = Install.applescript; sourceTree = "<group>"; };
 		9358AF560A37E9FC00E13548 /* Install.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Install.icns; sourceTree = "<group>"; };
+		936302450A3A0BF70072FBC1 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
+		936302460A3A0BF70072FBC1 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		937E83630B45E4C000C119EB /* LetterboxMessageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LetterboxMessageViewer.h; sourceTree = "<group>"; };
+		937E83640B45E4C000C119EB /* LetterboxMessageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LetterboxMessageViewer.m; sourceTree = "<group>"; };
+		937E84300B461C0800C119EB /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		937E844F0B461D9000C119EB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
 		93C289290A3760610028067B /* Letterbox.icns.r */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.rez; path = Letterbox.icns.r; sourceTree = "<group>"; };
+		93E45C6C0A3CBDFA00A622C5 /* LetterboxExtras.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = LetterboxExtras.nib; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +113,7 @@
 				93C2892F0A376A290028067B /* Installer */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
+				93E45C6C0A3CBDFA00A622C5 /* LetterboxExtras.nib */,
 			);
 			name = Letterbox;
 			sourceTree = "<group>";
@@ -136,6 +130,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				937E844B0B461D7100C119EB /* Localizable.strings */,
 				930A00A60A373F3B005EAB07 /* Letterbox.icns */,
 				93C289290A3760610028067B /* Letterbox.icns.r */,
 				9358AF560A37E9FC00E13548 /* Install.icns */,
@@ -222,8 +217,8 @@
 		930AFFEC0A37373A005EAB07 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				930AFFE30A3736CE005EAB07 /* LetterboxBundle.h */,
-				930AFFE40A3736CE005EAB07 /* LetterboxBundle.m */,
+				937E83630B45E4C000C119EB /* LetterboxMessageViewer.h */,
+				937E83640B45E4C000C119EB /* LetterboxMessageViewer.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +299,7 @@
 		9358ABBE0A37CC9100E13548 /* Customization Categories */ = {
 			isa = PBXGroup;
 			children = (
+				936302430A3A0BAB0072FBC1 /* Swizzling */,
 				9358ABC20A37CD0500E13548 /* Controllers */,
 				9358ABC00A37CCB300E13548 /* Views */,
 				9358ABBF0A37CCAA00E13548 /* Models */,
@@ -328,6 +324,7 @@
 		9358ABC10A37CCDB00E13548 /* Letterbox Classes */ = {
 			isa = PBXGroup;
 			children = (
+				93E45C7A0A3CBE4F00A622C5 /* Controllers */,
 			);
 			name = "Letterbox Classes";
 			sourceTree = "<group>";
@@ -345,12 +342,30 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		936302430A3A0BAB0072FBC1 /* Swizzling */ = {
+			isa = PBXGroup;
+			children = (
+				936302450A3A0BF70072FBC1 /* NSObject+Swizzle.h */,
+				936302460A3A0BF70072FBC1 /* NSObject+Swizzle.m */,
+			);
+			name = Swizzling;
+			sourceTree = "<group>";
+		};
 		93C2892F0A376A290028067B /* Installer */ = {
 			isa = PBXGroup;
 			children = (
 				9358AF0B0A37E6AE00E13548 /* Install.applescript */,
 			);
 			name = Installer;
+			sourceTree = "<group>";
+		};
+		93E45C7A0A3CBE4F00A622C5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				930AFFE30A3736CE005EAB07 /* LetterboxBundle.h */,
+				930AFFE40A3736CE005EAB07 /* LetterboxBundle.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,8 +384,6 @@
 			);
 			buildRules = (
 			);
-			buildSettings = {
-			};
 			dependencies = (
 			);
 			name = Letterbox;
@@ -385,12 +398,6 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Letterbox" */;
-			buildSettings = {
-			};
-			buildStyles = (
-				014CEA420018CDE011CA2923 /* Debug */,
-				014CEA430018CDE011CA2923 /* Release */,
-			);
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* Letterbox */;
 			projectDirPath = "";
@@ -408,6 +415,8 @@
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				930A00A70A373F3B005EAB07 /* Letterbox.icns in Resources */,
+				93E45C6D0A3CBDFA00A622C5 /* LetterboxExtras.nib in Resources */,
+				937E844C0B461D7200C119EB /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,7 +478,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#\n# This build phase creates a disk image containing the plugin and an installer.\n#\nvolume_name=\"Letterbox\"\ndisk_image_name=\"Letterbox.dmg\"\n\noutput_dmg=\"$TARGET_BUILD_DIR/$disk_image_name\"\nif [ -f \"$output_dmg\" ]; then\n\trm \"$output_dmg\"\nfi\n\nhdiutil create -fs HFS+ -srcfolder \"$TARGET_BUILD_DIR\" -volname \"$volume_name\" -format UDZO -imagekey zlig-level=9 -o \"$output_dmg\"\n";
+			shellScript = "#\n# This build phase creates a disk image containing the plugin and an installer.\n#\nvolume_name=\"Letterbox\"\ndisk_image_name=\"Letterbox.dmg\"\n\noutput_dmg=\"$TARGET_BUILD_DIR/$disk_image_name\"\nrm \"$TARGET_BUILD_DIR/\"*.dmg 2>/dev/null\n\nhdiutil create -fs HFS+ -srcfolder \"$TARGET_BUILD_DIR\" -volname \"$volume_name\" -format UDZO -imagekey zlig-level=9 -o \"$output_dmg\"\n";
 		};
 		9358AEDB0A37E41900E13548 /* Update build number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -497,6 +506,8 @@
 				9358ABC50A37CD4A00E13548 /* MessageViewer+Letterbox.m in Sources */,
 				9358AD4C0A37D01800E13548 /* MessageContentController+Letterbox.m in Sources */,
 				9358ADAE0A37D18100E13548 /* MessageHeaderDisplay+Letterbox.m in Sources */,
+				936302470A3A0BF70072FBC1 /* NSObject+Swizzle.m in Sources */,
+				937E83650B45E4C000C119EB /* LetterboxMessageViewer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +530,15 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		937E844B0B461D7100C119EB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				937E84300B461C0800C119EB /* English */,
+				937E844F0B461D9000C119EB /* French */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -527,6 +547,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -553,6 +574,7 @@
 					i386,
 				);
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -581,6 +603,10 @@
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;

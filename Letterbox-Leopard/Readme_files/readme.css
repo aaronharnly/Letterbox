@@ -1,0 +1,127 @@
+body {
+   font-family: Georgia, serif;
+   background-color: #f6f6f6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-family: 'Gill Sans', Skia, sans-serif;
+}
+
+h1 {
+   font-size: 18px;
+}
+h2 {
+   font-size: 16px;
+}
+h3 {
+   font-size: 14px;
+   text-decoration: underline;
+}
+h4 {
+   font-size: 13px;
+}
+
+code {
+   font-family: Monaco, monospace;
+   font-size: 10px;
+   background-color: white;
+   font-style: normal;   
+}
+
+.note {
+   background-color: #fff6d8;
+   margin: 10px;
+   padding: 4px;
+   border: 1px solid black;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-box-shadow: 3px 3px 10px #666;
+}
+.note:before {
+   content: 'Note: ';
+}
+
+.example {
+   font-size: 10px;
+   font-style: italic;   
+}
+
+.button {
+   font-family: 'Lucida Grande';
+   padding: 2px;
+   border: 1px solid #ddd;
+   background-color: white;
+   display: inline-block;
+}
+.button img {
+   vertical-align: middle;
+}
+
+.target {
+   font-family: 'Lucida Grande';
+   font-size: 14px;
+   padding-left: 20px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+   background-color: white;
+   background-image: url(images/elements/target.png);
+   background-repeat: no-repeat;
+   background-position: center left;
+   border: 1px solid #ddd;
+   font-style: normal;   
+}
+
+.key {
+   font-family: Helvetica;
+   background-color: white;
+   font-style: normal;   
+}
+
+.projvar {
+   font-family: 'Lucida Grande';
+   font-size: 13px;
+   font-weight: bold;
+}
+
+.filepath {
+   font-family: 'Lucida Grande';
+   font-size: 14px;
+   height: 24px;
+   padding-left: 28px;
+   padding-top: 4px;
+   background-color: white;
+   background-repeat: no-repeat;
+   background-position: center left;
+   border: 1px solid #ddd;
+   display: inline-block;   
+   font-style: normal;   
+}
+
+.filepath.file {
+   background-image: url(images/icons/24/xml.png);
+}
+.filepath.file.h {
+   background-image: url(images/icons/24/h.png);
+}
+.filepath.file.icns {
+   background-image: url(images/icons/24/icns.png);
+}
+.filepath.file.m {
+   background-image: url(images/icons/24/m.png);
+}
+.filepath.file.plist {
+   background-image: url(images/icons/24/plist.png);
+}
+.filepath.file.tiff {
+   background-image: url(images/icons/24/tiff.png);
+}
+.filepath.file.xib {
+   background-image: url(images/icons/24/xib.png);
+}
+.filepath.file.xml {
+   background-image: url(images/icons/24/xml.png);
+}
+
+.filepath.folder {
+   background-image: url(images/icons/24/folder.png);   
+}

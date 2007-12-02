@@ -1,0 +1,15 @@
+# Project-specific
+*.bak
+/build
+/AppCast-Keys/*.pem
+/AppCast-ReleaseNotes/*.html
+/AppCast-ReleaseNotes/*.css
+/DiskImage-Templates/MailPluginManager.app
+
+# Xcode-specific
+*.mode1v3
+*.pbxuser
+*.mode1
+
+# Mac OS X-specific
+.DS_Store

@@ -1,0 +1,2173 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		93112FD80B6A9725005AE0DC /* Generate Logo Images and Icons */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 93112FDE0B6A9740005AE0DC /* Build configuration list for PBXAggregateTarget "Generate Logo Images and Icons" */;
+			buildPhases = (
+				93112FD70B6A9725005AE0DC /* Generate image and icons */,
+			);
+			dependencies = (
+			);
+			name = "Generate Logo Images and Icons";
+			productName = GenerateIcons;
+		};
+		931E74040CFD3B270057EDA1 /* Package for Appcast */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 931E740C0CFD3B3F0057EDA1 /* Build configuration list for PBXAggregateTarget "Package for Appcast" */;
+			buildPhases = (
+				931E74030CFD3B270057EDA1 /* Generate Appcast enclosure */,
+				931E74310CFD41DE0057EDA1 /* Generate enclosure signature */,
+				931E76B50CFE33840057EDA1 /* Copy Release Notes */,
+				931E74490CFD49AB0057EDA1 /* Generate appcast XML */,
+			);
+			dependencies = (
+				931E741B0CFD3D760057EDA1 /* PBXTargetDependency */,
+				931E74080CFD3B340057EDA1 /* PBXTargetDependency */,
+			);
+			name = "Package for Appcast";
+			productName = "Package for Appcast";
+		};
+		931E74170CFD3D610057EDA1 /* Generate Appcasting Keys */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 931E74200CFD3D7C0057EDA1 /* Build configuration list for PBXAggregateTarget "Generate Appcasting Keys" */;
+			buildPhases = (
+				931E74160CFD3D610057EDA1 /* Generate Keyfiles */,
+				931E75080CFDF5F40057EDA1 /* Update Info.plist */,
+			);
+			dependencies = (
+			);
+			name = "Generate Appcasting Keys";
+			productName = "Generate Signatures";
+		};
+		931E751F0CFDF86B0057EDA1 /* Package for Disk Image */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 931E75290CFDF8AB0057EDA1 /* Build configuration list for PBXAggregateTarget "Package for Disk Image" */;
+			buildPhases = (
+				931E751E0CFDF86B0057EDA1 /* Create read-write disk image */,
+				93E0A79F0D0223D30076532B /* Create read-only disk image */,
+			);
+			dependencies = (
+				931E76B30CFE32550057EDA1 /* PBXTargetDependency */,
+			);
+			name = "Package for Disk Image";
+			productName = "Package for Disk Image";
+		};
+		931E75220CFDF8860057EDA1 /* Package */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 931E752A0CFDF8AB0057EDA1 /* Build configuration list for PBXAggregateTarget "Package" */;
+			buildPhases = (
+			);
+			dependencies = (
+				931E75280CFDF88D0057EDA1 /* PBXTargetDependency */,
+				931E75260CFDF88B0057EDA1 /* PBXTargetDependency */,
+			);
+			name = Package;
+			productName = Package;
+		};
+		931E767C0CFE25740057EDA1 /* Create Release Notes */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 931E76810CFE25B70057EDA1 /* Build configuration list for PBXAggregateTarget "Create Release Notes" */;
+			buildPhases = (
+				931E767B0CFE25740057EDA1 /* Copy Release Note Template */,
+				931E76940CFE29750057EDA1 /* Open in Xcode */,
+			);
+			dependencies = (
+			);
+			name = "Create Release Notes";
+			productName = "Create Blank Release Notes for Current Version";
+		};
+		932349B20CF88658003470B5 /* Install for Debugging */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 932349B50CF88678003470B5 /* Build configuration list for PBXAggregateTarget "Install for Debugging" */;
+			buildPhases = (
+				932349D00CF88760003470B5 /* Quit Mail */,
+				932349B90CF88688003470B5 /* Enable Mailbundles */,
+				932349D30CF8879E003470B5 /* Install plugin */,
+			);
+			dependencies = (
+				932349B70CF8867D003470B5 /* PBXTargetDependency */,
+			);
+			name = "Install for Debugging";
+			productName = DebugInstall;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		93007E5B0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */; };
+		932348B90CF75DF4003470B5 /* Plugin/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */; };
+		932348BB0CF75DFC003470B5 /* Plugin/Preferences.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */; };
+		9323496B0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9323496A0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m */; };
+		93234A450CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234A440CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m */; };
+		93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234C630CF9DD50003470B5 /* QuartzCore.framework */; };
+		93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */; };
+		93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */; };
+		9392B41F0B82742800E9968B /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
+		93B66AE60D026CF300DBC3AC /* Checkbox-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE30D026CF300DBC3AC /* Checkbox-16.png */; };
+		93B66AE70D026CF300DBC3AC /* Checkbox-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE40D026CF300DBC3AC /* Checkbox-32.png */; };
+		93B66AE80D026CF300DBC3AC /* Checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE50D026CF300DBC3AC /* Checkbox.png */; };
+		93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B3F0D02712200DBC3AC /* Letterbox.icns */; };
+		93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B400D02712200DBC3AC /* Letterbox.tiff */; };
+		93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B610D0273BD00DBC3AC /* Letterbox-PreferencesModule.tiff */; };
+		93B66C490D034C5100DBC3AC /* IconFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C460D034C5100DBC3AC /* IconFamily.m */; };
+		93B66C4A0D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */; };
+		93B66C550D034D1A00DBC3AC /* SetIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C540D034D1A00DBC3AC /* SetIcon.m */; };
+		93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */; };
+		93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */; };
+		93D1B38C0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */; };
+		93D1BAC60B6822A000A5F931 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B8B20B68229E00A5F931 /* AppController.m */; };
+		93D1BAC70B6822A000A5F931 /* Sparkle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8B30B68229E00A5F931 /* Sparkle.strings */; };
+		93D1BAC90B6822A000A5F931 /* SUAutomaticUpdateAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8B70B68229E00A5F931 /* SUAutomaticUpdateAlert.strings */; };
+		93D1BACC0B6822A000A5F931 /* SUUpdateAlert.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8BD0B68229E00A5F931 /* SUUpdateAlert.strings */; };
+		93D1BACD0B6822A000A5F931 /* SUStatus.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8DB0B68229E00A5F931 /* SUStatus.strings */; };
+		93D1BAD10B6822A000A5F931 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B91E0B68229E00A5F931 /* md5.c */; };
+		93D1BAD20B6822A000A5F931 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B91F0B68229E00A5F931 /* md5.h */; };
+		93D1BAD30B6822A000A5F931 /* NSApplication+AppCopies.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B92C0B68229E00A5F931 /* NSApplication+AppCopies.h */; };
+		93D1BAD40B6822A000A5F931 /* NSApplication+AppCopies.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B92D0B68229E00A5F931 /* NSApplication+AppCopies.m */; };
+		93D1BAD50B6822A000A5F931 /* NSFileManager+Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B92E0B68229E00A5F931 /* NSFileManager+Authentication.h */; };
+		93D1BAD60B6822A000A5F931 /* NSFileManager+Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B92F0B68229E00A5F931 /* NSFileManager+Authentication.m */; };
+		93D1BAD70B6822A000A5F931 /* NSFileManager+Verification.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9300B68229E00A5F931 /* NSFileManager+Verification.h */; };
+		93D1BAD80B6822A000A5F931 /* NSFileManager+Verification.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9310B68229E00A5F931 /* NSFileManager+Verification.m */; };
+		93D1BAD90B6822A000A5F931 /* NSString+extras.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9320B68229E00A5F931 /* NSString+extras.h */; };
+		93D1BADA0B6822A000A5F931 /* NSString+extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9330B68229E00A5F931 /* NSString+extras.m */; };
+		93D1BAE20B6822A000A5F931 /* RSS.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9410B68229E00A5F931 /* RSS.h */; };
+		93D1BAE30B6822A000A5F931 /* RSS.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9420B68229F00A5F931 /* RSS.m */; };
+		93D1BAE40B6822A000A5F931 /* Sparkle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B94F0B68229F00A5F931 /* Sparkle.h */; };
+		93D1BAE60B6822A000A5F931 /* Sparkle_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9510B68229F00A5F931 /* Sparkle_Prefix.pch */; };
+		93D1BAE80B6822A000A5F931 /* SUAppcast.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9530B68229F00A5F931 /* SUAppcast.h */; };
+		93D1BAE90B6822A000A5F931 /* SUAppcast.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9540B68229F00A5F931 /* SUAppcast.m */; };
+		93D1BAEA0B6822A000A5F931 /* SUAppcastItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9550B68229F00A5F931 /* SUAppcastItem.h */; };
+		93D1BAEB0B6822A000A5F931 /* SUAppcastItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9560B68229F00A5F931 /* SUAppcastItem.m */; };
+		93D1BAEC0B6822A000A5F931 /* SUAutomaticUpdateAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9570B68229F00A5F931 /* SUAutomaticUpdateAlert.h */; };
+		93D1BAED0B6822A000A5F931 /* SUAutomaticUpdateAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9580B68229F00A5F931 /* SUAutomaticUpdateAlert.m */; };
+		93D1BAEE0B6822A000A5F931 /* SUConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9590B68229F00A5F931 /* SUConstants.h */; };
+		93D1BAEF0B6822A000A5F931 /* SUConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B95A0B68229F00A5F931 /* SUConstants.m */; };
+		93D1BAF00B6822A000A5F931 /* SUModelTranslation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B95B0B68229F00A5F931 /* SUModelTranslation.plist */; };
+		93D1BAF20B6822A000A5F931 /* SUStatusChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B95D0B68229F00A5F931 /* SUStatusChecker.h */; };
+		93D1BAF30B6822A000A5F931 /* SUStatusChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B95E0B68229F00A5F931 /* SUStatusChecker.m */; };
+		93D1BAF40B6822A000A5F931 /* SUStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B95F0B68229F00A5F931 /* SUStatusController.h */; };
+		93D1BAF50B6822A000A5F931 /* SUStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9600B68229F00A5F931 /* SUStatusController.m */; };
+		93D1BAF60B6822A000A5F931 /* SUUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9610B68229F00A5F931 /* SUUnarchiver.h */; };
+		93D1BAF70B6822A000A5F931 /* SUUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9620B68229F00A5F931 /* SUUnarchiver.m */; };
+		93D1BAF80B6822A000A5F931 /* SUUpdateAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9630B68229F00A5F931 /* SUUpdateAlert.h */; };
+		93D1BAF90B6822A000A5F931 /* SUUpdateAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9640B68229F00A5F931 /* SUUpdateAlert.m */; };
+		93D1BAFA0B6822A000A5F931 /* SUUpdater+Authentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9650B68229F00A5F931 /* SUUpdater+Authentication.m */; };
+		93D1BAFC0B6822A000A5F931 /* SUUpdater.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9670B68229F00A5F931 /* SUUpdater.h */; };
+		93D1BAFD0B6822A000A5F931 /* SUUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B9680B68229F00A5F931 /* SUUpdater.m */; };
+		93D1BAFE0B6822A000A5F931 /* SUUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D1B9690B68229F00A5F931 /* SUUtilities.h */; };
+		93D1BAFF0B6822A000A5F931 /* SUUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B96A0B68229F00A5F931 /* SUUtilities.m */; };
+		93D1BB740B68281E00A5F931 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1BB470B68281E00A5F931 /* WebKit.framework */; };
+		93D1BBA80B68284200A5F931 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1BB750B68284200A5F931 /* Security.framework */; };
+		93D1BBB60B68297200A5F931 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		93D1BC8D0B69496800A5F931 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
+		93E683C10CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E683BF0CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m */; };
+		93E925550A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E925540A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m */; };
+		93E9268F0A4C8E020039ADAD /* Plugin/main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9268E0A4C8E020039ADAD /* Plugin/main.m */; };
+		93E9269B0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9269A0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m */; };
+		93F90CD10CE103B200CC7F5D /* SUStatus.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F90C250CE0E0BC00CC7F5D /* SUStatus.xib */; };
+		93F90CD20CE103BA00CC7F5D /* SUProfileInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F90B760CE0DF6300CC7F5D /* SUProfileInfo.xib */; };
+		93F90CD30CE103C600CC7F5D /* SUUpdateAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F90B780CE0DF6300CC7F5D /* SUUpdateAlert.xib */; };
+		93F90CD40CE103CC00CC7F5D /* SUAutomaticUpdateAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F90B7A0CE0DF6300CC7F5D /* SUAutomaticUpdateAlert.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		931130020B6A9F84005AE0DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93112FD80B6A9725005AE0DC;
+			remoteInfo = "Generate Icons";
+		};
+		931E74070CFD3B340057EDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = Letterbox;
+		};
+		931E741A0CFD3D760057EDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 931E74170CFD3D610057EDA1;
+			remoteInfo = "Generate Signatures";
+		};
+		931E75250CFDF88B0057EDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 931E751F0CFDF86B0057EDA1;
+			remoteInfo = "Package for Disk Image";
+		};
+		931E75270CFDF88D0057EDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 931E74040CFD3B270057EDA1;
+			remoteInfo = "Package for Appcast";
+		};
+		931E76B20CFE32550057EDA1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = Letterbox;
+		};
+		932349B60CF8867D003470B5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = Letterbox;
+		};
+		93B66CB30D035BD500DBC3AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93B66C290D034BCF00DBC3AC;
+			remoteInfo = SetIcon;
+		};
+		93D1BC340B69337B00A5F931 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 93D1B8A70B68227900A5F931;
+			remoteInfo = SparklePlus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93D1B41F0B681A1A00A5F931 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9392B41F0B82742800E9968B /* Sparkle.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Letterbox.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5B49B7048680CD000E48DA /* Plugin/Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Plugin/Info.plist; sourceTree = "<group>"; };
+		93007E590B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxPreferencesModule.h; sourceTree = "<group>"; };
+		93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxPreferencesModule.m; sourceTree = "<group>"; };
+		931E75470CFDFA3E0057EDA1 /* AppKit-10.5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.5.h"; path = "AppleHeaders/AppKit-10.5.h"; sourceTree = "<group>"; };
+		931E75480CFDFA3E0057EDA1 /* AppKit-10.4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.4.h"; path = "AppleHeaders/AppKit-10.4.h"; sourceTree = "<group>"; };
+		931E75490CFDFA500057EDA1 /* NSPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSPreferences.h; path = AppleHeaders/NSPreferences.h; sourceTree = "<group>"; };
+		931E754A0CFDFA500057EDA1 /* NSPreferencesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSPreferencesModule.h; path = AppleHeaders/NSPreferencesModule.h; sourceTree = "<group>"; };
+		931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVMailBundle.h; path = AppleHeaders/MVMailBundle.h; sourceTree = "<group>"; };
+		931E754C0CFDFA6D0057EDA1 /* Mail.app-3.0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-3.0.h"; path = "AppleHeaders/Mail.app-3.0.h"; sourceTree = "<group>"; };
+		931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-2.0.h"; path = "AppleHeaders/Mail.app-2.0.h"; sourceTree = "<group>"; };
+		931E754E0CFDFA7E0057EDA1 /* Message.framework.B.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.B.h; path = AppleHeaders/Message.framework.B.h; sourceTree = "<group>"; };
+		931E754F0CFDFA7E0057EDA1 /* Message.framework.A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.A.h; path = AppleHeaders/Message.framework.A.h; sourceTree = "<group>"; };
+		932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Plugin/Localizable.strings; sourceTree = "<group>"; };
+		932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Plugin/Preferences.strings; sourceTree = "<group>"; };
+		932349690CF78BED003470B5 /* Plugin/BundleUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/BundleUserDefaults.h; sourceTree = "<group>"; };
+		9323496A0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/BundleUserDefaults.m; sourceTree = "<group>"; };
+		93234A430CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSPreferencesModule+Letterbox.h"; sourceTree = "<group>"; };
+		93234A440CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSPreferencesModule+Letterbox.m"; sourceTree = "<group>"; };
+		93234C630CF9DD50003470B5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = /System/Library/Frameworks/QuartzCore.framework; sourceTree = "<absolute>"; };
+		93234CAE0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/AWHFuzzyDisabledView.h; sourceTree = "<group>"; };
+		93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/AWHFuzzyDisabledView.m; sourceTree = "<group>"; };
+		93234CEB0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSView+Letterbox_DisableSubviews.h"; sourceTree = "<group>"; };
+		93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSView+Letterbox_DisableSubviews.m"; sourceTree = "<group>"; };
+		93B66A980D02677700DBC3AC /* DiskImage-Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "DiskImage-Templates"; sourceTree = "<group>"; };
+		93B66AE30D026CF300DBC3AC /* Checkbox-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-16.png"; sourceTree = "<group>"; };
+		93B66AE40D026CF300DBC3AC /* Checkbox-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-32.png"; sourceTree = "<group>"; };
+		93B66AE50D026CF300DBC3AC /* Checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkbox.png; sourceTree = "<group>"; };
+		93B66B3F0D02712200DBC3AC /* Letterbox.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Letterbox.icns; sourceTree = "<group>"; };
+		93B66B400D02712200DBC3AC /* Letterbox.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Letterbox.tiff; sourceTree = "<group>"; };
+		93B66B610D0273BD00DBC3AC /* Letterbox-PreferencesModule.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "Letterbox-PreferencesModule.tiff"; path = "build/Debug/Letterbox-PreferencesModule.tiff"; sourceTree = "<group>"; };
+		93B66C2A0D034BCF00DBC3AC /* SetIcon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SetIcon; sourceTree = BUILT_PRODUCTS_DIR; };
+		93B66C450D034C5100DBC3AC /* IconFamily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconFamily.h; sourceTree = "<group>"; };
+		93B66C460D034C5100DBC3AC /* IconFamily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconFamily.m; sourceTree = "<group>"; };
+		93B66C470D034C5100DBC3AC /* NSString+CarbonFSRefCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CarbonFSRefCreation.h"; sourceTree = "<group>"; };
+		93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CarbonFSRefCreation.m"; sourceTree = "<group>"; };
+		93B66C540D034D1A00DBC3AC /* SetIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIcon.m; sourceTree = "<group>"; };
+		93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/MainNib.xib; sourceTree = "<group>"; };
+		93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/PreferencesModule.xib; sourceTree = "<group>"; };
+		93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSPreferences+Letterbox.m"; sourceTree = "<group>"; };
+		93D1B38D0B67E77B00A5F931 /* Plugin/NSPreferences+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSPreferences+Letterbox.h"; sourceTree = "<group>"; };
+		93D1B8A80B68227900A5F931 /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D1B8B10B68229E00A5F931 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		93D1B8B20B68229E00A5F931 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		93D1B8B40B68229E00A5F931 /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8B80B68229E00A5F931 /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8BE0B68229E00A5F931 /* ca */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ca; path = ca.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8BF0B68229E00A5F931 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8C10B68229E00A5F931 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8C40B68229E00A5F931 /* cs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8C50B68229E00A5F931 /* cy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cy; path = cy.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8C70B68229E00A5F931 /* cy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cy; path = cy.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8CA0B68229E00A5F931 /* cy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = cy; path = cy.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8CB0B68229E00A5F931 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8CD0B68229E00A5F931 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8D00B68229E00A5F931 /* da */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8D10B68229E00A5F931 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8D30B68229E00A5F931 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8D60B68229E00A5F931 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8D70B68229E00A5F931 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8D90B68229E00A5F931 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8DC0B68229E00A5F931 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SUStatus.strings; sourceTree = "<group>"; };
+		93D1B8DE0B68229E00A5F931 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8DF0B68229E00A5F931 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8E10B68229E00A5F931 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8E40B68229E00A5F931 /* es */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8E50B68229E00A5F931 /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8E70B68229E00A5F931 /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8EA0B68229E00A5F931 /* fi */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8EB0B68229E00A5F931 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8ED0B68229E00A5F931 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8F00B68229E00A5F931 /* fr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8F10B68229E00A5F931 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8F30B68229E00A5F931 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8F60B68229E00A5F931 /* he */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8F70B68229E00A5F931 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8F90B68229E00A5F931 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8FC0B68229E00A5F931 /* hu */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B8FD0B68229E00A5F931 /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B8FF0B68229E00A5F931 /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9020B68229E00A5F931 /* id */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9030B68229E00A5F931 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
+		93D1B9040B68229E00A5F931 /* is */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9060B68229E00A5F931 /* is */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9090B68229E00A5F931 /* is */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = is; path = is.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B90A0B68229E00A5F931 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B90C0B68229E00A5F931 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B90F0B68229E00A5F931 /* it */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9100B68229E00A5F931 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9120B68229E00A5F931 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9150B68229E00A5F931 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9160B68229E00A5F931 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9180B68229E00A5F931 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B91B0B68229E00A5F931 /* ko */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B91C0B68229E00A5F931 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
+		93D1B91D0B68229E00A5F931 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		93D1B91E0B68229E00A5F931 /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
+		93D1B91F0B68229E00A5F931 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		93D1B9200B68229E00A5F931 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9220B68229E00A5F931 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9250B68229E00A5F931 /* nl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9260B68229E00A5F931 /* no */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9280B68229E00A5F931 /* no */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B92B0B68229E00A5F931 /* no */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B92C0B68229E00A5F931 /* NSApplication+AppCopies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSApplication+AppCopies.h"; sourceTree = "<group>"; };
+		93D1B92D0B68229E00A5F931 /* NSApplication+AppCopies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSApplication+AppCopies.m"; sourceTree = "<group>"; };
+		93D1B92E0B68229E00A5F931 /* NSFileManager+Authentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Authentication.h"; sourceTree = "<group>"; };
+		93D1B92F0B68229E00A5F931 /* NSFileManager+Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Authentication.m"; sourceTree = "<group>"; };
+		93D1B9300B68229E00A5F931 /* NSFileManager+Verification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Verification.h"; sourceTree = "<group>"; };
+		93D1B9310B68229E00A5F931 /* NSFileManager+Verification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Verification.m"; sourceTree = "<group>"; };
+		93D1B9320B68229E00A5F931 /* NSString+extras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+extras.h"; sourceTree = "<group>"; };
+		93D1B9330B68229E00A5F931 /* NSString+extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+extras.m"; sourceTree = "<group>"; };
+		93D1B9340B68229E00A5F931 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9360B68229E00A5F931 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9390B68229E00A5F931 /* pl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B93A0B68229E00A5F931 /* profileConfig.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = profileConfig.php; sourceTree = "<group>"; };
+		93D1B93B0B68229E00A5F931 /* profileDB.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = profileDB.php; sourceTree = "<group>"; };
+		93D1B93C0B68229E00A5F931 /* profileInfo.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = profileInfo.php; sourceTree = "<group>"; };
+		93D1B93D0B68229E00A5F931 /* profileInfo.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = profileInfo.sql; sourceTree = "<group>"; };
+		93D1B93E0B68229E00A5F931 /* profileLookup.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = profileLookup.php; sourceTree = "<group>"; };
+		93D1B93F0B68229E00A5F931 /* README - profile.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "README - profile.rtf"; sourceTree = "<group>"; };
+		93D1B9400B68229E00A5F931 /* Release Notes.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "Release Notes.rtf"; sourceTree = "<group>"; };
+		93D1B9410B68229E00A5F931 /* RSS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSS.h; sourceTree = "<group>"; };
+		93D1B9420B68229F00A5F931 /* RSS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSS.m; sourceTree = "<group>"; };
+		93D1B9430B68229F00A5F931 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9450B68229F00A5F931 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9480B68229F00A5F931 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9490B68229F00A5F931 /* sk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B94B0B68229F00A5F931 /* sk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B94E0B68229F00A5F931 /* sk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B94F0B68229F00A5F931 /* Sparkle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkle.h; sourceTree = "<group>"; };
+		93D1B9500B68229F00A5F931 /* Sparkle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Sparkle.icns; sourceTree = "<group>"; };
+		93D1B9510B68229F00A5F931 /* Sparkle_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sparkle_Prefix.pch; sourceTree = "<group>"; };
+		93D1B9520B68229F00A5F931 /* sparkletestcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sparkletestcast.xml; sourceTree = "<group>"; };
+		93D1B9530B68229F00A5F931 /* SUAppcast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppcast.h; sourceTree = "<group>"; };
+		93D1B9540B68229F00A5F931 /* SUAppcast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppcast.m; sourceTree = "<group>"; };
+		93D1B9550B68229F00A5F931 /* SUAppcastItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAppcastItem.h; sourceTree = "<group>"; };
+		93D1B9560B68229F00A5F931 /* SUAppcastItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAppcastItem.m; sourceTree = "<group>"; };
+		93D1B9570B68229F00A5F931 /* SUAutomaticUpdateAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUAutomaticUpdateAlert.h; sourceTree = "<group>"; };
+		93D1B9580B68229F00A5F931 /* SUAutomaticUpdateAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUAutomaticUpdateAlert.m; sourceTree = "<group>"; };
+		93D1B9590B68229F00A5F931 /* SUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUConstants.h; sourceTree = "<group>"; };
+		93D1B95A0B68229F00A5F931 /* SUConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUConstants.m; sourceTree = "<group>"; };
+		93D1B95B0B68229F00A5F931 /* SUModelTranslation.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SUModelTranslation.plist; sourceTree = "<group>"; };
+		93D1B95D0B68229F00A5F931 /* SUStatusChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUStatusChecker.h; sourceTree = "<group>"; };
+		93D1B95E0B68229F00A5F931 /* SUStatusChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUStatusChecker.m; sourceTree = "<group>"; };
+		93D1B95F0B68229F00A5F931 /* SUStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUStatusController.h; sourceTree = "<group>"; };
+		93D1B9600B68229F00A5F931 /* SUStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUStatusController.m; sourceTree = "<group>"; };
+		93D1B9610B68229F00A5F931 /* SUUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUnarchiver.h; sourceTree = "<group>"; };
+		93D1B9620B68229F00A5F931 /* SUUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUnarchiver.m; sourceTree = "<group>"; };
+		93D1B9630B68229F00A5F931 /* SUUpdateAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUpdateAlert.h; sourceTree = "<group>"; };
+		93D1B9640B68229F00A5F931 /* SUUpdateAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUpdateAlert.m; sourceTree = "<group>"; };
+		93D1B9650B68229F00A5F931 /* SUUpdater+Authentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SUUpdater+Authentication.m"; sourceTree = "<group>"; };
+		93D1B9670B68229F00A5F931 /* SUUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUpdater.h; sourceTree = "<group>"; };
+		93D1B9680B68229F00A5F931 /* SUUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUpdater.m; sourceTree = "<group>"; };
+		93D1B9690B68229F00A5F931 /* SUUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUUtilities.h; sourceTree = "<group>"; };
+		93D1B96A0B68229F00A5F931 /* SUUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUUtilities.m; sourceTree = "<group>"; };
+		93D1B96B0B68229F00A5F931 /* sv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B96D0B68229F00A5F931 /* sv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9700B68229F00A5F931 /* sv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9710B68229F00A5F931 /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9730B68229F00A5F931 /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9760B68229F00A5F931 /* th */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = th; path = th.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9770B68229F00A5F931 /* tr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9790B68229F00A5F931 /* tr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B97C0B68229F00A5F931 /* tr */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B97D0B68229F00A5F931 /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B97F0B68229F00A5F931 /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9820B68229F00A5F931 /* zh_CN */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_CN; path = zh_CN.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9830B68229F00A5F931 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/Sparkle.strings; sourceTree = "<group>"; };
+		93D1B9850B68229F00A5F931 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/SUAutomaticUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1B9880B68229F00A5F931 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
+		93D1BB470B68281E00A5F931 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
+		93D1BB750B68284200A5F931 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		93E683BF0CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxBundleUpdaterDelegate.m; sourceTree = "<group>"; };
+		93E683C00CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxBundleUpdaterDelegate.h; sourceTree = "<group>"; };
+		93E925530A4C8D660039ADAD /* Plugin/LetterboxBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxBundle.h; sourceTree = "<group>"; };
+		93E925540A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxBundle.m; sourceTree = "<group>"; };
+		93E9255A0A4C8D930039ADAD /* Plugin/Letterbox_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/Letterbox_Prefix.pch; sourceTree = "<group>"; };
+		93E9268E0A4C8E020039ADAD /* Plugin/main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/main.m; sourceTree = "<group>"; };
+		93E926970A4C8E630039ADAD /* Plugin/NSObject+LetterboxSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSObject+LetterboxSwizzle.h"; sourceTree = "<group>"; };
+		93E9269A0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSObject+LetterboxSwizzle.m"; sourceTree = "<group>"; };
+		93EAF77A0D00A32200EDEFAE /* AppCast-Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "AppCast-Templates"; sourceTree = "<group>"; };
+		93EAF7810D00A33B00EDEFAE /* AppCast-ReleaseNotes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "AppCast-ReleaseNotes"; sourceTree = "<group>"; };
+		93F90BA60CE0DFA300CC7F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SUProfileInfo.xib; sourceTree = "<group>"; };
+		93F90BA70CE0DFA300CC7F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SUAutomaticUpdateAlert.xib; sourceTree = "<group>"; };
+		93F90BA80CE0DFA300CC7F5D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SUUpdateAlert.xib; sourceTree = "<group>"; };
+		93F90C250CE0E0BC00CC7F5D /* SUStatus.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SUStatus.xib; sourceTree = "<group>"; };
+		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D5B49B3048680CD000E48DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D1BC8D0B69496800A5F931 /* Sparkle.framework in Frameworks */,
+				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93B66C280D034BCF00DBC3AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D1B8A60B68227900A5F931 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D1BB740B68281E00A5F931 /* WebKit.framework in Frameworks */,
+				93D1BBA80B68284200A5F931 /* Security.framework in Frameworks */,
+				93D1BBB60B68297200A5F931 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Letterbox */ = {
+			isa = PBXGroup;
+			children = (
+				93B66C410D034C2A00DBC3AC /* SetIcon */,
+				93E925060A4C8AA70039ADAD /* Apple Headers */,
+				93F90D360CE116C200CC7F5D /* The plugin */,
+				93D1B8B00B68229E00A5F931 /* SparklePlus */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = Letterbox;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93B66B3E0D02712200DBC3AC /* Images */,
+				932348870CF75DE5003470B5 /* Localizable */,
+				93F90D320CE116A900CC7F5D /* Plists */,
+				9392B8460B83B23F00E9968B /* Nibs */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93234C630CF9DD50003470B5 /* QuartzCore.framework */,
+				93D1BB750B68284200A5F931 /* Security.framework */,
+				93D1BB470B68281E00A5F931 /* WebKit.framework */,
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+				D2F7E65807B2D6F200F64583 /* CoreData.framework */,
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93B66B610D0273BD00DBC3AC /* Letterbox-PreferencesModule.tiff */,
+				93D1B8A80B68227900A5F931 /* Sparkle.framework */,
+				8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */,
+				93B66C2A0D034BCF00DBC3AC /* SetIcon */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		932348870CF75DE5003470B5 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */,
+			);
+			name = Localizable;
+			sourceTree = "<group>";
+		};
+		932348BC0CF75E0A003470B5 /* Preference Pane */ = {
+			isa = PBXGroup;
+			children = (
+				932348C00CF75E2D003470B5 /* Categories */,
+				932348BD0CF75E1A003470B5 /* Models */,
+				932348BE0CF75E1F003470B5 /* Views */,
+				932348BF0CF75E24003470B5 /* Controllers */,
+				932348C10CF75E3C003470B5 /* Resources */,
+			);
+			name = "Preference Pane";
+			sourceTree = "<group>";
+		};
+		932348BD0CF75E1A003470B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				932349690CF78BED003470B5 /* Plugin/BundleUserDefaults.h */,
+				9323496A0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		932348BE0CF75E1F003470B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				93234CAE0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.h */,
+				93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		932348BF0CF75E24003470B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93007E590B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.h */,
+				93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		932348C00CF75E2D003470B5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B38D0B67E77B00A5F931 /* Plugin/NSPreferences+Letterbox.h */,
+				93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */,
+				93234A430CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.h */,
+				93234A440CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m */,
+				93234CEB0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.h */,
+				93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		932348C10CF75E3C003470B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */,
+				932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		93234EE80CFB75E0003470B5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93E926970A4C8E630039ADAD /* Plugin/NSObject+LetterboxSwizzle.h */,
+				93E9269A0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		93234EE90CFB75F6003470B5 /* Plugin infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				93234EE80CFB75E0003470B5 /* Categories */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				93234EEA0CFB761E003470B5 /* Controllers */,
+			);
+			name = "Plugin infrastructure";
+			sourceTree = "<group>";
+		};
+		93234EEA0CFB761E003470B5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93E683C00CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.h */,
+				93E683BF0CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m */,
+				93E925530A4C8D660039ADAD /* Plugin/LetterboxBundle.h */,
+				93E925540A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9352BD1C0CD129E700672AF5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		9352BD1D0CD129F300672AF5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9352BD1E0CD12A3000672AF5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				931E75490CFDFA500057EDA1 /* NSPreferences.h */,
+				931E754A0CFDFA500057EDA1 /* NSPreferencesModule.h */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		9387CC090B653D09006EF331 /* AppKit Headers */ = {
+			isa = PBXGroup;
+			children = (
+				931E75470CFDFA3E0057EDA1 /* AppKit-10.5.h */,
+				931E75480CFDFA3E0057EDA1 /* AppKit-10.4.h */,
+				9352BD1E0CD12A3000672AF5 /* Controllers */,
+				9352BD1D0CD129F300672AF5 /* Views */,
+				9352BD1C0CD129E700672AF5 /* Models */,
+			);
+			name = "AppKit Headers";
+			sourceTree = "<group>";
+		};
+		9392B8460B83B23F00E9968B /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		93B66AE20D026CF300DBC3AC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				93B66AE30D026CF300DBC3AC /* Checkbox-16.png */,
+				93B66AE40D026CF300DBC3AC /* Checkbox-32.png */,
+				93B66AE50D026CF300DBC3AC /* Checkbox.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		93B66B3E0D02712200DBC3AC /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				93B66B3F0D02712200DBC3AC /* Letterbox.icns */,
+				93B66B400D02712200DBC3AC /* Letterbox.tiff */,
+			);
+			name = Images;
+			path = Plugin/Images;
+			sourceTree = "<group>";
+		};
+		93B66C410D034C2A00DBC3AC /* SetIcon */ = {
+			isa = PBXGroup;
+			children = (
+				93B66C440D034C5100DBC3AC /* IconFamily */,
+			);
+			name = SetIcon;
+			sourceTree = "<group>";
+		};
+		93B66C440D034C5100DBC3AC /* IconFamily */ = {
+			isa = PBXGroup;
+			children = (
+				93B66C450D034C5100DBC3AC /* IconFamily.h */,
+				93B66C460D034C5100DBC3AC /* IconFamily.m */,
+				93B66C470D034C5100DBC3AC /* NSString+CarbonFSRefCreation.h */,
+				93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */,
+				93B66C540D034D1A00DBC3AC /* SetIcon.m */,
+			);
+			path = IconFamily;
+			sourceTree = "<group>";
+		};
+		93D1B8B00B68229E00A5F931 /* SparklePlus */ = {
+			isa = PBXGroup;
+			children = (
+				93F90C2D0CE0E19200CC7F5D /* C Sources */,
+				93F90C2B0CE0E14100CC7F5D /* ProfilingSupport */,
+				93F90C2A0CE0E12E00CC7F5D /* Classes */,
+				93F90C290CE0E0D600CC7F5D /* Readmes */,
+				93F90C280CE0E0C300CC7F5D /* Resources */,
+			);
+			path = SparklePlus;
+			sourceTree = "<group>";
+		};
+		93E683910CE24E5000EF7F48 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B9590B68229F00A5F931 /* SUConstants.h */,
+				93D1B95A0B68229F00A5F931 /* SUConstants.m */,
+				93D1B9530B68229F00A5F931 /* SUAppcast.h */,
+				93D1B9540B68229F00A5F931 /* SUAppcast.m */,
+				93D1B9550B68229F00A5F931 /* SUAppcastItem.h */,
+				93D1B9560B68229F00A5F931 /* SUAppcastItem.m */,
+				93D1B9410B68229E00A5F931 /* RSS.h */,
+				93D1B9420B68229F00A5F931 /* RSS.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93E683930CE24E5600EF7F48 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		93E683940CE24E5C00EF7F48 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B95F0B68229F00A5F931 /* SUStatusController.h */,
+				93D1B9600B68229F00A5F931 /* SUStatusController.m */,
+				93D1B9670B68229F00A5F931 /* SUUpdater.h */,
+				93D1B9680B68229F00A5F931 /* SUUpdater.m */,
+				93D1B9630B68229F00A5F931 /* SUUpdateAlert.h */,
+				93D1B9640B68229F00A5F931 /* SUUpdateAlert.m */,
+				93D1B9570B68229F00A5F931 /* SUAutomaticUpdateAlert.h */,
+				93D1B9580B68229F00A5F931 /* SUAutomaticUpdateAlert.m */,
+				93D1B95D0B68229F00A5F931 /* SUStatusChecker.h */,
+				93D1B95E0B68229F00A5F931 /* SUStatusChecker.m */,
+				93D1B8B10B68229E00A5F931 /* AppController.h */,
+				93D1B8B20B68229E00A5F931 /* AppController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		93E683950CE24E6600EF7F48 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B92C0B68229E00A5F931 /* NSApplication+AppCopies.h */,
+				93D1B92D0B68229E00A5F931 /* NSApplication+AppCopies.m */,
+				93D1B92E0B68229E00A5F931 /* NSFileManager+Authentication.h */,
+				93D1B92F0B68229E00A5F931 /* NSFileManager+Authentication.m */,
+				93D1B9300B68229E00A5F931 /* NSFileManager+Verification.h */,
+				93D1B9310B68229E00A5F931 /* NSFileManager+Verification.m */,
+				93D1B9320B68229E00A5F931 /* NSString+extras.h */,
+				93D1B9330B68229E00A5F931 /* NSString+extras.m */,
+				93D1B9650B68229F00A5F931 /* SUUpdater+Authentication.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		93E683960CE24EB200EF7F48 /* Processors */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B9610B68229F00A5F931 /* SUUnarchiver.h */,
+				93D1B9620B68229F00A5F931 /* SUUnarchiver.m */,
+				93D1B9690B68229F00A5F931 /* SUUtilities.h */,
+				93D1B96A0B68229F00A5F931 /* SUUtilities.m */,
+			);
+			name = Processors;
+			sourceTree = "<group>";
+		};
+		93E925060A4C8AA70039ADAD /* Apple Headers */ = {
+			isa = PBXGroup;
+			children = (
+				9387CC090B653D09006EF331 /* AppKit Headers */,
+				93E925100A4C8B2D0039ADAD /* Mail.app Headers */,
+				93E925070A4C8AB40039ADAD /* Message.framework Headers */,
+			);
+			name = "Apple Headers";
+			sourceTree = "<group>";
+		};
+		93E925070A4C8AB40039ADAD /* Message.framework Headers */ = {
+			isa = PBXGroup;
+			children = (
+				931E754E0CFDFA7E0057EDA1 /* Message.framework.B.h */,
+				931E754F0CFDFA7E0057EDA1 /* Message.framework.A.h */,
+				93E925180A4C8B680039ADAD /* Models */,
+				93E925170A4C8B620039ADAD /* Views */,
+				93E925160A4C8B5E0039ADAD /* Controllers */,
+				93E925150A4C8B590039ADAD /* Protocols */,
+			);
+			name = "Message.framework Headers";
+			sourceTree = "<group>";
+		};
+		93E9250B0A4C8AD80039ADAD /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		93E9250C0A4C8AE20039ADAD /* Mail.app Customizations */ = {
+			isa = PBXGroup;
+			children = (
+				93E9250B0A4C8AD80039ADAD /* Categories */,
+				93E925230A4C8BBD0039ADAD /* Models */,
+				93E925220A4C8BB90039ADAD /* Views */,
+				93E925210A4C8BB40039ADAD /* Controllers */,
+			);
+			name = "Mail.app Customizations";
+			sourceTree = "<group>";
+		};
+		93E925100A4C8B2D0039ADAD /* Mail.app Headers */ = {
+			isa = PBXGroup;
+			children = (
+				931E754C0CFDFA6D0057EDA1 /* Mail.app-3.0.h */,
+				931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */,
+				93E925140A4C8B540039ADAD /* Models */,
+				93E925130A4C8B4E0039ADAD /* Views */,
+				93E925120A4C8B470039ADAD /* Controllers */,
+				93E925190A4C8B780039ADAD /* App */,
+				93E925110A4C8B3D0039ADAD /* Protocols */,
+			);
+			name = "Mail.app Headers";
+			sourceTree = "<group>";
+		};
+		93E925110A4C8B3D0039ADAD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		93E925120A4C8B470039ADAD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93E925130A4C8B4E0039ADAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		93E925140A4C8B540039ADAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93E925150A4C8B590039ADAD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		93E925160A4C8B5E0039ADAD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93E925170A4C8B620039ADAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		93E925180A4C8B680039ADAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93E925190A4C8B780039ADAD /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		93E925210A4C8BB40039ADAD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		93E925220A4C8BB90039ADAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		93E925230A4C8BBD0039ADAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		93E9268D0A4C8DF50039ADAD /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				93E9255A0A4C8D930039ADAD /* Plugin/Letterbox_Prefix.pch */,
+				93E9268E0A4C8E020039ADAD /* Plugin/main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		93F90C280CE0E0C300CC7F5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93B66AE20D026CF300DBC3AC /* Images */,
+				93D1B91D0B68229E00A5F931 /* Makefile */,
+				93D1B95B0B68229F00A5F931 /* SUModelTranslation.plist */,
+				93D1B9500B68229F00A5F931 /* Sparkle.icns */,
+				93D1B8B30B68229E00A5F931 /* Sparkle.strings */,
+				93D1B8B70B68229E00A5F931 /* SUAutomaticUpdateAlert.strings */,
+				93D1B8BD0B68229E00A5F931 /* SUUpdateAlert.strings */,
+				93D1B8DB0B68229E00A5F931 /* SUStatus.strings */,
+				93D1B9030B68229E00A5F931 /* Info.plist */,
+				93F90C250CE0E0BC00CC7F5D /* SUStatus.xib */,
+				93F90B760CE0DF6300CC7F5D /* SUProfileInfo.xib */,
+				93F90B780CE0DF6300CC7F5D /* SUUpdateAlert.xib */,
+				93F90B7A0CE0DF6300CC7F5D /* SUAutomaticUpdateAlert.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		93F90C290CE0E0D600CC7F5D /* Readmes */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B93F0B68229E00A5F931 /* README - profile.rtf */,
+				93D1B9400B68229E00A5F931 /* Release Notes.rtf */,
+				93D1B91C0B68229E00A5F931 /* License.txt */,
+			);
+			name = Readmes;
+			sourceTree = "<group>";
+		};
+		93F90C2A0CE0E12E00CC7F5D /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				93E683950CE24E6600EF7F48 /* Categories */,
+				93E683940CE24E5C00EF7F48 /* ViewControllers */,
+				93E683930CE24E5600EF7F48 /* Views */,
+				93E683960CE24EB200EF7F48 /* Processors */,
+				93E683910CE24E5000EF7F48 /* Models */,
+				93D1B94F0B68229F00A5F931 /* Sparkle.h */,
+				93D1B9510B68229F00A5F931 /* Sparkle_Prefix.pch */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		93F90C2B0CE0E14100CC7F5D /* ProfilingSupport */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B9520B68229F00A5F931 /* sparkletestcast.xml */,
+				93D1B93A0B68229E00A5F931 /* profileConfig.php */,
+				93D1B93B0B68229E00A5F931 /* profileDB.php */,
+				93D1B93C0B68229E00A5F931 /* profileInfo.php */,
+				93D1B93D0B68229E00A5F931 /* profileInfo.sql */,
+				93D1B93E0B68229E00A5F931 /* profileLookup.php */,
+			);
+			name = ProfilingSupport;
+			sourceTree = "<group>";
+		};
+		93F90C2D0CE0E19200CC7F5D /* C Sources */ = {
+			isa = PBXGroup;
+			children = (
+				93D1B91E0B68229E00A5F931 /* md5.c */,
+				93D1B91F0B68229E00A5F931 /* md5.h */,
+			);
+			name = "C Sources";
+			sourceTree = "<group>";
+		};
+		93F90D320CE116A900CC7F5D /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Plugin/Info.plist */,
+			);
+			name = Plists;
+			sourceTree = "<group>";
+		};
+		93F90D360CE116C200CC7F5D /* The plugin */ = {
+			isa = PBXGroup;
+			children = (
+				93EAF77A0D00A32200EDEFAE /* AppCast-Templates */,
+				93EAF7810D00A33B00EDEFAE /* AppCast-ReleaseNotes */,
+				93B66A980D02677700DBC3AC /* DiskImage-Templates */,
+				93E9250C0A4C8AE20039ADAD /* Mail.app Customizations */,
+				93E9268D0A4C8DF50039ADAD /* Other Sources */,
+				93234EE90CFB75F6003470B5 /* Plugin infrastructure */,
+				932348BC0CF75E0A003470B5 /* Preference Pane */,
+			);
+			name = "The plugin";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		93D1B8A30B68227900A5F931 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D1BAD20B6822A000A5F931 /* md5.h in Headers */,
+				93D1BAD30B6822A000A5F931 /* NSApplication+AppCopies.h in Headers */,
+				93D1BAD50B6822A000A5F931 /* NSFileManager+Authentication.h in Headers */,
+				93D1BAD70B6822A000A5F931 /* NSFileManager+Verification.h in Headers */,
+				93D1BAD90B6822A000A5F931 /* NSString+extras.h in Headers */,
+				93D1BAE20B6822A000A5F931 /* RSS.h in Headers */,
+				93D1BAE40B6822A000A5F931 /* Sparkle.h in Headers */,
+				93D1BAE60B6822A000A5F931 /* Sparkle_Prefix.pch in Headers */,
+				93D1BAE80B6822A000A5F931 /* SUAppcast.h in Headers */,
+				93D1BAEA0B6822A000A5F931 /* SUAppcastItem.h in Headers */,
+				93D1BAEC0B6822A000A5F931 /* SUAutomaticUpdateAlert.h in Headers */,
+				93D1BAEE0B6822A000A5F931 /* SUConstants.h in Headers */,
+				93D1BAF20B6822A000A5F931 /* SUStatusChecker.h in Headers */,
+				93D1BAF40B6822A000A5F931 /* SUStatusController.h in Headers */,
+				93D1BAF60B6822A000A5F931 /* SUUnarchiver.h in Headers */,
+				93D1BAF80B6822A000A5F931 /* SUUpdateAlert.h in Headers */,
+				93D1BAFC0B6822A000A5F931 /* SUUpdater.h in Headers */,
+				93D1BAFE0B6822A000A5F931 /* SUUtilities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D5B49AC048680CD000E48DA /* Letterbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Letterbox" */;
+			buildPhases = (
+				8D5B49AF048680CD000E48DA /* Resources */,
+				93D1B41F0B681A1A00A5F931 /* Copy Frameworks */,
+				8D5B49B1048680CD000E48DA /* Sources */,
+				8D5B49B3048680CD000E48DA /* Frameworks */,
+				93E925380A4C8C430039ADAD /* Set Icon */,
+				93E925400A4C8CD70039ADAD /* Set Bundle Bit */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93D1BC350B69337B00A5F931 /* PBXTargetDependency */,
+				93B66CB40D035BD500DBC3AC /* PBXTargetDependency */,
+				931130030B6A9F84005AE0DC /* PBXTargetDependency */,
+			);
+			name = Letterbox;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = Letterbox;
+			productReference = 8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		93B66C290D034BCF00DBC3AC /* SetIcon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93B66C2E0D034BEE00DBC3AC /* Build configuration list for PBXNativeTarget "SetIcon" */;
+			buildPhases = (
+				93B66C270D034BCF00DBC3AC /* Sources */,
+				93B66C280D034BCF00DBC3AC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SetIcon;
+			productName = SetIcon;
+			productReference = 93B66C2A0D034BCF00DBC3AC /* SetIcon */;
+			productType = "com.apple.product-type.tool";
+		};
+		93D1B8A70B68227900A5F931 /* SparklePlus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93D1B8AA0B68227A00A5F931 /* Build configuration list for PBXNativeTarget "SparklePlus" */;
+			buildPhases = (
+				93D1B8A30B68227900A5F931 /* Headers */,
+				93D1B8A40B68227900A5F931 /* Resources */,
+				93D1B8A50B68227900A5F931 /* Sources */,
+				93D1B8A60B68227900A5F931 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SparklePlus;
+			productName = SparklePlus;
+			productReference = 93D1B8A80B68227900A5F931 /* Sparkle.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Letterbox" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				ca,
+				cs,
+				cy,
+				da,
+				de,
+				en,
+				es,
+				fi,
+				fr,
+				he,
+				hu,
+				id,
+				is,
+				it,
+				ja,
+				ko,
+				nl,
+				no,
+				pl,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				zh_CN,
+				zh_TW,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Letterbox */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93D1B8A70B68227900A5F931 /* SparklePlus */,
+				93B66C290D034BCF00DBC3AC /* SetIcon */,
+				93112FD80B6A9725005AE0DC /* Generate Logo Images and Icons */,
+				931E74170CFD3D610057EDA1 /* Generate Appcasting Keys */,
+				8D5B49AC048680CD000E48DA /* Letterbox */,
+				932349B20CF88658003470B5 /* Install for Debugging */,
+				931E767C0CFE25740057EDA1 /* Create Release Notes */,
+				931E751F0CFDF86B0057EDA1 /* Package for Disk Image */,
+				931E74040CFD3B270057EDA1 /* Package for Appcast */,
+				931E75220CFDF8860057EDA1 /* Package */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D5B49AF048680CD000E48DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */,
+				93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */,
+				932348B90CF75DF4003470B5 /* Plugin/Localizable.strings in Resources */,
+				932348BB0CF75DFC003470B5 /* Plugin/Preferences.strings in Resources */,
+				93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */,
+				93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */,
+				93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D1B8A40B68227900A5F931 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D1BAC70B6822A000A5F931 /* Sparkle.strings in Resources */,
+				93D1BAC90B6822A000A5F931 /* SUAutomaticUpdateAlert.strings in Resources */,
+				93D1BACC0B6822A000A5F931 /* SUUpdateAlert.strings in Resources */,
+				93D1BACD0B6822A000A5F931 /* SUStatus.strings in Resources */,
+				93D1BAF00B6822A000A5F931 /* SUModelTranslation.plist in Resources */,
+				93F90CD10CE103B200CC7F5D /* SUStatus.xib in Resources */,
+				93F90CD20CE103BA00CC7F5D /* SUProfileInfo.xib in Resources */,
+				93F90CD30CE103C600CC7F5D /* SUUpdateAlert.xib in Resources */,
+				93F90CD40CE103CC00CC7F5D /* SUAutomaticUpdateAlert.xib in Resources */,
+				93B66AE60D026CF300DBC3AC /* Checkbox-16.png in Resources */,
+				93B66AE70D026CF300DBC3AC /* Checkbox-32.png in Resources */,
+				93B66AE80D026CF300DBC3AC /* Checkbox.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93112FD70B6A9725005AE0DC /* Generate image and icons */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Plugin/Images/Letterbox.tiff",
+			);
+			name = "Generate image and icons";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/Letterbox-PreferencesModule.tiff",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# \n# This script generates the preferences image.\n#\n\n#\n# Preferences module image\n#\nsips -Z 32 \"$SRCROOT/Plugin/Images/Letterbox.tiff\" --out \"$BUILT_PRODUCTS_DIR/Letterbox-PreferencesModule.tiff\"\nexit 0\n";
+		};
+		931E74030CFD3B270057EDA1 /* Generate Appcast enclosure */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Appcast enclosure";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Figure out the containing dir for the appcast output\ncurrent_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nappcast_dir=\"$APPCAST_build_dir/v${current_version}\"\nplugin_filename=$(basename \"$PLUGIN_output_file\")\nappcast_zip_file=\"$appcast_dir/$plugin_filename.zip\"\n\nmkdir -p \"$appcast_dir\"\ncd \"$BUILT_PRODUCTS_DIR\"\nzip -r \"$appcast_zip_file\" \"$plugin_filename\"\n";
+			showEnvVarsInLog = 0;
+		};
+		931E74160CFD3D610057EDA1 /* Generate Keyfiles */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Keyfiles";
+			outputPaths = (
+				$DSA_public_key_file,
+				$DSA_private_key_file,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Settings\ntmp_filename=\"dsaparam.pem\"\n\n# Check for keys that already exist\nif [ -e \"$DSA_private_key_file\" -a -e \"$DSA_public_key_file\" ]; then\n\techo \"Public and private keys already exist (skipping key generation)\"\n\texit 0\nfi\n\n# Generate the key dir\nDSA_key_path=\"$SOURCE_DIR/$DSA_key_dir\"\nmkdir -p \"$DSA_key_path\"\n\n# Generate the keys\nopenssl dsaparam 2048 < /dev/urandom > \"$DSA_key_path/$tmp_filename\"\n\nopenssl gendsa \"$DSA_key_path/$tmp_filename\" -out \"$DSA_private_key_file\"\necho \"Generated private key: $DSA_private_key_file\"\n\nopenssl dsa -in \"$DSA_private_key_file\" -pubout -out \"$DSA_public_key_file\"\necho \"Generated public key:  $DSA_public_key_file\"\n\n# Clean up\nrm \"$DSA_key_path/$tmp_filename\"\n\n# Fix permissions\nchmod 0600 \"$DSA_private_key_file\"\nchmod 0644 \"$DSA_public_key_file\"\n\n";
+		};
+		931E74310CFD41DE0057EDA1 /* Generate enclosure signature */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate enclosure signature";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Figure out the containing dir for the appcast output\ncurrent_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nappcast_dir=\"$APPCAST_build_dir/v${current_version}\"\nappcast_zip_file=\"$appcast_dir/$PROJECT_NAME.mailbundle.zip\"\n\nif [ -f \"$DSA_private_key_file\" ]; then\n\topenssl dgst -sha1 -binary < \"$appcast_zip_file\" | openssl dgst -dss1 -sign \"$DSA_private_key_file\" | openssl enc -base64 > \"$appcast_dir/signature.base64.txt\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		931E74490CFD49AB0057EDA1 /* Generate appcast XML */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate appcast XML";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Figure out the appcast dir & stuff\nexport current_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nexport current_datetime=$(date +'%a, %h %d, %Y %I:%M:%S %z')\nexport appcast_dir=\"$APPCAST_build_dir/v${current_version}\"\nexport appcast_zip_file=\"$appcast_dir/$PROJECT_NAME.mailbundle.zip\"\n\n# Gather some info\n# Generate the appcast item from the template\nperl -pe '\n\tBEGIN {\n\t\t$sig = \"\";\n\t\tif (-f $ENV{DSA_private_key_file} ) {\n\t\t\topen(SIG, $ENV{appcast_dir} . \"/signature.base64.txt\"); \n\t\t\t@lines = <SIG>; \n\t\t\t$sig = $lines[0]; \n\t\t\tchomp $sig;\n\t\t}\n\t\t$appsize = (-s $ENV{appcast_zip_file});\n\t}\n\t{\n\t\ts/__DSA_SIG__/$sig/e;\n\t\ts/__DATETIME__/$ENV{current_datetime}/e;\n\t\ts/__VERSION__/$ENV{current_version}/e;\n\t\ts/__SIZE__/$appsize/e;\n\t}' < \"$APPCAST_item_template_file\" > \"$appcast_dir/appcast-item.xml\"\n\n# And generate a single-item appcast\nperl -pe '\n\tBEGIN {\n\t\topen(ITEM,$ENV{appcast_dir} . \"/appcast-item.xml\"); \n\t\t@lines = <ITEM>; \n\t\t$item = join(\"\", @lines);\n\t}\n\t{\n\t\ts/__ITEMS__/$item/e;\n\t}' < \"$APPCAST_template_file\" > \"$appcast_dir/appcast.xml\"\n";
+			showEnvVarsInLog = 0;
+		};
+		931E75080CFDF5F40057EDA1 /* Update Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Update Info.plist";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Update Info.plist\nif [ ! -z $(grep 'PUBLIC_DSA_KEY_PLACEHOLDER' \"$SRCROOT/Plugin/Info.plist\") ]; then\n\tperl -i.bak -pe '\nBEGIN {\n\topen (KEY, \"'$DSA_public_key_file'\"); \n\t@key_lines=<KEY>; \n\tclose(KEY); \n\t$key=join(\"\",@key_lines); \n\tchomp $key;\n} \n{\n\ts/PUBLIC_DSA_KEY_PLACEHOLDER/$key/e;\n}' \"$SRCROOT/Plugin/Info.plist\"\nfi\n";
+		};
+		931E751E0CFDF86B0057EDA1 /* Create read-write disk image */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create read-write disk image";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# settings\nexport current_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nexport dmg_name=\"Letterbox $current_version\"\nmountpoint=\"/Volumes/$dmg_name\"\nrw_dmg_file=\"$BUILT_PRODUCTS_DIR/readwrite.sparseimage\"\n\n#\n# Create and mount a sparse disk image\n#\nhdiutil create -size 100m -type SPARSE -fs HFS+ -volname \"$dmg_name\" -ov \"$rw_dmg_file\"\nhdiutil attach \"$BUILT_PRODUCTS_DIR/readwrite.sparseimage\" -mountpoint \"$mountpoint\"\n\n#\n# Copy the items we want onto the image\n#\n# Plugin\nexport plugin_filename=$(basename \"$PLUGIN_output_file\")\ncp -r \"$PLUGIN_output_file\" \"$mountpoint/$plugin_filename\"\n# Installer app\nexport manager_app_filename=$(basename \"$DISKIMAGE_manager_app_path\")\ncp -r \"$DISKIMAGE_manager_app_path\" \"$mountpoint/$manager_app_filename\"\n# Image\nexport background_filename=$(basename \"$DISKIMAGE_background_file\")\ncp -r \"$DISKIMAGE_background_file\" \"$mountpoint/${background_filename}\"\n\n# Readme\nexport readme_filename=$(basename \"$DISKIMAGE_readme_file\")\ncp -r \"$DISKIMAGE_readme_file\" \"$mountpoint/$readme_filename\"\n\n# ReleaseNotes?\n# if we find release notes, we'll add those too\nexport releasenotes_filename=\"ReleaseNotes-${current_version}.html\"\nexport releasenotes_css_filename=$(basename \"$RELEASENOTES_css_file\")\nreleasenotes_orig=\"$RELEASENOTES_output_dir/$releasenotes_filename\"\necho \"Looking for $releasenotes_orig\"\nif [ -f \"$releasenotes_orig\" ]; then\n\techo \"...found\"\n\tcp \"$releasenotes_orig\" \"$mountpoint/$releasenotes_filename\"\n\tcp \"$RELEASENOTES_css_file\" \"$mountpoint/$releasenotes_css_filename\"\nfi\n\n#\n# Set up the Finder view\n#\n# delete any existing .DS_Store file\nif [ -f \"$mountpoint/.DS_Store\" ]; then\n\trm \"$mountpoint/.DS_Store\"\nfi\n\n# customize!\nosascript \"$DISKIMAGE_applescript_file\"\nif [ $? -ne 0 ]; then\n\texit 127\nfi\n# Hide the image\n\"$DEVELOPER_TOOLS_DIR/SetFile\" -a V \"$mountpoint/$background_filename\"\n# Hide the CSS\nif [ -f \"$mountpoint/$releasenotes_css_filename\" ]; then\n\t\"$DEVELOPER_TOOLS_DIR/SetFile\" -a V \"$mountpoint/$releasenotes_css_filename\"\nfi\n\n#\n# Eject the disk image\n#\nosascript -e 'tell app \"Finder\"' -e \"set dmg to the disk \\\"${dmg_name}\\\"\" -e 'eject dmg' -e 'end tell'\nsleep 5\n";
+			showEnvVarsInLog = 0;
+		};
+		931E767B0CFE25740057EDA1 /* Copy Release Note Template */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Release Note Template";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export current_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nexport current_date=$(date +'%h %d, %Y')\n\n# copy the template, making substitutions\nperl -pe '\n\t{\n\t\ts/__VERSION__/$ENV{current_version}/e; \n\t\ts/__DATE__/$ENV{current_date}/e;\n\t}' < \"$RELEASENOTES_template_file\" > \"$RELEASENOTES_output_dir/ReleaseNotes-${current_version}.html\" \n\n# and copy the CSS file too\ncp \"$RELEASENOTES_css_file\" \"$RELEASENOTES_output_dir/\"\n";
+		};
+		931E76940CFE29750057EDA1 /* Open in Xcode */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Open in Xcode";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Open the release notes\ncurrent_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nrelease_notes_path=\"$RELEASENOTES_output_dir/ReleaseNotes-${current_version}.html\" \nopen -a Xcode \"$release_notes_path\"\n\nosascript -e 'tell app \"Xcode\" to display dialog \"Now edit these release notes; then they can be incorporated into appcasts and disk images.\"'";
+		};
+		931E76B50CFE33840057EDA1 /* Copy Release Notes */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Release Notes";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Figure out the containing dir for the appcast output\ncurrent_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nappcast_dir=\"$APPCAST_build_dir/v${current_version}\"\nreleasenotes_file=\"$RELEASENOTES_output_dir/ReleaseNotes-${current_version}.html\"\n\n# Copy the release notes\nif [ -e \"$releasenotes_file\" ]; then\n\techo \"Copying file from $releasenotes_file\"\n\tcp \"$releasenotes_file\" \"$appcast_dir/ReleaseNotes.html\"\nelse\n\techo \"WARNING: No file found at: $releasenotes_file\"\nfi\n\n# And the CSS file\ncp \"$RELEASENOTES_css_file\" \"$appcast_dir/\"\n\n";
+			showEnvVarsInLog = 0;
+		};
+		932349B90CF88688003470B5 /* Enable Mailbundles */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Enable Mailbundles";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "defaults write com.apple.mail EnableBundles -bool true\ndefaults write com.apple.mail BundleCompatibilityVersion 3\n";
+		};
+		932349D00CF88760003470B5 /* Quit Mail */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Quit Mail";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "osascript -e 'tell app \"Mail\" to quit'\n";
+		};
+		932349D30CF8879E003470B5 /* Install plugin */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Install plugin";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "destination_dir=\"$HOME/Library/Mail/Bundles\"\n\nsource_path=\"$PLUGIN_output_file\"\nplugin_name=$(basename \"$source_path\")\ndestination_path=\"$destination_dir/$plugin_name\"\n\nif [ ! -e \"$source_path\" ]; then\n\techo \"ERROR: Can't find the plugin at: $source_path\"\n\texit 1\nfi\n\nif [ -e \"$destination_path\" ]; then\n\trm -r \"$destination_path\"\nfi\n\ncp -r \"$source_path\" \"$destination_path\"\n";
+		};
+		93E0A79F0D0223D30076532B /* Create read-only disk image */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create read-only disk image";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# settings\nexport current_version=$(defaults read \"$SRCROOT/Plugin/Info\" CFBundleVersion)\nrw_dmg_file=\"$BUILT_PRODUCTS_DIR/readwrite.sparseimage\"\nreadonly_dmg_file=\"$BUILT_PRODUCTS_DIR/$PROJECT_NAME-${current_version}.dmg\"\n\n# convert to a read-only dmg\nhdiutil convert \"$rw_dmg_file\" -format UDBZ -ov -o \"$readonly_dmg_file\"\n\n";
+			showEnvVarsInLog = 0;
+		};
+		93E925380A4C8C430039ADAD /* Set Icon */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Icon";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy icon to the .mailbundle\n\n# copy the icon \n\"$BUILT_PRODUCTS_DIR/SetIcon\" \"$ICON_file\" \"$PLUGIN_output_file\"\n\n# and set the custom icon bit of the folder\n\"$DEVELOPER_TOOLS_DIR/SetFile\" -a C \"$PLUGIN_output_file\"\n";
+		};
+		93E925400A4C8CD70039ADAD /* Set Bundle Bit */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Bundle Bit";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# We set the 'bundle bit' so that the plugin\n# appears as a single file, rather than as a folder.\n\n\"$DEVELOPER_TOOLS_DIR/SetFile\" -a B \"$PLUGIN_output_file\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D5B49B1048680CD000E48DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93E925550A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m in Sources */,
+				93E9268F0A4C8E020039ADAD /* Plugin/main.m in Sources */,
+				93E9269B0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m in Sources */,
+				93007E5B0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m in Sources */,
+				93D1B38C0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m in Sources */,
+				93E683C10CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m in Sources */,
+				9323496B0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m in Sources */,
+				93234A450CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m in Sources */,
+				93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */,
+				93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93B66C270D034BCF00DBC3AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93B66C490D034C5100DBC3AC /* IconFamily.m in Sources */,
+				93B66C4A0D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m in Sources */,
+				93B66C550D034D1A00DBC3AC /* SetIcon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93D1B8A50B68227900A5F931 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D1BAC60B6822A000A5F931 /* AppController.m in Sources */,
+				93D1BAD10B6822A000A5F931 /* md5.c in Sources */,
+				93D1BAD40B6822A000A5F931 /* NSApplication+AppCopies.m in Sources */,
+				93D1BAD60B6822A000A5F931 /* NSFileManager+Authentication.m in Sources */,
+				93D1BAD80B6822A000A5F931 /* NSFileManager+Verification.m in Sources */,
+				93D1BADA0B6822A000A5F931 /* NSString+extras.m in Sources */,
+				93D1BAE30B6822A000A5F931 /* RSS.m in Sources */,
+				93D1BAE90B6822A000A5F931 /* SUAppcast.m in Sources */,
+				93D1BAEB0B6822A000A5F931 /* SUAppcastItem.m in Sources */,
+				93D1BAED0B6822A000A5F931 /* SUAutomaticUpdateAlert.m in Sources */,
+				93D1BAEF0B6822A000A5F931 /* SUConstants.m in Sources */,
+				93D1BAF30B6822A000A5F931 /* SUStatusChecker.m in Sources */,
+				93D1BAF50B6822A000A5F931 /* SUStatusController.m in Sources */,
+				93D1BAF70B6822A000A5F931 /* SUUnarchiver.m in Sources */,
+				93D1BAF90B6822A000A5F931 /* SUUpdateAlert.m in Sources */,
+				93D1BAFA0B6822A000A5F931 /* SUUpdater+Authentication.m in Sources */,
+				93D1BAFD0B6822A000A5F931 /* SUUpdater.m in Sources */,
+				93D1BAFF0B6822A000A5F931 /* SUUtilities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		931130030B6A9F84005AE0DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93112FD80B6A9725005AE0DC /* Generate Logo Images and Icons */;
+			targetProxy = 931130020B6A9F84005AE0DC /* PBXContainerItemProxy */;
+		};
+		931E74080CFD3B340057EDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			targetProxy = 931E74070CFD3B340057EDA1 /* PBXContainerItemProxy */;
+		};
+		931E741B0CFD3D760057EDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 931E74170CFD3D610057EDA1 /* Generate Appcasting Keys */;
+			targetProxy = 931E741A0CFD3D760057EDA1 /* PBXContainerItemProxy */;
+		};
+		931E75260CFDF88B0057EDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 931E751F0CFDF86B0057EDA1 /* Package for Disk Image */;
+			targetProxy = 931E75250CFDF88B0057EDA1 /* PBXContainerItemProxy */;
+		};
+		931E75280CFDF88D0057EDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 931E74040CFD3B270057EDA1 /* Package for Appcast */;
+			targetProxy = 931E75270CFDF88D0057EDA1 /* PBXContainerItemProxy */;
+		};
+		931E76B30CFE32550057EDA1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			targetProxy = 931E76B20CFE32550057EDA1 /* PBXContainerItemProxy */;
+		};
+		932349B70CF8867D003470B5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
+			targetProxy = 932349B60CF8867D003470B5 /* PBXContainerItemProxy */;
+		};
+		93B66CB40D035BD500DBC3AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93B66C290D034BCF00DBC3AC /* SetIcon */;
+			targetProxy = 93B66CB30D035BD500DBC3AC /* PBXContainerItemProxy */;
+		};
+		93D1BC350B69337B00A5F931 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 93D1B8A70B68227900A5F931 /* SparklePlus */;
+			targetProxy = 93D1BC340B69337B00A5F931 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		93D1B8B30B68229E00A5F931 /* Sparkle.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D1B8B40B68229E00A5F931 /* ca */,
+				93D1B8BF0B68229E00A5F931 /* cs */,
+				93D1B8C50B68229E00A5F931 /* cy */,
+				93D1B8CB0B68229E00A5F931 /* da */,
+				93D1B8D10B68229E00A5F931 /* de */,
+				93D1B8D70B68229E00A5F931 /* en */,
+				93D1B8DF0B68229E00A5F931 /* es */,
+				93D1B8E50B68229E00A5F931 /* fi */,
+				93D1B8EB0B68229E00A5F931 /* fr */,
+				93D1B8F10B68229E00A5F931 /* he */,
+				93D1B8F70B68229E00A5F931 /* hu */,
+				93D1B8FD0B68229E00A5F931 /* id */,
+				93D1B9040B68229E00A5F931 /* is */,
+				93D1B90A0B68229E00A5F931 /* it */,
+				93D1B9100B68229E00A5F931 /* ja */,
+				93D1B9160B68229E00A5F931 /* ko */,
+				93D1B9200B68229E00A5F931 /* nl */,
+				93D1B9260B68229E00A5F931 /* no */,
+				93D1B9340B68229E00A5F931 /* pl */,
+				93D1B9430B68229F00A5F931 /* ru */,
+				93D1B9490B68229F00A5F931 /* sk */,
+				93D1B96B0B68229F00A5F931 /* sv */,
+				93D1B9710B68229F00A5F931 /* th */,
+				93D1B9770B68229F00A5F931 /* tr */,
+				93D1B97D0B68229F00A5F931 /* zh_CN */,
+				93D1B9830B68229F00A5F931 /* zh_TW */,
+			);
+			name = Sparkle.strings;
+			sourceTree = "<group>";
+		};
+		93D1B8B70B68229E00A5F931 /* SUAutomaticUpdateAlert.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D1B8B80B68229E00A5F931 /* ca */,
+				93D1B8C10B68229E00A5F931 /* cs */,
+				93D1B8C70B68229E00A5F931 /* cy */,
+				93D1B8CD0B68229E00A5F931 /* da */,
+				93D1B8D30B68229E00A5F931 /* de */,
+				93D1B8D90B68229E00A5F931 /* en */,
+				93D1B8E10B68229E00A5F931 /* es */,
+				93D1B8E70B68229E00A5F931 /* fi */,
+				93D1B8ED0B68229E00A5F931 /* fr */,
+				93D1B8F30B68229E00A5F931 /* he */,
+				93D1B8F90B68229E00A5F931 /* hu */,
+				93D1B8FF0B68229E00A5F931 /* id */,
+				93D1B9060B68229E00A5F931 /* is */,
+				93D1B90C0B68229E00A5F931 /* it */,
+				93D1B9120B68229E00A5F931 /* ja */,
+				93D1B9180B68229E00A5F931 /* ko */,
+				93D1B9220B68229E00A5F931 /* nl */,
+				93D1B9280B68229E00A5F931 /* no */,
+				93D1B9360B68229E00A5F931 /* pl */,
+				93D1B9450B68229F00A5F931 /* ru */,
+				93D1B94B0B68229F00A5F931 /* sk */,
+				93D1B96D0B68229F00A5F931 /* sv */,
+				93D1B9730B68229F00A5F931 /* th */,
+				93D1B9790B68229F00A5F931 /* tr */,
+				93D1B97F0B68229F00A5F931 /* zh_CN */,
+				93D1B9850B68229F00A5F931 /* zh_TW */,
+			);
+			name = SUAutomaticUpdateAlert.strings;
+			sourceTree = "<group>";
+		};
+		93D1B8BD0B68229E00A5F931 /* SUUpdateAlert.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D1B8BE0B68229E00A5F931 /* ca */,
+				93D1B8C40B68229E00A5F931 /* cs */,
+				93D1B8CA0B68229E00A5F931 /* cy */,
+				93D1B8D00B68229E00A5F931 /* da */,
+				93D1B8D60B68229E00A5F931 /* de */,
+				93D1B8DE0B68229E00A5F931 /* en */,
+				93D1B8E40B68229E00A5F931 /* es */,
+				93D1B8EA0B68229E00A5F931 /* fi */,
+				93D1B8F00B68229E00A5F931 /* fr */,
+				93D1B8F60B68229E00A5F931 /* he */,
+				93D1B8FC0B68229E00A5F931 /* hu */,
+				93D1B9020B68229E00A5F931 /* id */,
+				93D1B9090B68229E00A5F931 /* is */,
+				93D1B90F0B68229E00A5F931 /* it */,
+				93D1B9150B68229E00A5F931 /* ja */,
+				93D1B91B0B68229E00A5F931 /* ko */,
+				93D1B9250B68229E00A5F931 /* nl */,
+				93D1B92B0B68229E00A5F931 /* no */,
+				93D1B9390B68229E00A5F931 /* pl */,
+				93D1B9480B68229F00A5F931 /* ru */,
+				93D1B94E0B68229F00A5F931 /* sk */,
+				93D1B9700B68229F00A5F931 /* sv */,
+				93D1B9760B68229F00A5F931 /* th */,
+				93D1B97C0B68229F00A5F931 /* tr */,
+				93D1B9820B68229F00A5F931 /* zh_CN */,
+				93D1B9880B68229F00A5F931 /* zh_TW */,
+			);
+			name = SUUpdateAlert.strings;
+			sourceTree = "<group>";
+		};
+		93D1B8DB0B68229E00A5F931 /* SUStatus.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93D1B8DC0B68229E00A5F931 /* en */,
+			);
+			name = SUStatus.strings;
+			sourceTree = "<group>";
+		};
+		93F90B760CE0DF6300CC7F5D /* SUProfileInfo.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93F90BA60CE0DFA300CC7F5D /* en */,
+			);
+			name = SUProfileInfo.xib;
+			sourceTree = "<group>";
+		};
+		93F90B780CE0DF6300CC7F5D /* SUUpdateAlert.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93F90BA80CE0DFA300CC7F5D /* en */,
+			);
+			name = SUUpdateAlert.xib;
+			sourceTree = "<group>";
+		};
+		93F90B7A0CE0DF6300CC7F5D /* SUAutomaticUpdateAlert.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93F90BA70CE0DFA300CC7F5D /* en */,
+			);
+			name = SUAutomaticUpdateAlert.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB913B08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Plugin/Letterbox_Prefix.pch;
+				INFOPLIST_FILE = Plugin/Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = Letterbox;
+				WRAPPER_EXTENSION = mailbundle;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB913C08733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
+					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_2)",
+				);
+				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Plugin/Letterbox_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = Letterbox;
+				WRAPPER_EXTENSION = mailbundle;
+			};
+			name = Release;
+		};
+		1DEB913F08733D840010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPCAST_build_dir = "$(BUILT_PRODUCTS_DIR)/Appcast";
+				APPCAST_item_template_file = "$(APPCAST_template_dir)/appcast-item.xml";
+				APPCAST_template_dir = "$(SRCROOT)/AppCast-Templates";
+				APPCAST_template_file = "$(SRCROOT)/SparklePlus-Templates/appcast.xml";
+				DISKIMAGE_applescript_file = "$(DISKIMAGE_template_dir)/set_disk_image_view.applescript";
+				DISKIMAGE_background_file = "$(DISKIMAGE_template_dir)/DiskImage-background.png";
+				DISKIMAGE_manager_app_path = "$(DISKIMAGE_template_dir)/MailPluginManager.app";
+				DISKIMAGE_readme_file = "$(DISKIMAGE_template_dir)/Readme.rtfd";
+				DISKIMAGE_template_dir = "$(SRCROOT)/DiskImage-Templates";
+				DSA_key_dir = "$(SRCROOT)/AppCast-Keys";
+				DSA_private_key_file = "$(DSA_key_dir)/dsa_private.pem";
+				DSA_public_key_file = "$(DSA_key_dir)/dsa_public.pem";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ICON_file = "$(SRCROOT)/Plugin/Images/$(PROJECT_NAME).icns";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PLUGIN_output_file = "$(BUILT_PRODUCTS_DIR)/$(PROJECT_NAME).mailbundle";
+				PREBINDING = NO;
+				RELEASENOTES_css_file = "$(APPCAST_template_dir)/releasenotes.css";
+				RELEASENOTES_output_dir = "$(SRCROOT)/AppCast-ReleaseNotes";
+				RELEASENOTES_template_file = "$(APPCAST_template_dir)/ReleaseNotes.html";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Debug;
+		};
+		1DEB914008733D840010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				Appcast_zip_file = "$(BUILT_PRODUCTS_DIR)/Appcast/$(PROJECT_NAME)";
+				DSA_key_dir = "$(SRCROOT)/SparklePlus-Keys";
+				DSA_private_key_file = "$(DSA_key_dir)/dsa_private.pem";
+				DSA_public_key_file = "$(DSA_key_dir)/dsa_public.pem";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+			};
+			name = Release;
+		};
+		93112FDF0B6A9740005AE0DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = GenerateIcons;
+			};
+			name = Debug;
+		};
+		93112FE00B6A9740005AE0DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = GenerateIcons;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		931E74050CFD3B280057EDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				Appcast_template_file = "$(SRCROOT)/SparklePlus-Templates/appcast.xml";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Package for Appcast";
+			};
+			name = Debug;
+		};
+		931E74060CFD3B280057EDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Package for Appcast";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		931E74180CFD3D610057EDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Generate Signatures";
+			};
+			name = Debug;
+		};
+		931E74190CFD3D610057EDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Generate Signatures";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		931E75200CFDF86C0057EDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Package for Disk Image";
+			};
+			name = Debug;
+		};
+		931E75210CFDF86C0057EDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Package for Disk Image";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		931E75230CFDF8860057EDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Package;
+			};
+			name = Debug;
+		};
+		931E75240CFDF8860057EDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Package;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		931E767D0CFE25750057EDA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Create Blank Release Notes for Current Version";
+			};
+			name = Debug;
+		};
+		931E767E0CFE25750057EDA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Create Blank Release Notes for Current Version";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		932349B30CF88658003470B5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = DebugInstall;
+			};
+			name = Debug;
+		};
+		932349B40CF88658003470B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = DebugInstall;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93B66C2C0D034BD000DBC3AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SetIcon;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		93B66C2D0D034BD000DBC3AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SetIcon;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		93D1B8AB0B68227A00A5F931 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SparklePlus/Sparkle_Prefix.pch;
+				INFOPLIST_FILE = SparklePlus/Info.plist;
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-lcrypto";
+				PREBINDING = NO;
+				PRODUCT_NAME = Sparkle;
+				SKIP_INSTALL = YES;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		93D1B8AC0B68227A00A5F931 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DSTROOT = /tmp/Sparkle.dst;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = SparklePlus/Sparkle_Prefix.pch;
+				INFOPLIST_FILE = SparklePlus/Info.plist;
+				INSTALL_PATH = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				OTHER_LDFLAGS = "-lcrypto";
+				PREBINDING = NO;
+				PRODUCT_NAME = Sparkle;
+				SKIP_INSTALL = YES;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "Letterbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913B08733D840010E9CD /* Debug */,
+				1DEB913C08733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Letterbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB913F08733D840010E9CD /* Debug */,
+				1DEB914008733D840010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93112FDE0B6A9740005AE0DC /* Build configuration list for PBXAggregateTarget "Generate Logo Images and Icons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93112FDF0B6A9740005AE0DC /* Debug */,
+				93112FE00B6A9740005AE0DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931E740C0CFD3B3F0057EDA1 /* Build configuration list for PBXAggregateTarget "Package for Appcast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E74050CFD3B280057EDA1 /* Debug */,
+				931E74060CFD3B280057EDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931E74200CFD3D7C0057EDA1 /* Build configuration list for PBXAggregateTarget "Generate Appcasting Keys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E74180CFD3D610057EDA1 /* Debug */,
+				931E74190CFD3D610057EDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931E75290CFDF8AB0057EDA1 /* Build configuration list for PBXAggregateTarget "Package for Disk Image" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E75200CFDF86C0057EDA1 /* Debug */,
+				931E75210CFDF86C0057EDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931E752A0CFDF8AB0057EDA1 /* Build configuration list for PBXAggregateTarget "Package" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E75230CFDF8860057EDA1 /* Debug */,
+				931E75240CFDF8860057EDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931E76810CFE25B70057EDA1 /* Build configuration list for PBXAggregateTarget "Create Release Notes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931E767D0CFE25750057EDA1 /* Debug */,
+				931E767E0CFE25750057EDA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		932349B50CF88678003470B5 /* Build configuration list for PBXAggregateTarget "Install for Debugging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				932349B30CF88658003470B5 /* Debug */,
+				932349B40CF88658003470B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93B66C2E0D034BEE00DBC3AC /* Build configuration list for PBXNativeTarget "SetIcon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93B66C2C0D034BD000DBC3AC /* Debug */,
+				93B66C2D0D034BD000DBC3AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93D1B8AA0B68227A00A5F931 /* Build configuration list for PBXNativeTarget "SparklePlus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93D1B8AB0B68227A00A5F931 /* Debug */,
+				93D1B8AC0B68227A00A5F931 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

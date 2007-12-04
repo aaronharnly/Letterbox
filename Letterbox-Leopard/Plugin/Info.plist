@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BundleDescription</key>
-	<string>Letterbox adds an interesting new feature to Apple Mail.</string>
+	<string>Letterbox allows you to make better use of your widescreen monitor, by rearranging the Mail.app interface into three vertical columns.</string>
 	<key>BundleWebsiteURL</key>
 	<string>http://harnly.net/software/letterbox</string>
 	<key>CFBundleDevelopmentRegion</key>

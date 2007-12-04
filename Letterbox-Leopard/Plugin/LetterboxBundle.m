@@ -10,9 +10,15 @@
 #import "LetterboxPreferencesModule.h"
 // swizzling
 #import "NSObject+LetterboxSwizzle.h"
-
+// categories
+#import "MessageContentController+Letterbox.h"
+#import "MessageHeaderDisplay+Letterbox.h"
+#import "MessageViewer+Letterbox.h"
+#import "ExpandingSplitView+Letterbox.h"
+#import "NSSplitView+Letterbox.h"
 // models
 #import "BundleUserDefaults.h"
+#import "LetterboxConstants.h"
 // views
 // controllers
 #import "NSPreferences.h"
@@ -190,8 +196,12 @@
 		
 	// Load the preferences icon image from this bundle
     [(NSImage *) [[NSImage alloc] 
-		initByReferencingFile:[bundle pathForImageResource:@"PreferencesModule"]] 
+		initByReferencingFile:[bundle pathForImageResource:@"Letterbox-PreferencesModule"]] 
 		setName:@"PreferencesModule"];
+
+    [(NSImage *) [[NSImage alloc] 
+		initByReferencingFile:[bundle pathForImageResource:@"divot"]] 
+		setName:@"divot"];
 
 }
 
@@ -211,7 +221,9 @@
 	NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		@"YES", ENABLED_KEY,
 		uuid, @"UUID",
-		@"Cromulent",@"Frobnification", // set your own defaults here
+		LetterboxPreviewPanePositionRight,LetterboxPreviewPanePositionKey, // set your own defaults here
+		@"NO", LetterboxAlternatingRowColorsKey,
+		@"NO", LetterboxDividerLineKey,
 		nil];
 	
 	// register the defaults
@@ -253,7 +265,7 @@
 {
     // Tell the SUUtilities class about this bundle
 	[SUUtilities setBundleToUpdate:bundle];
-	[SUUtilities setBundleIcon: [NSImage imageNamed:@"LetterboxIcon"]];
+	[SUUtilities setBundleIcon: [NSImage imageNamed:@"Letterbox"]];
     // Tell the SUUpdater to do the application-launched check
 	[self.updater applicationDidFinishLaunching:nil];
 }
@@ -280,7 +292,14 @@
 	//  method with the same method from a superclass 
 	//    [LetterboxExpandingSplitView replaceMethod:@selector(adjustSubviews) withMethod:@selector(adjustSubviews) fromClass:[NSSplitView class]];
 
+	// MessageViewer
+	[MessageViewer Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
+	
+	// ExpandingSplitView
+	[ExpandingSplitView Letterbox_swizzleMethod:@selector(dividerThickness) withMethod:@selector(Letterbox_dividerThickness)];
+	[ExpandingSplitView Letterbox_swizzleMethod:@selector(drawDividerInRect:) withMethod:@selector(Letterbox_drawDividerInRect:)];
 }
+
 
 /*!
 	@method observeValueForKeyPath:ofObject:change:
@@ -376,6 +395,7 @@
 @synthesize defaults;
 @synthesize willEnableAfterLaunch;
 @synthesize willDisableAfterLaunch;
+@synthesize viewMenuAdditionPreviewPane;
 
 /*!
 	@method version

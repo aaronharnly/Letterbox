@@ -109,6 +109,9 @@
 		93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234C630CF9DD50003470B5 /* QuartzCore.framework */; };
 		93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */; };
 		93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */; };
+		935CF28A0D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */; };
+		935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */; };
+		935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */; };
 		9392B41F0B82742800E9968B /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
 		93B66AE60D026CF300DBC3AC /* Checkbox-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE30D026CF300DBC3AC /* Checkbox-16.png */; };
 		93B66AE70D026CF300DBC3AC /* Checkbox-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE40D026CF300DBC3AC /* Checkbox-32.png */; };
@@ -119,8 +122,12 @@
 		93B66C490D034C5100DBC3AC /* IconFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C460D034C5100DBC3AC /* IconFamily.m */; };
 		93B66C4A0D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */; };
 		93B66C550D034D1A00DBC3AC /* SetIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C540D034D1A00DBC3AC /* SetIcon.m */; };
+		93B66D5C0D0373CB00DBC3AC /* LetterboxConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66D5B0D0373CB00DBC3AC /* LetterboxConstants.m */; };
+		93B66DBB0D048C0C00DBC3AC /* MessageContentController+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66DBA0D048C0C00DBC3AC /* MessageContentController+Letterbox.m */; };
 		93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */; };
 		93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */; };
+		93C298770D0519F80007FDCE /* NSSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */; };
+		93C298FE0D0532980007FDCE /* divot.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C298FD0D0532980007FDCE /* divot.png */; };
 		93D1B38C0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */; };
 		93D1BAC60B6822A000A5F931 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B8B20B68229E00A5F931 /* AppController.m */; };
 		93D1BAC70B6822A000A5F931 /* Sparkle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8B30B68229E00A5F931 /* Sparkle.strings */; };
@@ -285,6 +292,13 @@
 		93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/AWHFuzzyDisabledView.m; sourceTree = "<group>"; };
 		93234CEB0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSView+Letterbox_DisableSubviews.h"; sourceTree = "<group>"; };
 		93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSView+Letterbox_DisableSubviews.m"; sourceTree = "<group>"; };
+		935CF2880D048D45008435F8 /* MessageHeaderDisplay+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageHeaderDisplay+Letterbox.h"; path = "Plugin/MessageHeaderDisplay+Letterbox.h"; sourceTree = "<group>"; };
+		935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessageHeaderDisplay+Letterbox.m"; path = "Plugin/MessageHeaderDisplay+Letterbox.m"; sourceTree = "<group>"; };
+		935CF28B0D048DE0008435F8 /* MessageViewer+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageViewer+Letterbox.h"; path = "Plugin/MessageViewer+Letterbox.h"; sourceTree = "<group>"; };
+		935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessageViewer+Letterbox.m"; path = "Plugin/MessageViewer+Letterbox.m"; sourceTree = "<group>"; };
+		935CF2900D049808008435F8 /* ExpandingSplitView+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ExpandingSplitView+Letterbox.h"; path = "Plugin/ExpandingSplitView+Letterbox.h"; sourceTree = "<group>"; };
+		935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ExpandingSplitView+Letterbox.m"; path = "Plugin/ExpandingSplitView+Letterbox.m"; sourceTree = "<group>"; };
+		935CF29D0D04C5B4008435F8 /* DocumentEditorManaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentEditorManaging.h; path = AppleHeaders/DocumentEditorManaging.h; sourceTree = "<group>"; };
 		93B66A980D02677700DBC3AC /* DiskImage-Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "DiskImage-Templates"; sourceTree = "<group>"; };
 		93B66AE30D026CF300DBC3AC /* Checkbox-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-16.png"; sourceTree = "<group>"; };
 		93B66AE40D026CF300DBC3AC /* Checkbox-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-32.png"; sourceTree = "<group>"; };
@@ -298,8 +312,21 @@
 		93B66C470D034C5100DBC3AC /* NSString+CarbonFSRefCreation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CarbonFSRefCreation.h"; sourceTree = "<group>"; };
 		93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CarbonFSRefCreation.m"; sourceTree = "<group>"; };
 		93B66C540D034D1A00DBC3AC /* SetIcon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetIcon.m; sourceTree = "<group>"; };
+		93B66D4A0D036C0A00DBC3AC /* MessageContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageContentController.h; path = AppleHeaders/MessageContentController.h; sourceTree = "<group>"; };
+		93B66D4B0D036D6900DBC3AC /* MessageContentDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageContentDisplay.h; path = AppleHeaders/MessageContentDisplay.h; sourceTree = "<group>"; };
+		93B66D4C0D036DF200DBC3AC /* ExpandingSplitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandingSplitView.h; path = AppleHeaders/ExpandingSplitView.h; sourceTree = "<group>"; };
+		93B66D4D0D036E4300DBC3AC /* MessageHeaderDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageHeaderDisplay.h; path = AppleHeaders/MessageHeaderDisplay.h; sourceTree = "<group>"; };
+		93B66D4F0D036EDF00DBC3AC /* MessageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageViewer.h; path = AppleHeaders/MessageViewer.h; sourceTree = "<group>"; };
+		93B66D5A0D0373CB00DBC3AC /* LetterboxConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LetterboxConstants.h; path = Plugin/LetterboxConstants.h; sourceTree = "<group>"; };
+		93B66D5B0D0373CB00DBC3AC /* LetterboxConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LetterboxConstants.m; path = Plugin/LetterboxConstants.m; sourceTree = "<group>"; };
+		93B66DB90D048C0C00DBC3AC /* MessageContentController+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageContentController+Letterbox.h"; path = "Plugin/MessageContentController+Letterbox.h"; sourceTree = "<group>"; };
+		93B66DBA0D048C0C00DBC3AC /* MessageContentController+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessageContentController+Letterbox.m"; path = "Plugin/MessageContentController+Letterbox.m"; sourceTree = "<group>"; };
 		93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/MainNib.xib; sourceTree = "<group>"; };
 		93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/PreferencesModule.xib; sourceTree = "<group>"; };
+		93C296790D04D1790007FDCE /* ColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorBackgroundView.h; path = AppleHeaders/ColorBackgroundView.h; sourceTree = "<group>"; };
+		93C298750D0519F80007FDCE /* NSSplitView+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSplitView+Letterbox.h"; path = "Plugin/NSSplitView+Letterbox.h"; sourceTree = "<group>"; };
+		93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView+Letterbox.m"; path = "Plugin/NSSplitView+Letterbox.m"; sourceTree = "<group>"; };
+		93C298FD0D0532980007FDCE /* divot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divot.png; sourceTree = "<group>"; };
 		93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSPreferences+Letterbox.m"; sourceTree = "<group>"; };
 		93D1B38D0B67E77B00A5F931 /* Plugin/NSPreferences+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSPreferences+Letterbox.h"; sourceTree = "<group>"; };
 		93D1B8A80B68227900A5F931 /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -628,6 +655,7 @@
 		93234EE90CFB75F6003470B5 /* Plugin infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				93B66D590D0373B700DBC3AC /* Models */,
 				93234EE80CFB75E0003470B5 /* Categories */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				93234EEA0CFB761E003470B5 /* Controllers */,
@@ -669,6 +697,15 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		935CF29C0D04C59C008435F8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				93B66D4B0D036D6900DBC3AC /* MessageContentDisplay.h */,
+				935CF29D0D04C5B4008435F8 /* DocumentEditorManaging.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		9387CC090B653D09006EF331 /* AppKit Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -702,6 +739,7 @@
 		93B66B3E0D02712200DBC3AC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				93C298FD0D0532980007FDCE /* divot.png */,
 				93B66B3F0D02712200DBC3AC /* Letterbox.icns */,
 				93B66B400D02712200DBC3AC /* Letterbox.tiff */,
 			);
@@ -727,6 +765,15 @@
 				93B66C540D034D1A00DBC3AC /* SetIcon.m */,
 			);
 			path = IconFamily;
+			sourceTree = "<group>";
+		};
+		93B66D590D0373B700DBC3AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				93B66D5A0D0373CB00DBC3AC /* LetterboxConstants.h */,
+				93B66D5B0D0373CB00DBC3AC /* LetterboxConstants.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		93D1B8B00B68229E00A5F931 /* SparklePlus */ = {
@@ -835,6 +882,16 @@
 		93E9250B0A4C8AD80039ADAD /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				93B66DB90D048C0C00DBC3AC /* MessageContentController+Letterbox.h */,
+				93B66DBA0D048C0C00DBC3AC /* MessageContentController+Letterbox.m */,
+				935CF2880D048D45008435F8 /* MessageHeaderDisplay+Letterbox.h */,
+				935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */,
+				935CF28B0D048DE0008435F8 /* MessageViewer+Letterbox.h */,
+				935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */,
+				935CF2900D049808008435F8 /* ExpandingSplitView+Letterbox.h */,
+				935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */,
+				93C298750D0519F80007FDCE /* NSSplitView+Letterbox.h */,
+				93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -853,6 +910,7 @@
 		93E925100A4C8B2D0039ADAD /* Mail.app Headers */ = {
 			isa = PBXGroup;
 			children = (
+				935CF29C0D04C59C008435F8 /* Protocols */,
 				931E754C0CFDFA6D0057EDA1 /* Mail.app-3.0.h */,
 				931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */,
 				93E925140A4C8B540039ADAD /* Models */,
@@ -875,6 +933,7 @@
 			isa = PBXGroup;
 			children = (
 				931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */,
+				93B66D4A0D036C0A00DBC3AC /* MessageContentController.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -882,6 +941,10 @@
 		93E925130A4C8B4E0039ADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93B66D4C0D036DF200DBC3AC /* ExpandingSplitView.h */,
+				93B66D4D0D036E4300DBC3AC /* MessageHeaderDisplay.h */,
+				93B66D4F0D036EDF00DBC3AC /* MessageViewer.h */,
+				93C296790D04D1790007FDCE /* ColorBackgroundView.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1205,6 +1268,7 @@
 				93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */,
 				93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */,
 				93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */,
+				93C298FE0D0532980007FDCE /* divot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1481,6 +1545,12 @@
 				93234A450CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m in Sources */,
 				93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */,
 				93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */,
+				93B66D5C0D0373CB00DBC3AC /* LetterboxConstants.m in Sources */,
+				93B66DBB0D048C0C00DBC3AC /* MessageContentController+Letterbox.m in Sources */,
+				935CF28A0D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m in Sources */,
+				935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */,
+				935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */,
+				93C298770D0519F80007FDCE /* NSSplitView+Letterbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1731,7 +1801,7 @@
 				);
 				PRODUCT_NAME = Letterbox;
 				WRAPPER_EXTENSION = mailbundle;
-				ZERO_LINK = YES;
+				ZERO_LINK = NO;
 			};
 			name = Debug;
 		};

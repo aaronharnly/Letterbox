@@ -9,18 +9,22 @@
 #import <QuartzCore/CoreAnimation.h>
 #import "NSView+Letterbox_DisableSubviews.h"
 
-float enabledRadius = 0.0; // i.e. no fuzzification
-
 @implementation AWHFuzzyDisabledView
 -(void)setEffects
 {
+	if (enabled) {
+		[self setWantsLayer:NO];
+	} else {
 		if ([self layer] == nil)
 			[self setWantsLayer:YES];
 		myEffect = [CIFilter filterWithName:@"CIGaussianBlur"]; 
 		[myEffect setDefaults];
-		[myEffect setValue:[NSNumber numberWithFloat:(enabled) ? enabledRadius : disabledRadius] forKey:@"inputRadius"];
+		[myEffect setValue:[NSNumber numberWithFloat:disabledRadius] forKey:@"inputRadius"];		
 		myEffects = [NSArray arrayWithObject:myEffect];
 		[[self layer] setFilters:myEffects];
+		NSLog(@"Effects are: %@", myEffects);
+	
+	}
 }
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];

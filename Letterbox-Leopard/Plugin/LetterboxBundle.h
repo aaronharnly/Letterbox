@@ -23,6 +23,8 @@
 	BOOL enabled;
 	BOOL willDisableAfterLaunch;
 	BOOL willEnableAfterLaunch;
+	
+    IBOutlet NSMenuItem *viewMenuAdditionPreviewPane;
 }
 // ---- MVMailBundle methods ----
 + (void)initialize;
@@ -58,4 +60,5 @@
 @property (readonly) BOOL willEnableAfterLaunch;
 @property (readonly) NSString *version;
 @property (readonly) NSImage *bundleIcon;
+@property (readonly) NSMenuItem *viewMenuAdditionPreviewPane;
 @end

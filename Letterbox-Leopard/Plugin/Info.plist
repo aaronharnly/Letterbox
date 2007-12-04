@@ -13,7 +13,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Letterbox</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.Letterbox</string>
+	<string>net.harnly.Letterbox</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

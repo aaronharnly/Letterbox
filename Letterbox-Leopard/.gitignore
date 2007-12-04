@@ -1,8 +1,8 @@
 # Project-specific
 *.bak
 /build
-/AppCast-Keys/*.pem
-/AppCast-ReleaseNotes/*.html
+#/AppCast-Keys/*.pem
+#/AppCast-ReleaseNotes/*.html
 /AppCast-ReleaseNotes/*.css
 /DiskImage-Templates/MailPluginManager.app
 

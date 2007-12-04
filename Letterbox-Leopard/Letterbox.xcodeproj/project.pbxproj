@@ -1843,7 +1843,7 @@
 				APPCAST_build_dir = "$(BUILT_PRODUCTS_DIR)/Appcast";
 				APPCAST_item_template_file = "$(APPCAST_template_dir)/appcast-item.xml";
 				APPCAST_template_dir = "$(SRCROOT)/AppCast-Templates";
-				APPCAST_template_file = "$(SRCROOT)/SparklePlus-Templates/appcast.xml";
+				APPCAST_template_file = "$(APPCAST_template_dir)/appcast.xml";
 				DISKIMAGE_applescript_file = "$(DISKIMAGE_template_dir)/set_disk_image_view.applescript";
 				DISKIMAGE_background_file = "$(DISKIMAGE_template_dir)/DiskImage-background.png";
 				DISKIMAGE_manager_app_path = "$(DISKIMAGE_template_dir)/MailPluginManager.app";

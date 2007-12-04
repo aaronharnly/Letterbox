@@ -10,6 +10,7 @@
 #import "LetterboxBundle.h"
 #import "LetterboxConstants.h"
 #import "ExpandingSplitView+Letterbox.h"
+#import "../AppleHeaders/SingleMessageViewer.h"
 
 @implementation MessageViewer (Letterbox)
 
@@ -44,27 +45,60 @@
 //	[_splitView setDividerType:0];
 }
 
+- (BOOL) selector:(SEL)selector matchesPosition:(NSString *)position
+{
+	return (
+		( (selector == @selector(setPreviewPaneRight:)) && ([position isEqualToString:LetterboxPreviewPanePositionRight]))
+		|| ( (selector == @selector(setPreviewPaneLeft:)) && ([position isEqualToString:LetterboxPreviewPanePositionLeft]))
+		|| ( (selector == @selector(setPreviewPaneBottom:)) && ([position isEqualToString:LetterboxPreviewPanePositionBottom]))
+	);
+}
+
+- (BOOL) Letterbox_validateMenuItem:(NSMenuItem *)item
+{
+	SEL itemSelector = [item action];
+	if (itemSelector == @selector(setPreviewPaneRight:)
+		|| itemSelector == @selector(setPreviewPaneLeft:)
+		|| itemSelector == @selector(setPreviewPaneBottom:)
+		|| itemSelector == @selector(togglePreviewPane:)
+		|| itemSelector == @selector(hidePreviewPane:)
+		|| itemSelector == @selector(showPreviewPane:)
+	) {
+		// validate if we're not a single message viewer
+		BOOL shouldValidate = ! ([self isKindOfClass:[SingleMessageViewer class]]);
+		// Let's also take care of setting the state
+		if (shouldValidate) {
+			NSString *previewPanePosition = [_splitView previewPanePosition];
+			if (itemSelector == @selector(setPreviewPaneRight:)
+				|| itemSelector == @selector(setPreviewPaneLeft:)
+				|| itemSelector == @selector(setPreviewPaneBottom:)) {
+					[item setState:([self selector:itemSelector matchesPosition:previewPanePosition]) ?
+						NSOnState : NSOffState];
+			} else if (itemSelector == @selector(togglePreviewPane:)) {
+				[item setTitle: ([self previewPaneVisible]) ?
+					NSLocalizedStringFromTable(@"Hide", @"Letterbox", @"Menu item")
+					: NSLocalizedStringFromTable(@"Show", @"Letterbox", @"Menu item")];
+			}
+		}
+		return shouldValidate;
+	} else {
+		// kick it back to the default implementation
+		return [self Letterbox_validateMenuItem:item];
+	}
+}
 // ---------------------------- actions ----------------------------
 
 - (IBAction) setPreviewPaneRight:(id)sender
 {
-	NSLog(@"Setting preview pane right");
-	[_splitView setVertical:YES];
-	[_splitView setPaneOrder:LetterboxPaneOrderMailboxListFirst];
+	[self setPreviewPanePosition:LetterboxPreviewPanePositionRight];
 }
 - (IBAction) setPreviewPaneLeft:(id)sender
 {
-	NSLog(@"Setting preview pane left");
-	[_splitView setVertical:YES];
-	[_splitView setPaneOrder:LetterboxPaneOrderMailboxListLast];
-	NSLog(@"Splitview is: %@", _splitView);
+	[self setPreviewPanePosition:LetterboxPreviewPanePositionLeft];
 }
 - (IBAction) setPreviewPaneBottom:(id)sender
 {
-	NSLog(@"Setting preview pane bottom");
-	[_splitView setVertical:NO];
-	[_splitView setPaneOrder:LetterboxPaneOrderMailboxListFirst];
-	NSLog(@"Splitview is: %@", _splitView);
+	[self setPreviewPanePosition:LetterboxPreviewPanePositionBottom];
 }
 
 - (IBAction) togglePreviewPane:(id)sender
@@ -81,13 +115,7 @@
 }
 - (void)setPreviewPanePosition:(NSString *)position 
 {
-	if ([position isEqualToString:LetterboxPreviewPanePositionLeft]) {
-		[self setPreviewPaneLeft:self];
-	} else if ([position isEqualToString:LetterboxPreviewPanePositionRight]) {
-		[self setPreviewPaneRight:self];
-	} else if ([position isEqualToString:LetterboxPreviewPanePositionBottom]) {
-		[self setPreviewPaneBottom:self];
-	}
+	[_splitView setPreviewPanePosition:position];
 }
 
 

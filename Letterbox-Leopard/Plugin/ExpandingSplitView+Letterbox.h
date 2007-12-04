@@ -20,5 +20,6 @@
 // --- accessors ---
 @property (readonly) NSView *messageListView;
 @property (readonly) NSView *messagePaneView;
+@property (copy) NSString *previewPanePosition;
 @property enum LetterboxPaneOrder paneOrder;
 @end

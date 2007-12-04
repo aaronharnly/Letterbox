@@ -294,6 +294,7 @@
 
 	// MessageViewer
 	[MessageViewer Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
+	[MessageViewer Letterbox_swizzleMethod:@selector(validateMenuItem:) withMethod:@selector(Letterbox_validateMenuItem:)];
 	
 	// ExpandingSplitView
 	[ExpandingSplitView Letterbox_swizzleMethod:@selector(dividerThickness) withMethod:@selector(Letterbox_dividerThickness)];

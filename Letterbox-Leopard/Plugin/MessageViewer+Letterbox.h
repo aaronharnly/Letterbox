@@ -12,6 +12,7 @@
 @interface MessageViewer (Letterbox)
 // overrides
 - (void) Letterbox__setUpWindowContents;
+- (BOOL) Letterbox_validateMenuItem:(NSMenuItem *)item;
 
 // actions
 - (IBAction) setPreviewPaneRight:(id)sender;

@@ -107,4 +107,31 @@
     [self setNeedsDisplay:YES];
 }
 
+- (void)setPreviewPanePosition:(NSString *)newPosition
+{
+	if ([newPosition isEqualToString:LetterboxPreviewPanePositionRight]) {
+		[self setVertical:YES];
+		[self setPaneOrder:LetterboxPaneOrderMailboxListFirst];
+	} else if ([newPosition isEqualToString:LetterboxPreviewPanePositionLeft]) {
+		[self setVertical:YES];
+		[self setPaneOrder:LetterboxPaneOrderMailboxListLast];
+	} else if ([newPosition isEqualToString:LetterboxPreviewPanePositionBottom]) {
+		[self setVertical:NO];
+		[self setPaneOrder:LetterboxPaneOrderMailboxListFirst];
+	}
+	[self forceRefresh];
+}
+
+- (NSString *)previewPanePosition
+{
+	if ([self isVertical]) {
+		if ([self paneOrder] == LetterboxPaneOrderMailboxListFirst)
+			return LetterboxPreviewPanePositionRight;
+		else
+			return LetterboxPreviewPanePositionLeft;
+	} else {
+		return LetterboxPreviewPanePositionBottom;
+	}
+}
+
 @end

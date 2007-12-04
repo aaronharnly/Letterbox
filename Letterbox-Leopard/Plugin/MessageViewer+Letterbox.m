@@ -43,6 +43,7 @@
 	NSString *preferredPosition = [[[LetterboxBundle sharedInstance] defaults] objectForKey:LetterboxPreviewPanePositionKey];
 	[self setPreviewPanePosition:preferredPosition];
 	[self initializeMenus];
+
 	// bind the list view settings
 	[self bind:@"drawsAlternatingRowColors" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
 		[NSString stringWithFormat:@"values.%@", LetterboxAlternatingRowColorsKey]
@@ -51,7 +52,11 @@
 	[self bind:@"drawsDividerLines" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
 		[NSString stringWithFormat:@"values.%@", LetterboxDividerLineKey]
 		options:nil];
-	
+
+	// bind the divider settings
+	[[self splitView] bind:@"letterboxDividerType" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+		[NSString stringWithFormat:@"values.%@", LetterboxDividerTypeKey]
+		options:nil];
 }
 
 - (BOOL) selector:(SEL)selector matchesPosition:(NSString *)position
@@ -124,6 +129,9 @@
 }
 - (void)setPreviewPanePosition:(NSString *)position 
 {
+	// When we change this window, we'll also change the default. 
+	// Dunno for sure whether that's the right thing to do.
+	[[[LetterboxBundle sharedInstance] defaults] setObject:position forKey:LetterboxPreviewPanePositionKey];
 	[_splitView setPreviewPanePosition:position];
 }
 

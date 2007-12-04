@@ -13,3 +13,7 @@ NSString *LetterboxPreviewPanePositionBottom = @"Bottom";
 
 NSString *LetterboxAlternatingRowColorsKey = @"AlternateRowColors";
 NSString *LetterboxDividerLineKey = @"ShowDividerLine";
+
+NSString *LetterboxDividerTypeKey = @"DividerType";
+NSString *LetterboxDividerTypeNormal = @"Normal";
+NSString *LetterboxDividerTypeHairline = @"Hairline";

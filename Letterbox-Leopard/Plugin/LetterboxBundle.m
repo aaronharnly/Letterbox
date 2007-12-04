@@ -224,6 +224,7 @@
 		LetterboxPreviewPanePositionRight,LetterboxPreviewPanePositionKey, // set your own defaults here
 		[NSNumber numberWithBool:NO], LetterboxAlternatingRowColorsKey,
 		[NSNumber numberWithBool:NO], LetterboxDividerLineKey,
+		LetterboxDividerTypeNormal, LetterboxDividerTypeKey,
 		nil];
 	
 	// register the defaults

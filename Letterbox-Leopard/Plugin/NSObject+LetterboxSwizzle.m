@@ -193,7 +193,7 @@ static BOOL Letterbox_needToSwizzleDealloc = YES;
     
     if (Letterbox_needToSwizzleDealloc)
     {
-	[[self class] Letterbox_swizzleMethod:@selector(dealloc) withMethod:@selector(deallocSwizzler)]; 
+	[[self class] Letterbox_swizzleMethod:@selector(dealloc) withMethod:@selector(Letterbox_deallocSwizzler)]; 
     	Letterbox_needToSwizzleDealloc = NO;
     }
     

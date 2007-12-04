@@ -12,7 +12,7 @@
 #import "MessageViewer+Letterbox.h"
 #import "MessageContentController+Letterbox.h"
 #import "../AppleHeaders/ColorBackgroundView.h"
-
+#import "ExpandingSplitView+Letterbox.h"
 
 @implementation NSSplitView (Letterbox)
 

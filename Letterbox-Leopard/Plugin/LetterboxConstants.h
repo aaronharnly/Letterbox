@@ -14,6 +14,11 @@ extern NSString *LetterboxPreviewPanePositionBottom;
 extern NSString *LetterboxAlternatingRowColorsKey;
 extern NSString *LetterboxDividerLineKey;
 
+extern NSString *LetterboxDividerTypeKey;
+extern NSString *LetterboxDividerTypeNormal;
+extern NSString *LetterboxDividerTypeHairline;
+
+
 enum LetterboxPaneOrder {
 	LetterboxPaneOrderMailboxListFirst,
 	LetterboxPaneOrderMailboxListLast

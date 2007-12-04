@@ -23,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.21</string>
+	<string>0.22</string>
 	<key>NSPrincipalClass</key>
 	<string>LetterboxBundle</string>
 	<key>SUExpectsDSASignature</key>

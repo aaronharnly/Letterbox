@@ -18,8 +18,10 @@
 - (void)forceRefresh;
 
 // --- accessors ---
+@property float dividerThickness;
 @property (readonly) NSScrollView *messageListView;
 @property (readonly) NSView *messagePaneView;
 @property (copy) NSString *previewPanePosition;
+@property (copy) NSString *letterboxDividerType;
 @property enum LetterboxPaneOrder paneOrder;
 @end

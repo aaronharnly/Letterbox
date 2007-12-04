@@ -97,6 +97,17 @@
 			name = "Install for Debugging";
 			productName = DebugInstall;
 		};
+		9384E9690D05E3CD00BF7B29 /* Stupid Copy Info.plist */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 9384E9750D05E40600BF7B29 /* Build configuration list for PBXAggregateTarget "Stupid Copy Info.plist" */;
+			buildPhases = (
+				9384E9680D05E3CD00BF7B29 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Stupid Copy Info.plist";
+			productName = "Stupid Copy Info.plist";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -235,6 +246,13 @@
 			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = Letterbox;
 		};
+		9384E96D0D05E3ED00BF7B29 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9384E9690D05E3CD00BF7B29 /* Stupid Copy Info.plist */;
+			remoteInfo = "Stupid Copy Info.plist";
+		};
 		93B66CB30D035BD500DBC3AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
@@ -270,7 +288,7 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Letterbox.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D5B49B7048680CD000E48DA /* Plugin/Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Plugin/Info.plist; sourceTree = "<group>"; };
+		8D5B49B7048680CD000E48DA /* Plugin/Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; name = Plugin/Info.plist; path = "/Volumes/MacBookPro/Users/aaron/git/public/letterbox/Letterbox-Leopard/Plugin/Info.plist"; sourceTree = "<absolute>"; };
 		93007E590B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxPreferencesModule.h; sourceTree = "<group>"; };
 		93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxPreferencesModule.m; sourceTree = "<group>"; };
 		931E75470CFDFA3E0057EDA1 /* AppKit-10.5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.5.h"; path = "AppleHeaders/AppKit-10.5.h"; sourceTree = "<group>"; };
@@ -1153,6 +1171,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9384E96E0D05E3ED00BF7B29 /* PBXTargetDependency */,
 				93D1BC350B69337B00A5F931 /* PBXTargetDependency */,
 				93B66CB40D035BD500DBC3AC /* PBXTargetDependency */,
 				931130030B6A9F84005AE0DC /* PBXTargetDependency */,
@@ -1245,6 +1264,7 @@
 				93B66C290D034BCF00DBC3AC /* SetIcon */,
 				93112FD80B6A9725005AE0DC /* Generate Logo Images and Icons */,
 				931E74170CFD3D610057EDA1 /* Generate Appcasting Keys */,
+				9384E9690D05E3CD00BF7B29 /* Stupid Copy Info.plist */,
 				8D5B49AC048680CD000E48DA /* Letterbox */,
 				932349B20CF88658003470B5 /* Install for Debugging */,
 				931E767C0CFE25740057EDA1 /* Create Release Notes */,
@@ -1485,6 +1505,19 @@
 			shellPath = /bin/sh;
 			shellScript = "destination_dir=\"$HOME/Library/Mail/Bundles\"\n\nsource_path=\"$PLUGIN_output_file\"\nplugin_name=$(basename \"$source_path\")\ndestination_path=\"$destination_dir/$plugin_name\"\n\nif [ ! -e \"$source_path\" ]; then\n\techo \"ERROR: Can't find the plugin at: $source_path\"\n\texit 1\nfi\n\nif [ -e \"$destination_path\" ]; then\n\trm -r \"$destination_path\"\nfi\n\ncp -r \"$source_path\" \"$destination_path\"\n";
 		};
+		9384E9680D05E3CD00BF7B29 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\ncp \"$SRCROOT/Plugin/Info.plist\" \"$SRCROOT/Info.plist\"\n";
+		};
 		93E0A79F0D0223D30076532B /* Create read-only disk image */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1626,6 +1659,11 @@
 			isa = PBXTargetDependency;
 			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
 			targetProxy = 932349B60CF8867D003470B5 /* PBXContainerItemProxy */;
+		};
+		9384E96E0D05E3ED00BF7B29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9384E9690D05E3CD00BF7B29 /* Stupid Copy Info.plist */;
+			targetProxy = 9384E96D0D05E3ED00BF7B29 /* PBXContainerItemProxy */;
 		};
 		93B66CB40D035BD500DBC3AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1885,15 +1923,30 @@
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				Appcast_zip_file = "$(BUILT_PRODUCTS_DIR)/Appcast/$(PROJECT_NAME)";
-				DSA_key_dir = "$(SRCROOT)/SparklePlus-Keys";
+				APPCAST_build_dir = "$(BUILT_PRODUCTS_DIR)/Appcast";
+				APPCAST_item_template_file = "$(APPCAST_template_dir)/appcast-item.xml";
+				APPCAST_template_dir = "$(SRCROOT)/AppCast-Templates";
+				APPCAST_template_file = "$(APPCAST_template_dir)/appcast.xml";
+				DISKIMAGE_applescript_file = "$(DISKIMAGE_template_dir)/set_disk_image_view.applescript";
+				DISKIMAGE_background_file = "$(DISKIMAGE_template_dir)/DiskImage-background.png";
+				DISKIMAGE_manager_app_path = "$(DISKIMAGE_template_dir)/MailPluginManager.app";
+				DISKIMAGE_readme_file = "$(DISKIMAGE_template_dir)/Readme.rtfd";
+				DISKIMAGE_template_dir = "$(SRCROOT)/DiskImage-Templates";
+				DSA_key_dir = "$(SRCROOT)/AppCast-Keys";
 				DSA_private_key_file = "$(DSA_key_dir)/dsa_private.pem";
 				DSA_public_key_file = "$(DSA_key_dir)/dsa_public.pem";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ICON_file = "$(SRCROOT)/Plugin/Images/$(PROJECT_NAME).icns";
+				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Plugin/Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				PLUGIN_output_file = "$(BUILT_PRODUCTS_DIR)/$(PROJECT_NAME).mailbundle";
 				PREBINDING = NO;
+				RELEASENOTES_css_file = "$(APPCAST_template_dir)/releasenotes.css";
+				RELEASENOTES_output_dir = "$(SRCROOT)/AppCast-ReleaseNotes";
+				RELEASENOTES_template_file = "$(APPCAST_template_dir)/ReleaseNotes.html";
 				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
 			};
 			name = Release;
@@ -2043,6 +2096,27 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = DebugInstall;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		9384E96B0D05E3CD00BF7B29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Stupid Copy Info.plist";
+			};
+			name = Debug;
+		};
+		9384E96C0D05E3CD00BF7B29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Stupid Copy Info.plist";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2231,6 +2305,15 @@
 			buildConfigurations = (
 				932349B30CF88658003470B5 /* Debug */,
 				932349B40CF88658003470B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9384E9750D05E40600BF7B29 /* Build configuration list for PBXAggregateTarget "Stupid Copy Info.plist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9384E96B0D05E3CD00BF7B29 /* Debug */,
+				9384E96C0D05E3CD00BF7B29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

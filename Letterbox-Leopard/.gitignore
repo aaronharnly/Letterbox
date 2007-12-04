@@ -5,6 +5,7 @@
 #/AppCast-ReleaseNotes/*.html
 /AppCast-ReleaseNotes/*.css
 /DiskImage-Templates/MailPluginManager.app
+/Info.plist
 
 # Xcode-specific
 *.mode1v3

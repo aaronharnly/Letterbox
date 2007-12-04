@@ -703,7 +703,7 @@ static NSDictionary *modelTranslation = nil;
 {
 	[self abandonUpdate];
 	
-	NSLog(@"Download error: %@", [error localizedDescription]);
+	NSLog(@"Download error while trying to access %@\n\tError: %@", [[download request] URL], [error localizedDescription]);
 	[self showUpdateErrorAlertWithInfo:SULocalizedString(@"An error occurred while trying to download the file. Please try again later.", nil)];
 }
 

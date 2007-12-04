@@ -102,8 +102,6 @@
 /* Begin PBXBuildFile section */
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		93007E5B0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */; };
-		932348B90CF75DF4003470B5 /* Plugin/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */; };
-		932348BB0CF75DFC003470B5 /* Plugin/Preferences.strings in Resources */ = {isa = PBXBuildFile; fileRef = 932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */; };
 		9323496B0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9323496A0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m */; };
 		93234A450CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234A440CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.m */; };
 		93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234C630CF9DD50003470B5 /* QuartzCore.framework */; };
@@ -113,6 +111,8 @@
 		935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */; };
 		935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */; };
 		9392B41F0B82742800E9968B /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
+		939F670E0D0571C6009C1494 /* Plugin/Preferences.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939F670D0D0571C6009C1494 /* Plugin/Preferences.strings */; };
+		939F67100D0571D1009C1494 /* Plugin/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939F670F0D0571D1009C1494 /* Plugin/Localizable.strings */; };
 		93B66AE60D026CF300DBC3AC /* Checkbox-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE30D026CF300DBC3AC /* Checkbox-16.png */; };
 		93B66AE70D026CF300DBC3AC /* Checkbox-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE40D026CF300DBC3AC /* Checkbox-32.png */; };
 		93B66AE80D026CF300DBC3AC /* Checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE50D026CF300DBC3AC /* Checkbox.png */; };
@@ -282,8 +282,8 @@
 		931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-2.0.h"; path = "AppleHeaders/Mail.app-2.0.h"; sourceTree = "<group>"; };
 		931E754E0CFDFA7E0057EDA1 /* Message.framework.B.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.B.h; path = AppleHeaders/Message.framework.B.h; sourceTree = "<group>"; };
 		931E754F0CFDFA7E0057EDA1 /* Message.framework.A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.A.h; path = AppleHeaders/Message.framework.A.h; sourceTree = "<group>"; };
-		932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Plugin/Localizable.strings; sourceTree = "<group>"; };
-		932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Plugin/Preferences.strings; sourceTree = "<group>"; };
+		932348B80CF75DF3003470B5 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Plugin/English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		932348BA0CF75DFC003470B5 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Plugin/English.lproj/Preferences.strings; sourceTree = "<group>"; };
 		932349690CF78BED003470B5 /* Plugin/BundleUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/BundleUserDefaults.h; sourceTree = "<group>"; };
 		9323496A0CF78BF1003470B5 /* Plugin/BundleUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/BundleUserDefaults.m; sourceTree = "<group>"; };
 		93234A430CF8AFE1003470B5 /* Plugin/NSPreferencesModule+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSPreferencesModule+Letterbox.h"; sourceTree = "<group>"; };
@@ -581,7 +581,7 @@
 		932348870CF75DE5003470B5 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				932348B80CF75DF3003470B5 /* Plugin/Localizable.strings */,
+				939F670F0D0571D1009C1494 /* Plugin/Localizable.strings */,
 			);
 			name = Localizable;
 			sourceTree = "<group>";
@@ -641,8 +641,8 @@
 		932348C10CF75E3C003470B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				939F670D0D0571C6009C1494 /* Plugin/Preferences.strings */,
 				93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */,
-				932348BA0CF75DFC003470B5 /* Plugin/Preferences.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1262,8 +1262,8 @@
 			files = (
 				93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */,
 				93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */,
-				932348B90CF75DF4003470B5 /* Plugin/Localizable.strings in Resources */,
-				932348BB0CF75DFC003470B5 /* Plugin/Preferences.strings in Resources */,
+				939F67100D0571D1009C1494 /* Plugin/Localizable.strings in Resources */,
+				939F670E0D0571C6009C1494 /* Plugin/Preferences.strings in Resources */,
 				93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */,
 				93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */,
 				93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */,
@@ -1640,6 +1640,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		939F670D0D0571C6009C1494 /* Plugin/Preferences.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932348BA0CF75DFC003470B5 /* English */,
+			);
+			name = Plugin/Preferences.strings;
+			sourceTree = "<group>";
+		};
+		939F670F0D0571D1009C1494 /* Plugin/Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				932348B80CF75DF3003470B5 /* English */,
+			);
+			name = Plugin/Localizable.strings;
+			sourceTree = "<group>";
+		};
 		93D1B8B30B68229E00A5F931 /* Sparkle.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

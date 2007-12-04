@@ -1,16 +1,16 @@
 <item>
 	<title>Letterbox __VERSION__</title>
-	<link>http://localhost/~aaron/harnly.net/projects/mail-plugin-template/samples/website.php?name=Letterbox</link>
+	<link>http://harnly.net/projects/letterbox</link>
 	<pubDate>__DATETIME__</pubDate>
     <author>Aaron Harnly</author>
 	<description></description>
 	<enclosure 
-		url="http://localhost/~aaron/harnly.net/projects/mail-plugin-template/appcast/v__VERSION__/Letterbox.mailbundle.zip" 
+		url="http://harnly.net/projects/letterbox/appcast/v__VERSION__/Letterbox.mailbundle.zip" 
 		length="__SIZE__"
 		type="application/zip" 
 		sparkle:version="__VERSION__"
 		sparkle:dsaSignature="__DSA_SIG__"
 	/>
-	<sparkle:releaseNotesLink>http://localhost/~aaron/harnly.net/projects/mail-plugin-template/appcast/v__VERSION__/ReleaseNotes.html</sparkle:releaseNotesLink>
+	<sparkle:releaseNotesLink>http://harnly.net/projects/letterbox/appcast/v__VERSION__/ReleaseNotes.html</sparkle:releaseNotesLink>
 	<guid isPermaLink="false">Letterbox-version-__VERSION__</guid>
 </item>

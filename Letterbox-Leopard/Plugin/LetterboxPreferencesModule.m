@@ -46,8 +46,8 @@
 	[checkForUpdatesInfoText setStringValue:NSLocalizedStringFromTable(@"Letterbox must be enabled in order to check for updates.",@"Preferences",@"Informative text")];
 	// --- About ---
 	[aboutTabItem setLabel:NSLocalizedStringFromTable(@"About",@"Preferences",@"Tab item title")];
-	[aboutInfoText setStringValue:NSLocalizedStringFromTable(@"Letterbox description.",@"Preferences",@"Informative text")];
-	[visitWebsiteButton setTitle:NSLocalizedStringFromTable(@"Visit the MyCompany website",@"Preferences",@"Button title")];	
+//	[aboutInfoText setStringValue:NSLocalizedStringFromTable(@"Letterbox description.",@"Preferences",@"Informative text")];
+//	[visitWebsiteButton setTitle:NSLocalizedStringFromTable(@"Visit the MyCompany website",@"Preferences",@"Button title")];	
 	// --- Removal ---
 	[removeButton setTitle:NSLocalizedStringFromTable(@"Remove Letterbox",@"Preferences",@"Button title")];
 	[removeInfoText setStringValue:NSLocalizedStringFromTable(@"Letterbox will be removed, and Mail restarted. Preferences will be left in place.",@"Preferences",@"Informative text")];

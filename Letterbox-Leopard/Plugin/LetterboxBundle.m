@@ -222,8 +222,8 @@
 		@"YES", ENABLED_KEY,
 		uuid, @"UUID",
 		LetterboxPreviewPanePositionRight,LetterboxPreviewPanePositionKey, // set your own defaults here
-		@"NO", LetterboxAlternatingRowColorsKey,
-		@"NO", LetterboxDividerLineKey,
+		[NSNumber numberWithBool:NO], LetterboxAlternatingRowColorsKey,
+		[NSNumber numberWithBool:NO], LetterboxDividerLineKey,
 		nil];
 	
 	// register the defaults

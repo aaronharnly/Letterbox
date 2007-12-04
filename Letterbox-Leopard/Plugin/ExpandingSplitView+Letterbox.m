@@ -54,14 +54,14 @@
 
 // ---------------------------- accessors -----------------------------------
 
-- (NSView *)messageListView
+- (NSScrollView *)messageListView
 {
 	NSView *messageListView = nil;
 	for(NSView *view in [self subviews]) {
 		if ([view isMemberOfClass:[NSScrollView class]])
 			messageListView = view;
 	}
-	return messageListView;
+	return (NSScrollView *) messageListView;
 }
 - (NSView *)messagePaneView
 {

@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "../AppleHeaders/MessageViewer.h"
+@class ASExtendedTableView;
 
 @interface MessageViewer (Letterbox)
 // overrides
@@ -27,5 +28,8 @@
 // accessors
 - (MessageContentController *) contentController; 
 - (ExpandingSplitView *) splitView;
+- (ASExtendedTableView *) messageListTableView;
 
+@property BOOL drawsAlternatingRowColors;
+@property BOOL drawsDividerLines;
 @end

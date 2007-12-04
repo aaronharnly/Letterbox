@@ -128,6 +128,7 @@
 		93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */; };
 		93C298770D0519F80007FDCE /* NSSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */; };
 		93C298FE0D0532980007FDCE /* divot.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C298FD0D0532980007FDCE /* divot.png */; };
+		93C2994A0D053B680007FDCE /* SingleMessageViewer.h in Resources */ = {isa = PBXBuildFile; fileRef = 93C299490D053B680007FDCE /* SingleMessageViewer.h */; };
 		93D1B38C0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */; };
 		93D1BAC60B6822A000A5F931 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B8B20B68229E00A5F931 /* AppController.m */; };
 		93D1BAC70B6822A000A5F931 /* Sparkle.strings in Resources */ = {isa = PBXBuildFile; fileRef = 93D1B8B30B68229E00A5F931 /* Sparkle.strings */; };
@@ -327,6 +328,9 @@
 		93C298750D0519F80007FDCE /* NSSplitView+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSplitView+Letterbox.h"; path = "Plugin/NSSplitView+Letterbox.h"; sourceTree = "<group>"; };
 		93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView+Letterbox.m"; path = "Plugin/NSSplitView+Letterbox.m"; sourceTree = "<group>"; };
 		93C298FD0D0532980007FDCE /* divot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divot.png; sourceTree = "<group>"; };
+		93C299490D053B680007FDCE /* SingleMessageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleMessageViewer.h; path = AppleHeaders/SingleMessageViewer.h; sourceTree = "<group>"; };
+		93C2994B0D053BAD0007FDCE /* MVSelectionOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVSelectionOwner.h; path = AppleHeaders/MVSelectionOwner.h; sourceTree = "<group>"; };
+		93C299A60D0546970007FDCE /* ASExtendedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASExtendedTableView.h; path = AppleHeaders/ASExtendedTableView.h; sourceTree = "<group>"; };
 		93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSPreferences+Letterbox.m"; sourceTree = "<group>"; };
 		93D1B38D0B67E77B00A5F931 /* Plugin/NSPreferences+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSPreferences+Letterbox.h"; sourceTree = "<group>"; };
 		93D1B8A80B68227900A5F931 /* Sparkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -702,6 +706,7 @@
 			children = (
 				93B66D4B0D036D6900DBC3AC /* MessageContentDisplay.h */,
 				935CF29D0D04C5B4008435F8 /* DocumentEditorManaging.h */,
+				93C2994B0D053BAD0007FDCE /* MVSelectionOwner.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -917,23 +922,17 @@
 				93E925130A4C8B4E0039ADAD /* Views */,
 				93E925120A4C8B470039ADAD /* Controllers */,
 				93E925190A4C8B780039ADAD /* App */,
-				93E925110A4C8B3D0039ADAD /* Protocols */,
 			);
 			name = "Mail.app Headers";
-			sourceTree = "<group>";
-		};
-		93E925110A4C8B3D0039ADAD /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		93E925120A4C8B470039ADAD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				93B66D4F0D036EDF00DBC3AC /* MessageViewer.h */,
 				931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */,
 				93B66D4A0D036C0A00DBC3AC /* MessageContentController.h */,
+				93C299490D053B680007FDCE /* SingleMessageViewer.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -943,7 +942,6 @@
 			children = (
 				93B66D4C0D036DF200DBC3AC /* ExpandingSplitView.h */,
 				93B66D4D0D036E4300DBC3AC /* MessageHeaderDisplay.h */,
-				93B66D4F0D036EDF00DBC3AC /* MessageViewer.h */,
 				93C296790D04D1790007FDCE /* ColorBackgroundView.h */,
 			);
 			name = Views;
@@ -973,6 +971,7 @@
 		93E925170A4C8B620039ADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93C299A60D0546970007FDCE /* ASExtendedTableView.h */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1269,6 +1268,7 @@
 				93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */,
 				93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */,
 				93C298FE0D0532980007FDCE /* divot.png in Resources */,
+				93C2994A0D053B680007FDCE /* SingleMessageViewer.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

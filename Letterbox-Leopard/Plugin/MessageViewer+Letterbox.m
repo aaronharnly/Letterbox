@@ -11,6 +11,7 @@
 #import "LetterboxConstants.h"
 #import "ExpandingSplitView+Letterbox.h"
 #import "../AppleHeaders/SingleMessageViewer.h"
+#import "../AppleHeaders/ASExtendedTableView.h"
 
 @implementation MessageViewer (Letterbox)
 
@@ -42,7 +43,15 @@
 	NSString *preferredPosition = [[[LetterboxBundle sharedInstance] defaults] objectForKey:LetterboxPreviewPanePositionKey];
 	[self setPreviewPanePosition:preferredPosition];
 	[self initializeMenus];
-//	[_splitView setDividerType:0];
+	// bind the list view settings
+	[self bind:@"drawsAlternatingRowColors" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+		[NSString stringWithFormat:@"values.%@", LetterboxAlternatingRowColorsKey]
+		options:nil];
+
+	[self bind:@"drawsDividerLines" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+		[NSString stringWithFormat:@"values.%@", LetterboxDividerLineKey]
+		options:nil];
+	
 }
 
 - (BOOL) selector:(SEL)selector matchesPosition:(NSString *)position
@@ -126,6 +135,33 @@
 
 - (ExpandingSplitView *) splitView {
     return _splitView;
+}
+
+- (ASExtendedTableView *) messageListTableView
+{
+	return (ASExtendedTableView *)[[[self splitView] messageListView] documentView];
+}
+
+- (BOOL) drawsAlternatingRowColors
+{
+	return [[self messageListTableView] usesAlternatingRowBackgroundColors];
+}
+
+- (void) setDrawsAlternatingRowColors:(BOOL)drawAlternating
+{
+	[[self messageListTableView] setUsesAlternatingRowBackgroundColors:drawAlternating];
+}
+
+- (BOOL) drawsDividerLines
+{
+	return ([[self messageListTableView] gridStyleMask] == NSTableViewSolidHorizontalGridLineMask);
+}
+
+-(void) setDrawsDividerLines:(BOOL)drawDividers
+{
+	[[self messageListTableView] setGridStyleMask:(drawDividers) ?
+		NSTableViewSolidHorizontalGridLineMask
+		: NSTableViewGridNone];	
 }
 
 @end

@@ -1,0 +1,163 @@
+/* Release Notes */
+.releasenotes {
+   background-color: white;
+   font-family: Georgia, Palatino, 'Times New Roman', serif;
+}
+
+.releasenotes h1 {
+   font-family: 'Gill Sans','New Baskerville',sans-serif;
+   font-weight: normal;
+   font-size: 18px;
+   margin: 0px;
+}
+
+.releasenotes h2 {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial, Helvetica, sans-serif;
+   font-size: 12px;
+   text-align: left;
+   margin-left: 30px;
+	color: #555;	
+}
+
+
+.releasenotes .summary {
+   
+}
+
+.releasenotes .changes {
+   background-color: #ddd;
+	border-top: 2px solid #eee;
+	border-left: 2px solid #eee;
+	border-bottom: 1px solid #333;
+	border-right: 1px solid #333;
+	width: auto;
+	padding: 3px;
+	margin-top: 15px;
+}
+
+.releasenotes .changes h1 {
+   font-size: 14px;
+   margin: 0px;
+}
+.releasenotes .changes .item {
+   border-top: 1px solid #555;
+   padding: 0px;
+   margin: 0px;
+}
+.releasenotes .changes .item:before {
+   content: "[ITEM]";
+   font-family: Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   text-transform: capitalize;
+   text-align: right;
+   color: white;
+   background-color: #ff8c00;
+   border-right: 1px solid black;
+   padding-right: 2px;
+   width: 100px;
+   display: inline-block;
+}
+
+.releasenotes .changes .feature {
+   background-color: #a5c89f;
+}
+.releasenotes .changes .feature:before {
+   content: "[NEW]";
+   background-color: #387a1c;
+}
+.releasenotes .changes .feature.major {
+   background-color: #b9d8af;
+}
+.releasenotes .changes .feature.major:before {
+   background-color: #59a03c;
+}
+
+.releasenotes .changes .changed {
+   background-color: #e1bd9d;
+}
+.releasenotes .changes .changed:before {
+   content: "[CHANGED]";
+   background-color: #b75b21;
+}
+
+.releasenotes .changes .fixed {
+   background-color: #a6cbda;
+}
+.releasenotes .changes .fixed:before {
+   content: "[FIXED]";
+   background-color: #367fa5;
+}
+
+.releasenotes .changes .issue {
+   background-color: #dca49d;
+}
+.releasenotes .changes .issue:before {
+   content: "[ISSUE]";
+   background-color: #b1241a;
+}
+
+
+/* General */
+.clear {
+	clear: both;
+}
+
+a img {
+	border: none;
+}
+/* Icon-view */
+.iconview {
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Arial, Helvetica, sans-serif;
+	background-color: #eee;
+	border: 2px solid black;
+	width: 430px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-box-shadow: 3px 3px 10px #666;
+}
+.iconview .icon {
+	float: left;
+	border: 2px solid #eee;
+	border: 2px solid rgba(0,0,0,0);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+.iconview .label {
+	margin: 5px;
+	position: relative;
+	top: 40px;
+	float: left;
+	text-align: center;
+}
+.iconview .name {
+	font-size: 14px;
+	color: black;
+	display: inline-block;
+	padding: 2px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+.iconview .info {
+	font-size: 10px;
+	color: blue;
+}
+
+/* Download links for icon-view */
+a.download {
+	text-decoration: none;
+}
+.download .iconview {
+   cursor: pointer;	
+}
+.download .iconview:hover {
+	-webkit-box-shadow: 5px 5px 10px #666;
+}
+.download .iconview:hover .icon {
+	border: 2px solid white;
+	background-color: rgba(0,0,0,0.3);
+	background-color: #aaa;
+}
+.download .iconview:hover .name {
+	color: white;
+	background-color: #5379c7;
+}

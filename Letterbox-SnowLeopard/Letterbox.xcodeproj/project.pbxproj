@@ -288,7 +288,7 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		8D5B49B6048680CD000E48DA /* Letterbox.mailbundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Letterbox.mailbundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D5B49B7048680CD000E48DA /* Plugin/Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; name = Plugin/Info.plist; path = "/Volumes/MacBookPro/Users/aaron/git/public/letterbox/Letterbox-Leopard/Plugin/Info.plist"; sourceTree = "<absolute>"; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.xml; fileEncoding = 4; name = Info.plist; path = Plugin/Info.plist; sourceTree = "<group>"; };
 		93007E590B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxPreferencesModule.h; sourceTree = "<group>"; };
 		93007E5A0B67D93100D933D7 /* Plugin/LetterboxPreferencesModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxPreferencesModule.m; sourceTree = "<group>"; };
 		931E75470CFDFA3E0057EDA1 /* AppKit-10.5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.5.h"; path = "AppleHeaders/AppKit-10.5.h"; sourceTree = "<group>"; };
@@ -1107,7 +1107,7 @@
 		93F90D320CE116A900CC7F5D /* Plists */ = {
 			isa = PBXGroup;
 			children = (
-				8D5B49B7048680CD000E48DA /* Plugin/Info.plist */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
 			);
 			name = Plists;
 			sourceTree = "<group>";
@@ -1475,7 +1475,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "defaults write com.apple.mail EnableBundles -bool true\ndefaults write com.apple.mail BundleCompatibilityVersion 3\n";
+			shellScript = "defaults write com.apple.mail EnableBundles -bool true\n";
 		};
 		932349D00CF88760003470B5 /* Quit Mail */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1489,7 +1489,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "osascript -e 'tell app \"Mail\" to quit'\n";
+			shellScript = "killall -0 \"Mail\"\nif [ $? -eq 0 ]; then\n\tkillall Mail\nfi\n\n";
+			showEnvVarsInLog = 0;
 		};
 		932349D30CF8879E003470B5 /* Install plugin */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1539,9 +1540,11 @@
 			files = (
 			);
 			inputPaths = (
+				"$(ICON_file)",
 			);
 			name = "Set Icon";
 			outputPaths = (
+				"$(PLUGIN_output_file)",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1831,6 +1834,8 @@
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1842,10 +1847,11 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
+				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Plugin/Letterbox_Prefix.pch;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Plugin/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -1854,6 +1860,8 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = Letterbox;
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = mailbundle;
 				ZERO_LINK = NO;
 			};
@@ -1862,10 +1870,8 @@
 		1DEB913C08733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1876,9 +1882,10 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
+				GCC_MODEL_TUNING = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Plugin/Letterbox_Prefix.pch;
+				GCC_VERSION = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
@@ -1887,6 +1894,7 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = Letterbox;
+				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = mailbundle;
 			};
 			name = Release;
@@ -2124,6 +2132,8 @@
 		93B66C2C0D034BD000DBC3AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -2147,6 +2157,8 @@
 		93B66C2D0D034BD000DBC3AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -2169,10 +2181,8 @@
 		93D1B8AB0B68227A00A5F931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -2198,10 +2208,8 @@
 		93D1B8AC0B68227A00A5F931 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DSTROOT = /tmp/Sparkle.dst;

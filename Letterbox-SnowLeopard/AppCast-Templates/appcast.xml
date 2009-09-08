@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>Letterbox Appcast</title>
+    <link>http://harnly.net/software/letterbox</link>
+    <description>Track the latest updates to Letterbox.</description>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <language>en</language>
+    <copyright>©2007 Aaron Harnly.</copyright>
+	<generator>My own two hands</generator>
+		__ITEMS__
+  </channel>
+</rss>

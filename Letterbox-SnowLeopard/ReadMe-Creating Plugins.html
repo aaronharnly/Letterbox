@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Readme</title>
+		<link rel="stylesheet" href="Readme_files/readme.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	</head>
+	<body>
+<h1>Creating Mail.app plugins with Aaron's Template</h1>
+<p>Thanks for using my Mail.app plugin template!</p>
+
+<p>If you have any comments or questions about using the template, or the process of
+Mail.app plugin creation, feel free to contact me feel free to contact me:</p>
+
+	<address>
+		<div class="name">Aaron Harnly</div>
+		<div class="email">my-first-name@harnly.net</div>
+	</address>
+
+<p>I can't write your plugin for you (actually, I can, for a reasonable fee),
+but I'd be happy to help you out and orient you.</p>
+
+<div class="note">
+	All of the examples and screenshots below repeatedly use the name "MyPluginTemplate".
+	<p>
+		In your project, of course, this will be replaced with whatever you entered as your project's name.
+	</p>
+</div>
+
+<ol>
+	<li>
+		<h2>Compile and load the stock plugin.</h2>
+
+		<p>To get started, try compiling and running the template out of the box:</p>
+		<ol>
+			<li>
+				Select the <span class="target">Install for Debugging</span> target
+				<p><img src="Readme_files/images/screenshots/target-install-for-debugging-context.png"></p>
+			</li>
+			<li>
+				<p>Click <span class="button buildbutton"><img src="Readme_files/images/elements/button-build.png">Build</span> (or press <span class="key">⌘B</span>).
+					
+				</p>
+				<p>
+					This should compile without a problem – let me know if you encounter trouble!
+				</p>
+
+				<p>
+					The <span class="target">Install for Debugging</span> target will also copy the plugin into your
+					<span class="filepath folder">~/Library/Mail/Bundles</span> folder.
+				</p>				
+			</li>
+			<li>
+				Click <span class="button buildandgobutton"><img src="Readme_files/images/elements/button-build-and-go.png">Build and Go</span> (or press <span class="key">⌘⌥R</span>) to launch Mail.app.
+				
+				
+				<div class="note">
+					Selecting <span class="button debugbutton"><img src="Readme_files/images/elements/button-debug.png">Debug</span> (or pressing <span class="key"> ⌘⌥Y</span>) 
+					
+					will launch Mail.app with debugging 
+					support, allowing you to set breakpoints and watchpoints within your plugin.</p>
+				</div>
+				
+				<p>You should find confirmation of the plugin loading in the console:<br>
+					<img src="Readme_files/images/screenshots/example-console.png">					
+				<p>
+					And, upon opening Mail's preferences, you should see an icon for your plugin's preference pane.
+					(You might need to click the chevron on the right side of the toolbar to see it).
+					<br>
+					<img src="Readme_files/images/screenshots/example-prefs-chevron.png">
+				</p>
+			</li>
+		</ol>
+	</li>
+	
+	<li>
+		<h2>Customize your plugin's behavior</h2>
+		<ul>
+			<li>
+				Select the file:
+				<div class="filepath file m">Plugin/MyPluginTemplateBundle.m</div>
+				in Xcode, and use the method
+					<div><code>-(void)initializeCustomizations</code></div>
+				as your starting point to override Mail.app's default behavior.
+			</li>
+			<li>
+				The <a href="http://www.fscript.org/">F-Script language</a> and the <a href="http://osiris.laya.com/blog/?p=24">F-Script Anywhere</a> application are invaluable tools
+				for experimenting with Mail.app's classes and methods.
+			</li>
+			<li>
+				<p>
+					I've included header files (produced with <a href="http://www.codethecode.com/projects/class-dump/">class-dump</a>) for Mail.app, Message.framework, and the AppKit
+					in the template, as shown here:
+					<br>
+					<img src="Readme_files/images/screenshots/project-apple-headers.png">					
+				</p>
+				<p>
+					If you want to override or customize the behavior of an existing class from 
+					one of these frameworks, I suggest that you consult the appropriate header file,
+					then pull header for the class of interest into its own header file. You can then 
+					reference that header file as needed.
+				</p>
+				<p>
+					For example, I've already done that with the 
+					<code>MVMailBundle</code> class, which is the superclass for all Mail plugins:
+					<br>
+					<img src="Readme_files/images/screenshots/project-mail-headers.png">
+				</p>				
+			</li>
+		</ul>		
+	</li>
+
+	<li>
+		<h2>Customize icons</h2>
+		<p>The plugin icon and logo images are generated from source images in the 
+			<span class="filepath folder">Images</span> folder:
+		</p>
+		<div class="filepath file icns">Original-MyPluginTemplate-Icon.icns</div><br>
+		<div class="filepath file tiff">Original-MyPluginTemplate-Image.tiff</div>
+		
+		<p>
+			If both of these files are present, the <span class="filepath file icns">Icon.icns</span> file 
+			is used to generate the icon, and the <span class="filepath file tiff">Image.tiff</span> file 
+			to generate the logo image (and preferences pane image).
+		</p>
+		<p>
+			If only one of these files is present, then that one file is used to generate both the icon and the logo image. 
+			The conversion from .icns to .tiff and from .tiff to .icns is imperfect, which is why you have the option
+			of generating both files yourself.
+		</p>
+	</li>
+	
+	<li><h2>Creating Release Notes</h2>
+		<p>
+			The template includes support for creation of simple release notes, 
+			which can be automatically included in the distribution packages.
+		</p>
+		
+		<ol>
+			<li>
+				Make sure the <code>CFBundleVersion</code> key is appropriately 
+				updated in <span class="filepath file plist">Plugin/Info.plist</span>.
+			</li>
+			<li>
+				Select the <span class="target">Create Release Notes</span> target
+			</li>
+			<li>
+				Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>).
+			</li>
+		</ol>
+		<p>A file will be created in the <span class="filepath folder">AppCast-ReleaseNotes</span> folder:
+			<br>
+			<img src="Readme_files/images/screenshots/files-releasenotes.png">
+			</p>
+		<p>The file is generated from a template in <span class="filepath folder">SparklePlus-Templates</span>, which you can of course edit or replace.</p>					
+	</li>
+	
+	<li><h2>Package for distribution via disk image</h2>
+		<p>The template includes support for creating a disk image for simple double-click installation of the plugin.</p>
+
+		<p>To generate a ready-to-distribute disk image:</p>
+		<ol>
+			<li>
+				Select the <span class="target">Package for Disk Image</span> target.
+			</li>
+			<li>
+				Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>).
+			</li>
+		</ol>
+	</li>
+	
+	<li><h2>Package for automatic updating with SparklePlus</h2>
+	
+		<p>
+			The template supports auto-updating with a customized version of the <a href="http://code.google.com/p/sparkleplus/">SparklePlus framework</a>.
+		</p>
+
+		<p>
+			On startup, the plugin will check the URL (set by the <code>SUFeedURL</code> 
+			key in the <span class="filepath file plist">Plugin/Info.plist</span> file)
+			for an RSS 2.0 feed, as described in the <a href="http://code.google.com/p/sparkleplus/wiki/Overview">SparklePlus documentation</a>.
+		</p> 
+		<p>
+			This URL is currently set to a dummy page on my own <a href="http://harnly.net">harnly.net</a> domain – obviously, you'll want 
+			to change this to something appropriate.
+		</p>
+
+		<p>To build a version of the plugin ready for appcasting:</p>
+		<ol>
+			<li>
+				Make sure the <code>CFBundleVersion</code> key is appropriately updated in 
+				<span class="filepath file plist">Plugin/Info.plist</span>.
+			</li>
+			<li>
+				Select the <span class="target">Package for Appcast</span> target.
+			</li>
+			<li>
+				Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>).
+			</li>
+		</ol>
+		<p>A directory will be generated:
+			<br>
+			<img src="Readme_files/images/screenshots/files-appcast.png">
+			<br>
+			containing a zipped copy of the mailbundle, 
+			a file named <span class="filepath file xml">appcast-item.xml</span> appropriate for inclusion in an RSS feed, 
+			and a file named <span class="filepath file xml">appcast.xml</span> which is a valid RSS 2.0 feed, 
+			containing this version's item as the only item.
+		</p>
+
+		<p>If you want to test the appcasting:</p>
+		<ol>
+			<li>
+				<h3>Generate an appcast-ready version to run in Mail.</h3>
+				<ol>
+					<li>
+						Set the <code>CFBundleVersion</code> key in <span class="filepath file plist">Plugin/Info.plist</span> to something appropriate						
+						<div class="example">(e.g., <code>1.0</code>).</div>
+					</li>
+					<li>
+						Set the <code>SUFeedURL</code> key in <span class="filepath file plist">Plugin/Info.plist</span> to something appropriate 
+						<div class="example">(e.g., <code>http://localhost/plugin/appcast.xml</code>).</div>
+					</li>
+					<li>
+						Select the <span class="target">Install for Debugging</span> target.
+					</li>
+					<li>
+						Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>)
+						to copy the plugin into <span class="filepath folder">~/Library/Mail/Bundles</span>.
+					</li>
+				</ol>
+			</li>
+			<li>
+				<h3>Generate an appcast and appcast enclosure.</h3>
+				<ol>
+					<li>
+						Update the <code>CFBundleVersion</code> key in <span class="filepath file plist">Plugin/Info.plist</span> to a larger value 
+							<div class="example">(e.g., <code>1.1</code>).</div>
+					</li>
+					<li>
+						Update the templates in <span class="filepath folder">AppCast-Templates</span> so that the enclosure URLs point to an appropriate place
+						<div class="example">(e.g., <code>http://localhost/plugin/appcast/v__VERSION__/MyPluginTemplate.mailbundle.zip</code>).</div>
+					</li>
+					<li>
+						Select the <span class="target">Package for Appcast</span> target.
+					</li>
+					<li>
+						Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>)
+						to generate the appcast directory.
+					</li>
+					<li>
+						Copy the files from the appcast directory to the appropriate place on your server
+						<div class="example">
+							(<span class="filepath folder">/Library/WebServer/Documents/plugin/appcast</span> in our example.)
+						</div>
+
+						<p>
+							Now launch Mail, and you should receive the update notification,
+							and be able to download and install the "update".
+						</p>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+	
+	<li><h2>Signing Your SparklePlus Appcasts</h2>
+
+		<p>The template makes it very easy to ensure the security of your appcast by signing your appcast enclosures.</p>
+		<p>To use appcast signing, just do these three very simple steps:</p>
+			<h3>Quick Steps For The Hasty</h3>
+				<ol>
+					<li>
+						Select the <span class="target">Generate Appcasting Keys</span> target.
+					</li>
+					<li>
+						Click <span class="button buildbutton">Build</span> (or press <span class="key">⌘B</span>).
+					</li>
+					<li>
+						Open the <span class="filepath file plist">Plugin/Info.plist</span> file, and edit the 
+						key <code>SUExpectsDSASignature,</code>
+						changing it from <code>&lt;false/&gt;</code> 
+						to <code>&lt;true/&gt;</code>.
+				</ol>
+				
+			<h3>Explanation For The Thorough</h3>
+				<ul>
+					<li>
+						<h4>Generating the Appcast Keys</h4>
+					
+					<p>Step 2 generated your Appcast keys.</p>
+					<p>This should have run for a good 20-30 seconds, as the private and public keys are generated.
+					Once this step is complete, you should find the keys within the 
+					<span class="filepath folder">AppCast-Keys</span> folder:</p>
+
+					<div class="note">
+						You can tell the project to find (or generate) the keys elsewhere by changing the 
+						<div class="projvar">DSA_private_key_file</div> 
+						and 
+						<div class="projvar">DSA_public_key_file</div>
+						variables in the project build settings:
+						<br>
+						<img src="Readme_files/images/screenshots/project-dsa-settings.png">
+						<br>
+					</div>
+						
+					<p>You should also find that the 
+						<span class="filepath file plist">Plugin/Info.plist</span>file 
+						has been updated to include the public key.
+					</p>
+					<p>The <code>SUPublicDSAKey</code> key should have changed from this:
+						<br>
+						<img src="Readme_files/images/screenshots/example-pubkey-placeholder.png">
+						<br>
+						to something like this:
+						<br>
+						<img src="Readme_files/images/screenshots/example-pubkey-long.png">
+						<br>
+					</p>
+					
+					</li>
+					<li>
+						<h4>Requiring Appcast Signing</h4>
+
+						<p>After you've changed the key <code>SUExpectsDSASignature</code>, when the plugin finds and downloads 
+					a SparklePlus update, it will first check to ensure that the feed contains a DSA signature, and 
+					that the signature was generated by your private key. </p>
+
+					<p>The <span class="target">Package for Appcast</span> target takes care of this automatically, 
+						generating the <span class="filepath file txt">signature.base64.txt</span> file 
+					 	from the zipped mailbundle, and adding that signature to the 
+						<span class="filepath file xml">appcast-item.xml</span> file.
+					</p>
+					</li>
+				</ul>			
+	</li>
+	
+</ol>
+
+
+
+
+
+
+<p>Good luck!</p>
+<p>~Aaron</p>
+
+		
+	</body>
+</html>

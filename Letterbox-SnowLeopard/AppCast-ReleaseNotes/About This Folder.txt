@@ -1,0 +1,1 @@
+This directory contains release notes for each version.

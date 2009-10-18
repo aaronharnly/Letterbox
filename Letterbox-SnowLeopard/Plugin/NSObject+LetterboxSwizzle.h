@@ -77,6 +77,41 @@
  */
 + (void)Letterbox_replaceMethod:(SEL)orig_sel withMethod:(SEL)alt_sel fromClass:(Class)targetClass;
 
+
+/*! @method Letterbox_addMethod: toClassNamed:
+ *  @abstract Creates a new method in the target class, using an implementation from the source class.
+ *  @discussion
+ *   The source class is intended to be one you control, and thus can specify with an ordinary Class reference.
+ *   The target class is possibly a private class; under the 64-bit dynamic loader, that class must be referenced
+ *    dynamically by name, rather than with a Class reference symbol.
+ * 
+ */
++ (void)Letterbox_addMethod:(SEL)sel toClassNamed:(NSString *)targetClassName;
+
+/*! @method Letterbox_addMethod: fromClassNamed:
+ *  @abstract Creates a new method in the target class, using an implementation from the source class.
+ *  @discussion
+ *   The source class is intended a private class; that class must be referenced
+ *    dynamically by name, rather than with a Class reference symbol.
+ *   
+ *   The target class is intended to be one you control, and thus can specify with an ordinary Class reference.
+ * 
+ */
++ (void)Letterbox_addMethod:(SEL)sel fromClassNamed:(NSString *)sourceClass;
+
+
+/*! @method Letterbox_addClassMethod: fromClassNamed:
+ *  @abstract Creates a new class method in the target class, using an implementation from the source class.
+ *  @discussion
+ *   The source class is intended a private class; that class must be referenced
+ *    dynamically by name, rather than with a Class reference symbol.
+ *   
+ *   The target class is intended to be one you control, and thus can specify with an ordinary Class reference.
+ * 
+ */
++ (void)Letterbox_addClassMethod:(SEL)sel fromClassNamed:(NSString *)sourceClass;
+
+
 /*! @method Letterbox_performSelector: asClass:
  *  @abstract Makes an object of one class run a method from a completely different class.
  *  @discussion
@@ -91,7 +126,6 @@
  *   that don't exist in Sun, the universe will explode. Use with extreme caution.
  */
 - (id)Letterbox_performSelector:(SEL)sel asClass:(Class)cls;
-
 
 /*! @method Letterbox_instanceID
  *  @abstract An instance method that retrieves a unique identifier for each instance of a class.

@@ -4,64 +4,91 @@
 
 @class SpotlightBar;
 
-@interface SingleMessageViewer : MessageViewer <MVSelectionOwner>
+@interface SingleMessageViewer : MessageViewer <MVSelectionOwner, NSToolbarDelegate>
 {
     NSView *_messageContentView;
     SpotlightBar *_spotlightBar;
+    NSOperation *_proxyIconOperation;
     BOOL nibLoaded;
 }
 
-+ (id)viewerForMessage:(id)fp8 showAllHeaders:(BOOL)fp12 viewingState:(id)fp16;
-+ (void)restoreFromDefaults;
-+ (void)saveDefaultsOmittingViewer:(id)fp8;
++ (id)existingSingleMessageViewerForMessage:(id)arg1;
++ (id)viewerForMessage:(id)arg1 showAllHeaders:(BOOL)arg2 viewingState:(id)arg3;
++ (void)_createWithMessage:(id)arg1 andDefaults:(id)arg2;
++ (void)createWithSavedDefaults:(id)arg1;
++ (BOOL)restoreAllViewersFromDefaults;
++ (void)saveDefaultsForAllSingleViewersWithDelay;
++ (void)saveDefaultsOmittingViewer:(id)arg1;
+- (BOOL)windowShouldClose:(id)arg1;
+- (void)_updateWindowProxy:(id)arg1;
 - (void)_updateWindowTitle;
+- (id)filenameToDrag:(id)arg1;
+- (BOOL)window:(id)arg1 shouldDragDocumentWithEvent:(id)arg2 from:(struct CGPoint)arg3 withPasteboard:(id)arg4;
+- (BOOL)window:(id)arg1 shouldPopUpDocumentPathMenu:(id)arg2;
+- (void)openEnclosingMailbox:(id)arg1;
 - (void)loadMessageWindowNib;
-- (id)initForViewingMessage:(id)fp8 showAllHeaders:(BOOL)fp12 viewingState:(id)fp16 fromDefaults:(BOOL)fp20;
-- (id)initWithSavedDefaults:(id)fp8;
+- (id)initForViewingMessage:(id)arg1 showAllHeaders:(BOOL)arg2 viewingState:(id)arg3 withDefaults:(id)arg4;
+- (id)plainInit;
+- (id)initWithMailboxUids:(id)arg1;
 - (void)dealloc;
+- (id)_store;
 - (id)_messageIDDictionary;
 - (void)_adjustNewSingleViewerWindowFrame;
 - (void)_setupFromDefaults;
-- (void)showAndMakeKey:(BOOL)fp8;
+- (void)_setupNextKeyViewLoop;
+- (void)showAndMakeKey:(BOOL)arg1;
 - (void)_restoreViewer;
-- (id)_saveDefaults;
+- (id)dictionaryRepresentation;
 - (void)takeOverAsSelectionOwner;
 - (void)resignAsSelectionOwner;
 - (id)selectedMessages;
-- (void)messageFlagsDidChange:(id)fp8;
-- (BOOL)_validateAction:(SEL)fp8 tag:(int)fp12;
-- (void)messagesCompacted:(id)fp8;
+- (void)messageFlagsDidChange:(id)arg1;
+- (BOOL)validateUserInterfaceItem:(id)arg1;
+- (BOOL)validateToolbarItem:(id)arg1;
+- (void)selectMailbox:(id)arg1;
+- (void)messagesCompacted:(id)arg1;
 - (void)setupToolbar;
-- (id)previousIdentifierForUpgradingToolbar:(id)fp8;
-- (id)toolbar:(id)fp8 upgradedItemIdentifiers:(id)fp12;
-- (BOOL)_isViewingMessage:(id)fp8;
-- (BOOL)_selectionContainsMessagesWithReadStatusEqualTo:(BOOL)fp8;
-- (BOOL)_selectionContainsMessagesWithFlaggedStatusEqualTo:(BOOL)fp8;
-- (BOOL)_selectionContainsMessagesWithJunkMailLevelEqualTo:(int)fp8;
+- (void)_updateToolbarForResizing:(BOOL)arg1;
+- (id)previousIdentifierForUpgradingToolbar:(id)arg1;
+- (id)toolbar:(id)arg1 upgradedItemIdentifiers:(id)arg2;
+- (BOOL)_isViewingMessage:(id)arg1;
+- (BOOL)_selectionContainsMessagesWithReadStatusEqualTo:(BOOL)arg1;
+- (BOOL)_selectionContainsMessagesWithFlaggedStatusEqualTo:(BOOL)arg1;
+- (BOOL)_selectionContainsMessagesWithJunkMailLevelEqualTo:(int)arg1;
 - (BOOL)_selectionContainsMessagesWithAttachments;
-- (void)deleteMessages:(id)fp8;
-- (void)deleteMessagesAllowingMoveToTrash:(BOOL)fp8;
-- (void)replyMessage:(id)fp8;
-- (void)replyAllMessage:(id)fp8;
-- (void)replyToSender:(id)fp8;
-- (void)replyToOriginalSender:(id)fp8;
-- (void)forwardMessage:(id)fp8;
-- (void)redirectMessage:(id)fp8;
-- (BOOL)send:(id)fp8;
-- (void)editorDidLoad:(id)fp8;
-- (BOOL)replaceWithEditorForType:(int)fp8;
-- (void)_changeFlag:(id)fp8 state:(BOOL)fp12 forMessages:(id)fp16 undoActionName:(id)fp20;
-- (void)keyDown:(id)fp8;
+- (BOOL)shouldDeleteMessageGivenCurrentState;
+- (BOOL)shouldDeleteMessagesGivenCurrentState;
+- (void)deleteMessages:(id)arg1;
+- (void)deleteMessagesAllowingMoveToTrash:(BOOL)arg1;
+- (void)undeleteMessages:(id)arg1;
+- (void)undeleteMessagesAllowUndo:(BOOL)arg1;
+- (void)replyMessage:(id)arg1;
+- (void)replyAllMessage:(id)arg1;
+- (void)replyToSender:(id)arg1;
+- (void)replyToOriginalSender:(id)arg1;
+- (void)forwardMessage:(id)arg1;
+- (void)redirectMessage:(id)arg1;
+- (BOOL)send:(id)arg1;
+- (void)editorDidLoad:(id)arg1;
+- (BOOL)replaceWithEditorForType:(int)arg1;
+- (void)keyDown:(id)arg1;
 - (id)selection;
-- (void)selectMessages:(id)fp8;
+- (void)selectMessages:(id)arg1;
 - (id)currentDisplayedMessage;
 - (id)messageStore;
-- (BOOL)transferSelectionToMailbox:(id)fp8 deleteOriginals:(BOOL)fp12;
-- (void)_showSpotlightBarWithSearchString:(id)fp8;
+- (BOOL)transferSelectionToMailbox:(id)arg1 deleteOriginals:(BOOL)arg2;
+- (void)_showSpotlightBarWithSearchString:(id)arg1;
 - (void)_hideSpotlightBar;
-- (void)setSearchString:(id)fp8;
-- (void)setShowRevealMessageLink:(BOOL)fp8;
-- (void)revealMessage:(id)fp8;
+- (void)setSearchString:(id)arg1;
+- (void)setShowRevealMessageLink:(BOOL)arg1;
+- (void)revealMessage:(id)arg1;
+#ifdef __X86_64__
+- (unsigned long long)draggingSourceOperationMaskForLocal:(BOOL)arg1;
+@property(retain, nonatomic) NSOperation *proxyIconOperation; // @synthesize proxyIconOperation=_proxyIconOperation;
+#else
+- (unsigned long)draggingSourceOperationMaskForLocal:(BOOL)arg1;
+- (id)proxyIconOperation;
+- (void)setProxyIconOperation:(id)arg1;
+#endif
 
 @end
-

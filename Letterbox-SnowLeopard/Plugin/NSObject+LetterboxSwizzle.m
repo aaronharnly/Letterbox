@@ -114,6 +114,9 @@ BOOL _Letterbox_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forIns
 	
 	// now swizzle
 	method_exchangeImplementations(origMethod, altMethod);
+	
+	// clean up
+	free(mlist);
 	NSLog(@"...succeeded!");
 	return YES;
 }
@@ -161,6 +164,38 @@ BOOL _Letterbox_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forIns
     }
 }
 
++ (void)Letterbox_addMethod:(SEL)sel toClassNamed:(NSString *)targetClassName {
+	Method sourceMethod = class_getInstanceMethod(self, sel);
+	const char *signature = method_getTypeEncoding(sourceMethod);
+	class_addMethod(
+		NSClassFromString(targetClassName), 
+		sel, 
+		method_getImplementation(sourceMethod), 
+		signature);
+}
+
++ (void)Letterbox_addMethod:(SEL)sel fromClassNamed:(NSString *)sourceClassName {
+	Class sourceClass = NSClassFromString(sourceClassName);
+	Method sourceMethod = class_getInstanceMethod(sourceClass, sel);
+	const char *signature = method_getTypeEncoding(sourceMethod);
+	class_addMethod(
+		self, 
+		sel, 
+		method_getImplementation(sourceMethod), 
+		signature);
+}
+
++ (void)Letterbox_addClassMethod:(SEL)sel fromClassNamed:(NSString *)sourceClassName {
+	Class sourceMetaClass = objc_getMetaClass([sourceClassName UTF8String]);
+	Method sourceMethod = class_getClassMethod(sourceMetaClass, sel);
+	const char *signature = method_getTypeEncoding(sourceMethod);
+	class_addMethod(
+		[self class], 
+		sel, 
+		method_getImplementation(sourceMethod), 
+		signature);
+}
+
 - (id)Letterbox_performSelector:(SEL)sel asClass:(Class)cls {
     Class wasa = [self class];
     id result;
@@ -179,7 +214,7 @@ BOOL _Letterbox_PerformSwizzle(Class klass, SEL origSel, SEL altSel, BOOL forIns
 
 // ----------- jerry-rigged ivars support -----------------
 static NSMutableDictionary *Letterbox_instanceIDToIvars = nil;
-static BOOL Letterbox_needToSwizzleDealloc = YES;
+static BOOL Letterbox_needToSwizzleDealloc = NO;
 
 
 - (id)Letterbox_instanceID
@@ -191,14 +226,12 @@ static BOOL Letterbox_needToSwizzleDealloc = YES;
 {
     NSMutableDictionary *ivars;
     
-    if (Letterbox_needToSwizzleDealloc)
-    {
-	[[self class] Letterbox_swizzleMethod:@selector(dealloc) withMethod:@selector(Letterbox_deallocSwizzler)]; 
+    if (Letterbox_needToSwizzleDealloc) {
+		[[self class] Letterbox_swizzleMethod:@selector(dealloc) withMethod:@selector(Letterbox_deallocSwizzler)]; 
     	Letterbox_needToSwizzleDealloc = NO;
     }
     
-    if (Letterbox_instanceIDToIvars == nil)
-    {
+    if (Letterbox_instanceIDToIvars == nil) {
         Letterbox_instanceIDToIvars = [[NSMutableDictionary alloc] init];
     }
     

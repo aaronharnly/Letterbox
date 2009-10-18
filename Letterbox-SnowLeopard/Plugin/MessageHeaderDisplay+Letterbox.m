@@ -7,11 +7,17 @@
 //
 
 #import "MessageHeaderDisplay+Letterbox.h"
+#import "NSObject+LetterboxSwizzle.h"
+#import <objc/runtime.h>
 
+@implementation MessageHeaderDisplay_Letterbox
++ (void) load {
+	[MessageHeaderDisplay_Letterbox Letterbox_addMethod:@selector(headerView) toClassNamed:@"MessageHeaderDisplay"];
+}
 
-@implementation MessageHeaderDisplay (Letterbox)
--(MessageHeaderView *)headerView
+-(id)headerView // returns a MessageHeaderView
 {
-	return headerView;
+	Ivar headerViewIvar = class_getInstanceVariable(NSClassFromString(@"MessageHeaderDisplay"), "headerView");
+	return object_getIvar(self, headerViewIvar);
 }
 @end

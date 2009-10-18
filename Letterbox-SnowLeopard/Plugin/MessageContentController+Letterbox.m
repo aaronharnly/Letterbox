@@ -7,16 +7,24 @@
 //
 
 #import "MessageContentController+Letterbox.h"
+#import "NSObject+LetterboxSwizzle.h"
+#import <objc/runtime.h>
 
+@implementation MessageContentController_Letterbox
++ (void) load {
+	[MessageContentController_Letterbox Letterbox_addMethod:@selector(headerDisplay) toClassNamed:@"MessageContentController"];
+	[MessageContentController_Letterbox Letterbox_addMethod:@selector(contentContainerView) toClassNamed:@"MessageContentController"];
+}
 
-@implementation MessageContentController (Letterbox)
-- (MessageHeaderDisplay *) headerDisplay
+- (id) headerDisplay // returns MessageHeaderDisplay
 {
-	return headerDisplay;
+	Ivar headerDisplayIvar = class_getInstanceVariable(NSClassFromString(@"MessageContentController"), "headerDisplay");
+	return object_getIvar(self, headerDisplayIvar);
 }
 - (NSView *) contentContainerView
 {
-	return contentContainerView;
+	Ivar contentContainerViewIvar = class_getInstanceVariable(NSClassFromString(@"MessageContentController"), "contentContainer");
+	return object_getIvar(self, contentContainerViewIvar);
 }
 
 @end

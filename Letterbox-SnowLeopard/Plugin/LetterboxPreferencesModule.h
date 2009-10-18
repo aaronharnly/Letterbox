@@ -9,11 +9,17 @@
  */
 
 #import <Cocoa/Cocoa.h>
-#import "NSPreferencesModule.h"
+//#import "NSPreferencesModule.h"
 @class LetterboxBundle;
 @class AWHFuzzyDisabledView;
 
-@interface LetterboxPreferencesModule : NSPreferencesModule {
+@interface LetterboxPreferencesModule : NSObject {
+	// NSPreferences items
+    IBOutlet NSBox *_preferencesView;
+    struct CGSize _minSize;
+    BOOL _hasChanges;
+    void *_reserved;
+
 	LetterboxBundle *bundleInstance;
 	NSUserDefaultsController *defaultsController;
 
@@ -66,4 +72,42 @@
 @property (readonly) LetterboxBundle *bundleInstance;
 @property (readonly) NSUserDefaultsController *defaultsController;
 @property (readonly) AWHFuzzyDisabledView *fuzzyView;
+@end
+
+@interface LetterboxPreferencesModule (NSPreferencesModule)
+// from @protocol NSPreferencesModule
+- (id)viewForPreferenceNamed:(id)arg1;
+- (id)imageForPreferenceNamed:(id)arg1;
+- (BOOL)hasChangesPending;
+- (void)saveChanges;
+- (void)willBeDisplayed;
+- (void)initializeFromDefaults;
+- (void)didChange;
+- (void)moduleWillBeRemoved;
+- (void)moduleWasInstalled;
+- (BOOL)moduleCanBeRemoved;
+- (BOOL)preferencesWindowShouldClose;
+
+// from @interface NSPreferencesModule : NSObject <NSPreferencesModule>
++ (id)sharedInstance;
+- (void)dealloc;
+- (void)finalize;
+- (id)init;
+- (id)preferencesNibName;
+- (void)setPreferencesView:(id)arg1;
+- (id)viewForPreferenceNamed:(id)arg1;
+- (id)imageForPreferenceNamed:(id)arg1;
+- (id)titleForIdentifier:(id)arg1;
+- (BOOL)hasChangesPending;
+- (void)saveChanges;
+- (void)willBeDisplayed;
+- (void)initializeFromDefaults;
+- (void)didChange;
+- (void)moduleWillBeRemoved;
+- (void)moduleWasInstalled;
+- (BOOL)moduleCanBeRemoved;
+- (BOOL)preferencesWindowShouldClose;
+- (BOOL)isResizable;
+- (CGSize)minSize;
+- (void)setMinSize:(CGSize)arg1;
 @end

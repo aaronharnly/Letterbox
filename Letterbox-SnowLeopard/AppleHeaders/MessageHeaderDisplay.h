@@ -1,67 +1,81 @@
 #import <Cocoa/Cocoa.h>
-
 #import "MessageContentController.h"
 
 @class MessageHeaderView;
 @class MessageTextContainer;
 @class MessageViewingState;
 
-@interface MessageHeaderDisplay : NSObject
+@interface MessageHeaderDisplay : NSObject <NSLayoutManagerDelegate>
 {
     MessageHeaderView *headerView;
     MessageContentController *contentController;
     MessageTextContainer *specialContainer;
     NSImageView *senderImageView;
     NSString *unloadedSender;
-    float oldHeaderViewWidth;
     BOOL isCalculatingAddressLines;
     BOOL isForPrinting;
     BOOL isViewingSource;
     MessageViewingState *_viewingState;
+    CGFloat oldHeaderViewWidth;
 }
 
-+ (id)copyHeadersForMessage:(id)fp8 viewingState:(id)fp12;
-+ (id)_copyRSSHeadersForMessage:(id)fp8 viewingState:(id)fp12;
-+ (void)_addAddressesToString:(id)fp8 addressStrings:(id)fp12 plainAddresses:(id)fp16 addressAttachments:(id)fp20 key:(id)fp24 viewingState:(id)fp28 tabPosition:(int)fp32 range:(struct _NSRange *)fp36;
-+ (void)_setSendersFromAddressAttachments:(id)fp8;
-+ (void)_stripTrailingReturns:(id)fp8;
-+ (void)setUpAttachmentsDescriptionForMessage:(id)fp8 viewingState:(id)fp12;
-+ (id)formattedAttachmentsSizeForAttachments:(id)fp8;
-+ (id)formattedAttachmentsSizeForMessage:(id)fp8;
-+ (int)numberOfAddressesThatFitOnTwoLinesAttachments:(id)fp8 strings:(id)fp12 inTextContainer:(id)fp16 withIndent:(int)fp20 andVerticalLocation:(int)fp24 forPrinting:(BOOL)fp28;
-+ (id)linkForMoreAddressesCount:(int)fp8 headerKey:(id)fp12 font:(id)fp16;
-+ (id)copyViewingState:(id)fp8;
-+ (void)setUpEncryptionAndSignatureImageForMessage:(id)fp8 viewingState:(id)fp12;
-+ (id)orderedKeys:(id)fp8 withTableViewOrder:(id)fp12;
-+ (id)regularParagraphStyleForTabPosition:(int)fp8;
-+ (id)regularParagraphStyleForTabPosition:(int)fp8 paragraphSpacing:(int)fp12;
-+ (id)addressParagraphStyleForTabPosition:(int)fp8 withLineBreakMode:(unsigned int)fp12 forPrinting:(BOOL)fp16;
-+ (void)setTabsWithPosition:(int)fp8 inAttributedString:(id)fp12 withKeys:(id)fp16 addressKeys:(id)fp20 addressAttachments:(id)fp24 forPrinting:(BOOL)fp28;
-+ (id)attributedStringOfLength:(int)fp8 usingAttachments:(id)fp12 startingAtIndex:(int)fp16 strings:(id)fp20 newAttachments:(id *)fp24 forPrinting:(BOOL)fp28;
-+ (void)rangeOfAddresses:(struct _NSRange *)fp8 rangeOfLink:(struct _NSRange *)fp12 forKey:(id)fp16 inAttributedString:(id)fp20;
++ (id)copyHeadersForMessage:(id)arg1 viewingState:(id)arg2;
++ (id)_copyRSSHeadersForMessage:(id)arg1 viewingState:(id)arg2;
++ (void)_setSendersFromAddressAttachments:(id)arg1;
++ (void)_stripTrailingReturns:(id)arg1;
++ (void)setUpAttachmentsDescriptionForMessage:(id)arg1 viewingState:(id)arg2;
++ (id)formattedAttachmentsSizeForAttachments:(id)arg1;
++ (id)formattedAttachmentsSizeForMessage:(id)arg1;
++ (id)copyViewingState:(id)arg1;
++ (void)setUpEncryptionAndSignatureImageForMessage:(id)arg1 viewingState:(id)arg2;
++ (id)orderedKeys:(id)arg1 withTableViewOrder:(id)arg2;
++ (void)rangeOfAddresses:(struct _NSRange *)arg1 rangeOfLink:(struct _NSRange *)arg2 forKey:(id)arg3 inAttributedString:(id)arg4;
 - (void)dealloc;
-- (id)viewingState;
-- (void)setViewingState:(id)fp8;
 - (void)awakeFromNib;
 - (void)setUp;
 - (id)unloadedSender;
-- (void)setUnloadedSender:(id)fp8;
-- (void)display:(id)fp8;
+- (void)setUnloadedSender:(id)arg1;
+- (void)display:(id)arg1;
 - (void)prepareToRemoveView;
-- (void)displayAttributedString:(id)fp8;
-- (void)headerViewFrameChanged:(id)fp8;
-- (void)recalculateAddressLinesShouldDisplay:(BOOL)fp8;
-- (void)updateSubjectURLMatches:(id)fp8;
-- (void)showAllAddressesForKey:(id)fp8;
-- (BOOL)textView:(id)fp8 clickedOnLink:(id)fp12 atIndex:(unsigned int)fp16;
-- (void)adjustFontSizeBy:(int)fp8 viewingState:(id)fp12;
+- (void)displayAttributedString:(id)arg1;
+- (void)headerViewFrameChanged:(id)arg1;
+- (void)recalculateAddressLinesShouldDisplay:(BOOL)arg1;
+- (void)updateSubjectURLMatches:(id)arg1;
+- (void)showAllAddressesForKey:(id)arg1;
 - (id)selectedText;
-- (void)_addressBookChanged:(id)fp8;
-- (void)_addressPhotoLoaded:(id)fp8;
+- (void)_addressBookChanged:(id)arg1;
+- (void)_addressPhotoLoaded:(id)arg1;
 - (id)textView;
-- (void)textView:(id)fp8 clickedOnCell:(id)fp12 event:(id)fp16 inRect:(struct _NSRect)fp20 atIndex:(unsigned int)fp36;
-- (void)layoutManager:(id)fp8 didCompleteLayoutForTextContainer:(id)fp12 atEnd:(BOOL)fp16;
-- (void)setIsForPrinting:(BOOL)fp8;
+- (void)layoutManager:(id)arg1 didCompleteLayoutForTextContainer:(id)arg2 atEnd:(BOOL)arg3;
+- (void)setIsForPrinting:(BOOL)arg1;
+#ifdef __X86_64__
++ (void)_addAddressesToString:(id)arg1 addressStrings:(id)arg2 plainAddresses:(id)arg3 addressAttachments:(id)arg4 key:(id)arg5 viewingState:(id)arg6 tabPosition:(long long)arg7 range:(struct _NSRange *)arg8;
++ (unsigned long long)numberOfAddressesThatFitOnTwoLinesAttachments:(id)arg1 strings:(id)arg2 inTextContainer:(id)arg3 withIndent:(long long)arg4 andVerticalLocation:(long long)arg5 forPrinting:(BOOL)arg6;
++ (id)linkForMoreAddressesCount:(unsigned long long)arg1 headerKey:(id)arg2 font:(id)arg3;
++ (id)regularParagraphStyleForTabPosition:(long long)arg1;
++ (id)regularParagraphStyleForTabPosition:(long long)arg1 paragraphSpacing:(long long)arg2;
++ (id)addressParagraphStyleForTabPosition:(long long)arg1 withLineBreakMode:(unsigned long long)arg2 forPrinting:(BOOL)arg3;
++ (void)setTabsWithPosition:(long long)arg1 inAttributedString:(id)arg2 withKeys:(id)arg3 addressKeys:(id)arg4 addressAttachments:(id)arg5 forPrinting:(BOOL)arg6;
++ (id)attributedStringOfLength:(long long)arg1 usingAttachments:(id)arg2 startingAtIndex:(long long)arg3 strings:(id)arg4 newAttachments:(id *)arg5 forPrinting:(BOOL)arg6;
+@property(retain) MessageViewingState *viewingState;
+- (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long long)arg3;
+- (void)adjustFontSizeBy:(long long)arg1 viewingState:(id)arg2;
+- (void)textView:(id)arg1 clickedOnCell:(id)arg2 event:(id)arg3 inRect:(CGRect)arg4 atIndex:(unsigned long long)arg5;
+#else
++ (void)_addAddressesToString:(id)arg1 addressStrings:(id)arg2 plainAddresses:(id)arg3 addressAttachments:(id)arg4 key:(id)arg5 viewingState:(id)arg6 tabPosition:(long)arg7 range:(struct _NSRange *)arg8;
++ (unsigned long)numberOfAddressesThatFitOnTwoLinesAttachments:(id)arg1 strings:(id)arg2 inTextContainer:(id)arg3 withIndent:(long)arg4 andVerticalLocation:(long)arg5 forPrinting:(BOOL)arg6;
++ (id)linkForMoreAddressesCount:(unsigned long)arg1 headerKey:(id)arg2 font:(id)arg3;
++ (id)regularParagraphStyleForTabPosition:(long)arg1;
++ (id)regularParagraphStyleForTabPosition:(long)arg1 paragraphSpacing:(long)arg2;
++ (id)addressParagraphStyleForTabPosition:(long)arg1 withLineBreakMode:(unsigned long)arg2 forPrinting:(BOOL)arg3;
++ (void)setTabsWithPosition:(long)arg1 inAttributedString:(id)arg2 withKeys:(id)arg3 addressKeys:(id)arg4 addressAttachments:(id)arg5 forPrinting:(BOOL)arg6;
++ (id)attributedStringOfLength:(long)arg1 usingAttachments:(id)arg2 startingAtIndex:(long)arg3 strings:(id)arg4 newAttachments:(id *)arg5 forPrinting:(BOOL)arg6;
+- (id)viewingState;
+- (void)setViewingState:(id)arg1;
+- (BOOL)textView:(id)arg1 clickedOnLink:(id)arg2 atIndex:(unsigned long)arg3;
+- (void)adjustFontSizeBy:(long)arg1 viewingState:(id)arg2;
+- (void)textView:(id)arg1 clickedOnCell:(id)arg2 event:(id)arg3 inRect:(CGRect)arg4 atIndex:(unsigned long)arg5;
+#endif
 
 @end
 

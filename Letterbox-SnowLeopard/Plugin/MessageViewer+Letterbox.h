@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "../AppleHeaders/MessageViewer.h"
-@class ASExtendedTableView;
+// #import "../AppleHeaders/MessageViewer.h"
+// @class ASExtendedTableView;
 
-@interface MessageViewer (Letterbox)
+@interface MessageViewer_Letterbox : NSObject
 // overrides
 - (void) Letterbox__setUpWindowContents;
 - (BOOL) Letterbox_validateMenuItem:(NSMenuItem *)item;
@@ -19,17 +19,21 @@
 - (IBAction) setPreviewPaneRight:(id)sender;
 - (IBAction) setPreviewPaneLeft:(id)sender;
 - (IBAction) setPreviewPaneBottom:(id)sender;
-- (void) setPreviewPanePosition:(NSString *)position;
 
 - (IBAction) hidePreviewPane:(id)sender;
 - (IBAction) showPreviewPane:(id)sender;
 - (IBAction) togglePreviewPane:(id)sender;
 
 // accessors
-- (MessageContentController *) contentController; 
-- (ExpandingSplitView *) splitView;
-- (ASExtendedTableView *) messageListTableView;
-
+@property (readonly) id contentController; // returns a MessageContentController
+@property (readonly) id splitView; // returns an ExpandingSplitView
+@property (readonly) id messageListTableView; // returns an ASExtendedTableView
+@property (readonly) id tableManager; // returns a TableViewManager
+@property (copy) NSString *previewPanePosition;
 @property BOOL drawsAlternatingRowColors;
 @property BOOL drawsDividerLines;
+@end
+
+@interface MessageViewer_Letterbox (MessageViewer)
+@property BOOL previewPaneVisible;
 @end

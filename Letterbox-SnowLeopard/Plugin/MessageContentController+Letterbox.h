@@ -7,9 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "../AppleHeaders/MessageContentController.h"
-@class MessageHeaderDisplay;
-@interface MessageContentController (Letterbox)
-- (MessageHeaderDisplay *) headerDisplay;
-- (NSView *) contentContainerView;
+//#import "../AppleHeaders/MessageContentController.h"
+@interface MessageContentController_Letterbox : NSObject
+@property (readonly) id headerDisplay; // returns a MessageHeaderDisplay
+@property (readonly) NSView *contentContainerView;
 @end

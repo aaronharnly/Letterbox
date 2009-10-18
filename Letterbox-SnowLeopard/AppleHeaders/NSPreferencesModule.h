@@ -2,8 +2,8 @@
 #import "NSPreferences.h"
 
 @protocol NSPreferencesModule
-- (id)viewForPreferenceNamed:(id)fp8;
-- (id)imageForPreferenceNamed:(id)fp8;
+- (id)viewForPreferenceNamed:(id)arg1;
+- (id)imageForPreferenceNamed:(id)arg1;
 - (BOOL)hasChangesPending;
 - (void)saveChanges;
 - (void)willBeDisplayed;
@@ -18,9 +18,9 @@
 @interface NSPreferencesModule : NSObject <NSPreferencesModule>
 {
     NSBox *_preferencesView;
-    NSSize _minSize;
     BOOL _hasChanges;
     void *_reserved;
+    CGSize _minSize;
 }
 
 + (id)sharedInstance;
@@ -28,21 +28,21 @@
 - (void)finalize;
 - (id)init;
 - (id)preferencesNibName;
-- (void)setPreferencesView:(id)fp8;
-- (id)viewForPreferenceNamed:(id)fp8;
-- (id)imageForPreferenceNamed:(id)fp8;
-- (id)titleForIdentifier:(id)fp8;
+- (void)setPreferencesView:(id)arg1;
+- (id)viewForPreferenceNamed:(id)arg1;
+- (id)imageForPreferenceNamed:(id)arg1;
+- (id)titleForIdentifier:(id)arg1;
 - (BOOL)hasChangesPending;
 - (void)saveChanges;
 - (void)willBeDisplayed;
 - (void)initializeFromDefaults;
 - (void)didChange;
-- (struct _NSSize)minSize;
-- (void)setMinSize:(struct _NSSize)fp8;
 - (void)moduleWillBeRemoved;
 - (void)moduleWasInstalled;
 - (BOOL)moduleCanBeRemoved;
 - (BOOL)preferencesWindowShouldClose;
 - (BOOL)isResizable;
+- (CGSize)minSize;
+- (void)setMinSize:(CGSize)arg1;
 
 @end

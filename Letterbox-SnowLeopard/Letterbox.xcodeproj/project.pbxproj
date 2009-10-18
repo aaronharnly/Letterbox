@@ -118,9 +118,11 @@
 		93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234C630CF9DD50003470B5 /* QuartzCore.framework */; };
 		93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */; };
 		93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */; };
+		935B11FC1057BA7200D7882E /* NSNumber+CGFloatSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B11FB1057BA7200D7882E /* NSNumber+CGFloatSupport.m */; };
 		935CF28A0D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */; };
 		935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */; };
 		935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */; };
+		935D4B1E105DD4D2001E8B9B /* Letterbox-PreferencesModule.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 935D4B1D105DD4D2001E8B9B /* Letterbox-PreferencesModule.tiff */; };
 		9392B41F0B82742800E9968B /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
 		939F670E0D0571C6009C1494 /* Plugin/Preferences.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939F670D0D0571C6009C1494 /* Plugin/Preferences.strings */; };
 		939F67100D0571D1009C1494 /* Plugin/Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 939F670F0D0571D1009C1494 /* Plugin/Localizable.strings */; };
@@ -129,7 +131,6 @@
 		93B66AE80D026CF300DBC3AC /* Checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 93B66AE50D026CF300DBC3AC /* Checkbox.png */; };
 		93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B3F0D02712200DBC3AC /* Letterbox.icns */; };
 		93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B400D02712200DBC3AC /* Letterbox.tiff */; };
-		93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 93B66B610D0273BD00DBC3AC /* Letterbox-PreferencesModule.tiff */; };
 		93B66C490D034C5100DBC3AC /* IconFamily.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C460D034C5100DBC3AC /* IconFamily.m */; };
 		93B66C4A0D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C480D034C5100DBC3AC /* NSString+CarbonFSRefCreation.m */; };
 		93B66C550D034D1A00DBC3AC /* SetIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66C540D034D1A00DBC3AC /* SetIcon.m */; };
@@ -137,7 +138,6 @@
 		93B66DBB0D048C0C00DBC3AC /* MessageContentController+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B66DBA0D048C0C00DBC3AC /* MessageContentController+Letterbox.m */; };
 		93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */; };
 		93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */; };
-		93C298770D0519F80007FDCE /* NSSplitView+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */; };
 		93C298FE0D0532980007FDCE /* divot.png in Resources */ = {isa = PBXBuildFile; fileRef = 93C298FD0D0532980007FDCE /* divot.png */; };
 		93C2994A0D053B680007FDCE /* SingleMessageViewer.h in Resources */ = {isa = PBXBuildFile; fileRef = 93C299490D053B680007FDCE /* SingleMessageViewer.h */; };
 		93D1B38C0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D1B38B0B67E77500A5F931 /* Plugin/NSPreferences+Letterbox.m */; };
@@ -186,6 +186,7 @@
 		93D1BBA80B68284200A5F931 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1BB750B68284200A5F931 /* Security.framework */; };
 		93D1BBB60B68297200A5F931 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		93D1BC8D0B69496800A5F931 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D1B8A80B68227900A5F931 /* Sparkle.framework */; };
+		93E13B5F1055F66F00EFEE61 /* paypal_donate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 93E13B5E1055F66F00EFEE61 /* paypal_donate.gif */; };
 		93E683C10CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E683BF0CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m */; };
 		93E925550A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E925540A4C8D6A0039ADAD /* Plugin/LetterboxBundle.m */; };
 		93E9268F0A4C8E020039ADAD /* Plugin/main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9268E0A4C8E020039ADAD /* Plugin/main.m */; };
@@ -246,13 +247,6 @@
 			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
 			remoteInfo = Letterbox;
 		};
-		9384E96D0D05E3ED00BF7B29 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9384E9690D05E3CD00BF7B29;
-			remoteInfo = "Stupid Copy Info.plist";
-		};
 		93B66CB30D035BD500DBC3AC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
@@ -298,8 +292,6 @@
 		931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVMailBundle.h; path = AppleHeaders/MVMailBundle.h; sourceTree = "<group>"; };
 		931E754C0CFDFA6D0057EDA1 /* Mail.app-3.0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-3.0.h"; path = "AppleHeaders/Mail.app-3.0.h"; sourceTree = "<group>"; };
 		931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-2.0.h"; path = "AppleHeaders/Mail.app-2.0.h"; sourceTree = "<group>"; };
-		931E754E0CFDFA7E0057EDA1 /* Message.framework.B.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.B.h; path = AppleHeaders/Message.framework.B.h; sourceTree = "<group>"; };
-		931E754F0CFDFA7E0057EDA1 /* Message.framework.A.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.framework.A.h; path = AppleHeaders/Message.framework.A.h; sourceTree = "<group>"; };
 		932348B80CF75DF3003470B5 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Plugin/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		932348BA0CF75DFC003470B5 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = Plugin/English.lproj/Preferences.strings; sourceTree = "<group>"; };
 		932349690CF78BED003470B5 /* Plugin/BundleUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/BundleUserDefaults.h; sourceTree = "<group>"; };
@@ -311,6 +303,46 @@
 		93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/AWHFuzzyDisabledView.m; sourceTree = "<group>"; };
 		93234CEB0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSView+Letterbox_DisableSubviews.h"; sourceTree = "<group>"; };
 		93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSView+Letterbox_DisableSubviews.m"; sourceTree = "<group>"; };
+		935B1060105788B300D7882E /* AppKit-10.6-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.6-32.h"; path = "AppleHeaders/AppKit-10.6-32.h"; sourceTree = "<group>"; };
+		935B1061105788B300D7882E /* AppKit-10.6-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.6-64.h"; path = "AppleHeaders/AppKit-10.6-64.h"; sourceTree = "<group>"; };
+		935B1062105788BF00D7882E /* Mail.app-4.0-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-4.0-32.h"; path = "AppleHeaders/Mail.app-4.0-32.h"; sourceTree = "<group>"; };
+		935B1063105788BF00D7882E /* Mail.app-4.0-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-4.0-64.h"; path = "AppleHeaders/Mail.app-4.0-64.h"; sourceTree = "<group>"; };
+		935B106B105788D900D7882E /* Message.framework-10.4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Message.framework-10.4.h"; path = "AppleHeaders/Message.framework-10.4.h"; sourceTree = "<group>"; };
+		935B106C105788D900D7882E /* Message.framework-10.5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Message.framework-10.5.h"; path = "AppleHeaders/Message.framework-10.5.h"; sourceTree = "<group>"; };
+		935B106D105788D900D7882E /* Message.framework-10.6-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Message.framework-10.6-32.h"; path = "AppleHeaders/Message.framework-10.6-32.h"; sourceTree = "<group>"; };
+		935B106E105788D900D7882E /* Message.framework-10.6-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Message.framework-10.6-64.h"; path = "AppleHeaders/Message.framework-10.6-64.h"; sourceTree = "<group>"; };
+		935B10711057895000D7882E /* NSPreferences-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPreferences-64.h"; path = "AppleHeaders/NSPreferences-64.h"; sourceTree = "<group>"; };
+		935B1072105789AA00D7882E /* NSPreferencesModule-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPreferencesModule-64.h"; path = "AppleHeaders/NSPreferencesModule-64.h"; sourceTree = "<group>"; };
+		935B107B10578C2000D7882E /* NSPreferences-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPreferences-32.h"; path = "AppleHeaders/NSPreferences-32.h"; sourceTree = "<group>"; };
+		935B108010578D2C00D7882E /* NSPreferencesModule-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSPreferencesModule-32.h"; path = "AppleHeaders/NSPreferencesModule-32.h"; sourceTree = "<group>"; };
+		935B108C10578E5200D7882E /* MessageContentDisplay-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageContentDisplay-32.h"; path = "AppleHeaders/MessageContentDisplay-32.h"; sourceTree = "<group>"; };
+		935B108D10578E6200D7882E /* MessageContentDisplay-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageContentDisplay-64.h"; path = "AppleHeaders/MessageContentDisplay-64.h"; sourceTree = "<group>"; };
+		935B10A710578F3D00D7882E /* ExpandingSplitView-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ExpandingSplitView-32.h"; path = "AppleHeaders/ExpandingSplitView-32.h"; sourceTree = "<group>"; };
+		935B10A810578F3D00D7882E /* ExpandingSplitView-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ExpandingSplitView-64.h"; path = "AppleHeaders/ExpandingSplitView-64.h"; sourceTree = "<group>"; };
+		935B10A910578F5300D7882E /* MessageHeaderDisplay-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageHeaderDisplay-32.h"; path = "AppleHeaders/MessageHeaderDisplay-32.h"; sourceTree = "<group>"; };
+		935B10AA10578F5300D7882E /* MessageHeaderDisplay-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageHeaderDisplay-64.h"; path = "AppleHeaders/MessageHeaderDisplay-64.h"; sourceTree = "<group>"; };
+		935B10AB10578F6400D7882E /* ColorBackgroundView-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ColorBackgroundView-32.h"; path = "AppleHeaders/ColorBackgroundView-32.h"; sourceTree = "<group>"; };
+		935B10AC10578F6400D7882E /* ColorBackgroundView-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ColorBackgroundView-64.h"; path = "AppleHeaders/ColorBackgroundView-64.h"; sourceTree = "<group>"; };
+		935B10AD10578F7900D7882E /* MessageViewer-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageViewer-32.h"; path = "AppleHeaders/MessageViewer-32.h"; sourceTree = "<group>"; };
+		935B10AE10578F7900D7882E /* MessageViewer-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageViewer-64.h"; path = "AppleHeaders/MessageViewer-64.h"; sourceTree = "<group>"; };
+		935B10B110578F9C00D7882E /* MessageContentController-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageContentController-32.h"; path = "AppleHeaders/MessageContentController-32.h"; sourceTree = "<group>"; };
+		935B10B210578F9C00D7882E /* MessageContentController-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageContentController-64.h"; path = "AppleHeaders/MessageContentController-64.h"; sourceTree = "<group>"; };
+		935B10B310578FAE00D7882E /* SingleMessageViewer-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SingleMessageViewer-32.h"; path = "AppleHeaders/SingleMessageViewer-32.h"; sourceTree = "<group>"; };
+		935B10B410578FAE00D7882E /* SingleMessageViewer-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SingleMessageViewer-64.h"; path = "AppleHeaders/SingleMessageViewer-64.h"; sourceTree = "<group>"; };
+		935B10B510578FCE00D7882E /* ASExtendedTableView-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ASExtendedTableView-32.h"; path = "AppleHeaders/ASExtendedTableView-32.h"; sourceTree = "<group>"; };
+		935B10B610578FCE00D7882E /* ASExtendedTableView-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ASExtendedTableView-64.h"; path = "AppleHeaders/ASExtendedTableView-64.h"; sourceTree = "<group>"; };
+		935B10EB10579CAF00D7882E /* MailboxesOutlineViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MailboxesOutlineViewControllerDelegate.h; path = AppleHeaders/MailboxesOutlineViewControllerDelegate.h; sourceTree = "<group>"; };
+		935B10ED10579D2200D7882E /* MailboxesOutlineViewControllerDelegate-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MailboxesOutlineViewControllerDelegate-32.h"; path = "AppleHeaders/MailboxesOutlineViewControllerDelegate-32.h"; sourceTree = "<group>"; };
+		935B10EE10579D2C00D7882E /* MailboxesOutlineViewControllerDelegate-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MailboxesOutlineViewControllerDelegate-64.h"; path = "AppleHeaders/MailboxesOutlineViewControllerDelegate-64.h"; sourceTree = "<group>"; };
+		935B10EF10579FF400D7882E /* MessageTransferDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageTransferDelegate.h; path = AppleHeaders/MessageTransferDelegate.h; sourceTree = "<group>"; };
+		935B10F01057A07200D7882E /* MVMailboxSelectionOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVMailboxSelectionOwner.h; path = AppleHeaders/MVMailboxSelectionOwner.h; sourceTree = "<group>"; };
+		935B10F11057A0A500D7882E /* MVMailboxSelectionOwner-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MVMailboxSelectionOwner-64.h"; path = "AppleHeaders/MVMailboxSelectionOwner-64.h"; sourceTree = "<group>"; };
+		935B10F21057A0BA00D7882E /* MVMailboxSelectionOwner-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MVMailboxSelectionOwner-32.h"; path = "AppleHeaders/MVMailboxSelectionOwner-32.h"; sourceTree = "<group>"; };
+		935B110B1057A13A00D7882E /* MVTerminationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVTerminationHandler.h; path = AppleHeaders/MVTerminationHandler.h; sourceTree = "<group>"; };
+		935B110C1057A16100D7882E /* MVTerminationHandler-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MVTerminationHandler-32.h"; path = "AppleHeaders/MVTerminationHandler-32.h"; sourceTree = "<group>"; };
+		935B110D1057A16B00D7882E /* MVTerminationHandler-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MVTerminationHandler-64.h"; path = "AppleHeaders/MVTerminationHandler-64.h"; sourceTree = "<group>"; };
+		935B11FA1057BA7200D7882E /* NSNumber+CGFloatSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+CGFloatSupport.h"; sourceTree = "<group>"; };
+		935B11FB1057BA7200D7882E /* NSNumber+CGFloatSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+CGFloatSupport.m"; sourceTree = "<group>"; };
 		935CF2880D048D45008435F8 /* MessageHeaderDisplay+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageHeaderDisplay+Letterbox.h"; path = "Plugin/MessageHeaderDisplay+Letterbox.h"; sourceTree = "<group>"; };
 		935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessageHeaderDisplay+Letterbox.m"; path = "Plugin/MessageHeaderDisplay+Letterbox.m"; sourceTree = "<group>"; };
 		935CF28B0D048DE0008435F8 /* MessageViewer+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageViewer+Letterbox.h"; path = "Plugin/MessageViewer+Letterbox.h"; sourceTree = "<group>"; };
@@ -318,6 +350,7 @@
 		935CF2900D049808008435F8 /* ExpandingSplitView+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ExpandingSplitView+Letterbox.h"; path = "Plugin/ExpandingSplitView+Letterbox.h"; sourceTree = "<group>"; };
 		935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ExpandingSplitView+Letterbox.m"; path = "Plugin/ExpandingSplitView+Letterbox.m"; sourceTree = "<group>"; };
 		935CF29D0D04C5B4008435F8 /* DocumentEditorManaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentEditorManaging.h; path = AppleHeaders/DocumentEditorManaging.h; sourceTree = "<group>"; };
+		935D4B1D105DD4D2001E8B9B /* Letterbox-PreferencesModule.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = "Letterbox-PreferencesModule.tiff"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B66A980D02677700DBC3AC /* DiskImage-Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "DiskImage-Templates"; sourceTree = "<group>"; };
 		93B66AE30D026CF300DBC3AC /* Checkbox-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-16.png"; sourceTree = "<group>"; };
 		93B66AE40D026CF300DBC3AC /* Checkbox-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkbox-32.png"; sourceTree = "<group>"; };
@@ -343,8 +376,6 @@
 		93BD84EF0CD8FCC7000D2004 /* Plugin/MainNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/MainNib.xib; sourceTree = "<group>"; };
 		93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Plugin/PreferencesModule.xib; sourceTree = "<group>"; };
 		93C296790D04D1790007FDCE /* ColorBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorBackgroundView.h; path = AppleHeaders/ColorBackgroundView.h; sourceTree = "<group>"; };
-		93C298750D0519F80007FDCE /* NSSplitView+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSplitView+Letterbox.h"; path = "Plugin/NSSplitView+Letterbox.h"; sourceTree = "<group>"; };
-		93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSplitView+Letterbox.m"; path = "Plugin/NSSplitView+Letterbox.m"; sourceTree = "<group>"; };
 		93C298FD0D0532980007FDCE /* divot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divot.png; sourceTree = "<group>"; };
 		93C299490D053B680007FDCE /* SingleMessageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SingleMessageViewer.h; path = AppleHeaders/SingleMessageViewer.h; sourceTree = "<group>"; };
 		93C2994B0D053BAD0007FDCE /* MVSelectionOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVSelectionOwner.h; path = AppleHeaders/MVSelectionOwner.h; sourceTree = "<group>"; };
@@ -483,6 +514,7 @@
 		93D1B9880B68229F00A5F931 /* zh_TW */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = zh_TW; path = zh_TW.lproj/SUUpdateAlert.strings; sourceTree = "<group>"; };
 		93D1BB470B68281E00A5F931 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		93D1BB750B68284200A5F931 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
+		93E13B5E1055F66F00EFEE61 /* paypal_donate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = paypal_donate.gif; path = Plugin/Images/paypal_donate.gif; sourceTree = "<group>"; };
 		93E683BF0CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/LetterboxBundleUpdaterDelegate.m; sourceTree = "<group>"; };
 		93E683C00CE2525B00EF7F48 /* Plugin/LetterboxBundleUpdaterDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxBundleUpdaterDelegate.h; sourceTree = "<group>"; };
 		93E925530A4C8D660039ADAD /* Plugin/LetterboxBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugin/LetterboxBundle.h; sourceTree = "<group>"; };
@@ -659,6 +691,7 @@
 		932348C10CF75E3C003470B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93E13B5E1055F66F00EFEE61 /* paypal_donate.gif */,
 				939F670D0D0571C6009C1494 /* Plugin/Preferences.strings */,
 				93BD84F10CD8FCD1000D2004 /* Plugin/PreferencesModule.xib */,
 			);
@@ -668,6 +701,8 @@
 		93234EE80CFB75E0003470B5 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				935B11FA1057BA7200D7882E /* NSNumber+CGFloatSupport.h */,
+				935B11FB1057BA7200D7882E /* NSNumber+CGFloatSupport.m */,
 				93E926970A4C8E630039ADAD /* Plugin/NSObject+LetterboxSwizzle.h */,
 				93E9269A0A4C8E6F0039ADAD /* Plugin/NSObject+LetterboxSwizzle.m */,
 			);
@@ -696,35 +731,24 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
-		9352BD1C0CD129E700672AF5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		9352BD1D0CD129F300672AF5 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		9352BD1E0CD12A3000672AF5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				931E75490CFDFA500057EDA1 /* NSPreferences.h */,
-				931E754A0CFDFA500057EDA1 /* NSPreferencesModule.h */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
 		935CF29C0D04C59C008435F8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				93B66D4B0D036D6900DBC3AC /* MessageContentDisplay.h */,
 				935CF29D0D04C5B4008435F8 /* DocumentEditorManaging.h */,
+				935B10EB10579CAF00D7882E /* MailboxesOutlineViewControllerDelegate.h */,
+				935B10ED10579D2200D7882E /* MailboxesOutlineViewControllerDelegate-32.h */,
+				935B10EE10579D2C00D7882E /* MailboxesOutlineViewControllerDelegate-64.h */,
+				935B10EF10579FF400D7882E /* MessageTransferDelegate.h */,
+				93B66D4B0D036D6900DBC3AC /* MessageContentDisplay.h */,
+				935B108C10578E5200D7882E /* MessageContentDisplay-32.h */,
+				935B108D10578E6200D7882E /* MessageContentDisplay-64.h */,
+				935B10F01057A07200D7882E /* MVMailboxSelectionOwner.h */,
+				935B10F21057A0BA00D7882E /* MVMailboxSelectionOwner-32.h */,
+				935B10F11057A0A500D7882E /* MVMailboxSelectionOwner-64.h */,
 				93C2994B0D053BAD0007FDCE /* MVSelectionOwner.h */,
+				935B110B1057A13A00D7882E /* MVTerminationHandler.h */,
+				935B110C1057A16100D7882E /* MVTerminationHandler-32.h */,
+				935B110D1057A16B00D7882E /* MVTerminationHandler-64.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -734,9 +758,14 @@
 			children = (
 				931E75470CFDFA3E0057EDA1 /* AppKit-10.5.h */,
 				931E75480CFDFA3E0057EDA1 /* AppKit-10.4.h */,
-				9352BD1E0CD12A3000672AF5 /* Controllers */,
-				9352BD1D0CD129F300672AF5 /* Views */,
-				9352BD1C0CD129E700672AF5 /* Models */,
+				935B1060105788B300D7882E /* AppKit-10.6-32.h */,
+				935B1061105788B300D7882E /* AppKit-10.6-64.h */,
+				931E75490CFDFA500057EDA1 /* NSPreferences.h */,
+				935B107B10578C2000D7882E /* NSPreferences-32.h */,
+				935B10711057895000D7882E /* NSPreferences-64.h */,
+				931E754A0CFDFA500057EDA1 /* NSPreferencesModule.h */,
+				935B108010578D2C00D7882E /* NSPreferencesModule-32.h */,
+				935B1072105789AA00D7882E /* NSPreferencesModule-64.h */,
 			);
 			name = "AppKit Headers";
 			sourceTree = "<group>";
@@ -762,6 +791,7 @@
 		93B66B3E0D02712200DBC3AC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				935D4B1D105DD4D2001E8B9B /* Letterbox-PreferencesModule.tiff */,
 				93C298FD0D0532980007FDCE /* divot.png */,
 				93B66B3F0D02712200DBC3AC /* Letterbox.icns */,
 				93B66B400D02712200DBC3AC /* Letterbox.tiff */,
@@ -892,17 +922,16 @@
 		93E925070A4C8AB40039ADAD /* Message.framework Headers */ = {
 			isa = PBXGroup;
 			children = (
-				931E754E0CFDFA7E0057EDA1 /* Message.framework.B.h */,
-				931E754F0CFDFA7E0057EDA1 /* Message.framework.A.h */,
-				93E925180A4C8B680039ADAD /* Models */,
+				935B106B105788D900D7882E /* Message.framework-10.4.h */,
+				935B106C105788D900D7882E /* Message.framework-10.5.h */,
+				935B106D105788D900D7882E /* Message.framework-10.6-32.h */,
+				935B106E105788D900D7882E /* Message.framework-10.6-64.h */,
 				93E925170A4C8B620039ADAD /* Views */,
-				93E925160A4C8B5E0039ADAD /* Controllers */,
-				93E925150A4C8B590039ADAD /* Protocols */,
 			);
 			name = "Message.framework Headers";
 			sourceTree = "<group>";
 		};
-		93E9250B0A4C8AD80039ADAD /* Categories */ = {
+		93E9250C0A4C8AE20039ADAD /* Mail.app Customizations */ = {
 			isa = PBXGroup;
 			children = (
 				93B66DB90D048C0C00DBC3AC /* MessageContentController+Letterbox.h */,
@@ -913,19 +942,6 @@
 				935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */,
 				935CF2900D049808008435F8 /* ExpandingSplitView+Letterbox.h */,
 				935CF2910D049808008435F8 /* ExpandingSplitView+Letterbox.m */,
-				93C298750D0519F80007FDCE /* NSSplitView+Letterbox.h */,
-				93C298760D0519F80007FDCE /* NSSplitView+Letterbox.m */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
-		93E9250C0A4C8AE20039ADAD /* Mail.app Customizations */ = {
-			isa = PBXGroup;
-			children = (
-				93E9250B0A4C8AD80039ADAD /* Categories */,
-				93E925230A4C8BBD0039ADAD /* Models */,
-				93E925220A4C8BB90039ADAD /* Views */,
-				93E925210A4C8BB40039ADAD /* Controllers */,
 			);
 			name = "Mail.app Customizations";
 			sourceTree = "<group>";
@@ -933,13 +949,13 @@
 		93E925100A4C8B2D0039ADAD /* Mail.app Headers */ = {
 			isa = PBXGroup;
 			children = (
-				935CF29C0D04C59C008435F8 /* Protocols */,
 				931E754C0CFDFA6D0057EDA1 /* Mail.app-3.0.h */,
 				931E754D0CFDFA6D0057EDA1 /* Mail.app-2.0.h */,
-				93E925140A4C8B540039ADAD /* Models */,
+				935B1062105788BF00D7882E /* Mail.app-4.0-32.h */,
+				935B1063105788BF00D7882E /* Mail.app-4.0-64.h */,
+				935CF29C0D04C59C008435F8 /* Protocols */,
 				93E925130A4C8B4E0039ADAD /* Views */,
 				93E925120A4C8B470039ADAD /* Controllers */,
-				93E925190A4C8B780039ADAD /* App */,
 			);
 			name = "Mail.app Headers";
 			sourceTree = "<group>";
@@ -948,9 +964,15 @@
 			isa = PBXGroup;
 			children = (
 				93B66D4F0D036EDF00DBC3AC /* MessageViewer.h */,
+				935B10AD10578F7900D7882E /* MessageViewer-32.h */,
+				935B10AE10578F7900D7882E /* MessageViewer-64.h */,
 				931E754B0CFDFA5E0057EDA1 /* MVMailBundle.h */,
 				93B66D4A0D036C0A00DBC3AC /* MessageContentController.h */,
+				935B10B110578F9C00D7882E /* MessageContentController-32.h */,
+				935B10B210578F9C00D7882E /* MessageContentController-64.h */,
 				93C299490D053B680007FDCE /* SingleMessageViewer.h */,
+				935B10B310578FAE00D7882E /* SingleMessageViewer-32.h */,
+				935B10B410578FAE00D7882E /* SingleMessageViewer-64.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -958,75 +980,27 @@
 		93E925130A4C8B4E0039ADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				93B66D4C0D036DF200DBC3AC /* ExpandingSplitView.h */,
 				93B66D4D0D036E4300DBC3AC /* MessageHeaderDisplay.h */,
+				935B10A910578F5300D7882E /* MessageHeaderDisplay-32.h */,
+				935B10AA10578F5300D7882E /* MessageHeaderDisplay-64.h */,
 				93C296790D04D1790007FDCE /* ColorBackgroundView.h */,
+				935B10AB10578F6400D7882E /* ColorBackgroundView-32.h */,
+				935B10AC10578F6400D7882E /* ColorBackgroundView-64.h */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		93E925140A4C8B540039ADAD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		93E925150A4C8B590039ADAD /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Protocols;
-			sourceTree = "<group>";
-		};
-		93E925160A4C8B5E0039ADAD /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		93E925170A4C8B620039ADAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				93B66D4C0D036DF200DBC3AC /* ExpandingSplitView.h */,
+				935B10A710578F3D00D7882E /* ExpandingSplitView-32.h */,
+				935B10A810578F3D00D7882E /* ExpandingSplitView-64.h */,
 				93C299A60D0546970007FDCE /* ASExtendedTableView.h */,
+				935B10B510578FCE00D7882E /* ASExtendedTableView-32.h */,
+				935B10B610578FCE00D7882E /* ASExtendedTableView-64.h */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		93E925180A4C8B680039ADAD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		93E925190A4C8B780039ADAD /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
-		93E925210A4C8BB40039ADAD /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		93E925220A4C8BB90039ADAD /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		93E925230A4C8BBD0039ADAD /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		93E9268D0A4C8DF50039ADAD /* Other Sources */ = {
@@ -1171,7 +1145,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9384E96E0D05E3ED00BF7B29 /* PBXTargetDependency */,
 				93D1BC350B69337B00A5F931 /* PBXTargetDependency */,
 				93B66CB40D035BD500DBC3AC /* PBXTargetDependency */,
 				931130030B6A9F84005AE0DC /* PBXTargetDependency */,
@@ -1280,15 +1253,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935D4B1E105DD4D2001E8B9B /* Letterbox-PreferencesModule.tiff in Resources */,
 				93BD84F00CD8FCC7000D2004 /* Plugin/MainNib.xib in Resources */,
 				93BD84F20CD8FCD1000D2004 /* Plugin/PreferencesModule.xib in Resources */,
 				939F67100D0571D1009C1494 /* Plugin/Localizable.strings in Resources */,
 				939F670E0D0571C6009C1494 /* Plugin/Preferences.strings in Resources */,
-				93B66B630D0273C400DBC3AC /* Letterbox-PreferencesModule.tiff in Resources */,
 				93B66B410D02712200DBC3AC /* Letterbox.icns in Resources */,
 				93B66B420D02712200DBC3AC /* Letterbox.tiff in Resources */,
 				93C298FE0D0532980007FDCE /* divot.png in Resources */,
 				93C2994A0D053B680007FDCE /* SingleMessageViewer.h in Resources */,
+				93E13B5F1055F66F00EFEE61 /* paypal_donate.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1586,7 +1560,7 @@
 				935CF28A0D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m in Sources */,
 				935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */,
 				935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */,
-				93C298770D0519F80007FDCE /* NSSplitView+Letterbox.m in Sources */,
+				935B11FC1057BA7200D7882E /* NSNumber+CGFloatSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1662,11 +1636,6 @@
 			isa = PBXTargetDependency;
 			target = 8D5B49AC048680CD000E48DA /* Letterbox */;
 			targetProxy = 932349B60CF8867D003470B5 /* PBXContainerItemProxy */;
-		};
-		9384E96E0D05E3ED00BF7B29 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9384E9690D05E3CD00BF7B29 /* Stupid Copy Info.plist */;
-			targetProxy = 9384E96D0D05E3ED00BF7B29 /* PBXContainerItemProxy */;
 		};
 		93B66CB40D035BD500DBC3AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1834,8 +1803,7 @@
 		1DEB913B08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1847,6 +1815,7 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1854,13 +1823,13 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = Plugin/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = Letterbox;
-				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = mailbundle;
 				ZERO_LINK = NO;
@@ -1870,8 +1839,10 @@
 		1DEB913C08733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = (
+					"$(NATIVE_ARCH_64_BIT)",
+					"$(NATIVE_ARCH_32_BIT)",
+				);
 				BUNDLE_LOADER = /Applications/Mail.app/Contents/MacOS/Mail;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1881,19 +1852,22 @@
 				);
 				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)\"";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_2 = "\"$(SRCROOT)/build/Release\"";
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Plugin/Letterbox_Prefix.pch;
 				GCC_VERSION = "";
-				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = YES;
+				INFOPLIST_FILE = Plugin/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Mail/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = Letterbox;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				VALID_ARCHS = "x86_64 i386";
 				WRAPPER_EXTENSION = mailbundle;
 			};
@@ -2150,6 +2124,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SetIcon;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				VALID_ARCHS = "i386 x86_64";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -2157,8 +2133,10 @@
 		93B66C2D0D034BD000DBC3AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = (
+					"$(NATIVE_ARCH_64_BIT)",
+					"$(NATIVE_ARCH_32_BIT)",
+				);
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -2174,6 +2152,8 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = SetIcon;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				VALID_ARCHS = "i386 x86_64";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -2181,26 +2161,28 @@
 		93D1B8AB0B68227A00A5F931 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_MODEL_TUNING = G5;
+				GCC_MODEL_TUNING = "";
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SparklePlus/Sparkle_Prefix.pch;
 				INFOPLIST_FILE = SparklePlus/Info.plist;
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lcrypto";
 				PREBINDING = NO;
 				PRODUCT_NAME = Sparkle;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64";
 				ZERO_LINK = YES;
 			};
 			name = Debug;
@@ -2208,8 +2190,10 @@
 		93D1B8AC0B68227A00A5F931 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				ARCHS = (
+					"$(NATIVE_ARCH_64_BIT)",
+					"$(NATIVE_ARCH_32_BIT)",
+				);
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DSTROOT = /tmp/Sparkle.dst;
@@ -2218,17 +2202,20 @@
 				FRAMEWORK_VERSION = A;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_MODEL_TUNING = G5;
+				GCC_MODEL_TUNING = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SparklePlus/Sparkle_Prefix.pch;
 				INFOPLIST_FILE = SparklePlus/Info.plist;
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-lcrypto";
 				PREBINDING = NO;
 				PRODUCT_NAME = Sparkle;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64";
 				ZERO_LINK = NO;
 			};
 			name = Release;

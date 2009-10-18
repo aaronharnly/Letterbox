@@ -10,12 +10,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
-#import "MVMailBundle.h"
+//#import "MVMailBundle.h"
 #import "../SparklePlus/SUUpdater.h"
 
 #define ENABLED_KEY @"EnableAtNextLaunch"
 
-@interface LetterboxBundle : MVMailBundle {
+@interface LetterboxBundle : NSObject {
     IBOutlet SUUpdater *updater;
 	NSUserDefaultsController *defaultsController;
 	NSUserDefaults *defaults;
@@ -64,3 +64,20 @@
 @property (readonly) NSImage *bundleIcon;
 @property (readonly) NSMenuItem *viewMenuAdditionPreviewPane;
 @end
+
+@interface LetterboxBundle (MVMailBundle)
+
++ (id)allBundles;
++ (id)composeAccessoryViewOwners;
++ (void)registerBundle;
++ (id)sharedInstance;
++ (BOOL)hasPreferencesPanel;
++ (id)preferencesOwnerClassName;
++ (id)preferencesPanelName;
++ (BOOL)hasComposeAccessoryViewOwner;
++ (id)composeAccessoryViewOwnerClassName;
+- (void)dealloc;
+- (void)_registerBundleForNotifications;
+
+@end
+

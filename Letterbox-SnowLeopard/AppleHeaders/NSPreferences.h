@@ -14,39 +14,45 @@
     NSMutableDictionary *_currentSessionPreferenceViews;
     NSBox *_originalContentView;
     BOOL _isModal;
-    float _constrainedWidth;
     id _currentModule;
     void *_reserved;
+    CGFloat _constrainedWidth;
 }
 
 + (id)sharedPreferences;
-+ (void)setDefaultPreferencesClass:(Class)fp8;
++ (void)setDefaultPreferencesClass:(Class)arg1;
 + (Class)defaultPreferencesClass;
 - (id)init;
 - (void)dealloc;
-- (void)addPreferenceNamed:(id)fp8 owner:(id)fp12;
+- (void)addPreferenceNamed:(id)arg1 owner:(id)arg2;
 - (void)_setupToolbar;
 - (void)_setupUI;
-- (struct _NSSize)preferencesContentSize;
 - (void)showPreferencesPanel;
-- (void)showPreferencesPanelForOwner:(id)fp8;
-- (int)showModalPreferencesPanelForOwner:(id)fp8;
-- (int)showModalPreferencesPanel;
-- (void)ok:(id)fp8;
-- (void)cancel:(id)fp8;
-- (void)apply:(id)fp8;
-- (void)_selectModuleOwner:(id)fp8;
+- (void)showPreferencesPanelForOwner:(id)arg1;
+- (void)ok:(id)arg1;
+- (void)cancel:(id)arg1;
+- (void)apply:(id)arg1;
+- (void)_selectModuleOwner:(id)arg1;
 - (id)windowTitle;
-- (void)confirmCloseSheetIsDone:(id)fp8 returnCode:(int)fp12 contextInfo:(void *)fp16;
-- (BOOL)windowShouldClose:(id)fp8;
-- (void)windowDidResize:(id)fp8;
-- (struct _NSSize)windowWillResize:(id)fp8 toSize:(struct _NSSize)fp12;
+- (BOOL)windowShouldClose:(id)arg1;
+- (void)windowDidResize:(id)arg1;
 - (BOOL)usesButtons;
-- (id)_itemIdentifierForModule:(id)fp8;
-- (void)toolbarItemClicked:(id)fp8;
-- (id)toolbar:(id)fp8 itemForItemIdentifier:(id)fp12 willBeInsertedIntoToolbar:(BOOL)fp16;
-- (id)toolbarDefaultItemIdentifiers:(id)fp8;
-- (id)toolbarAllowedItemIdentifiers:(id)fp8;
-- (id)toolbarSelectableItemIdentifiers:(id)fp8;
+- (id)_itemIdentifierForModule:(id)arg1;
+- (void)toolbarItemClicked:(id)arg1;
+- (id)toolbar:(id)arg1 itemForItemIdentifier:(id)arg2 willBeInsertedIntoToolbar:(BOOL)arg3;
+- (id)toolbarDefaultItemIdentifiers:(id)arg1;
+- (id)toolbarAllowedItemIdentifiers:(id)arg1;
+- (id)toolbarSelectableItemIdentifiers:(id)arg1;
+- (CGSize)preferencesContentSize;
+- (CGSize)windowWillResize:(id)arg1 toSize:(CGSize)arg2;
+#ifdef __x86_64__
+- (long long)showModalPreferencesPanelForOwner:(id)arg1;
+- (long long)showModalPreferencesPanel;
+- (void)confirmCloseSheetIsDone:(id)arg1 returnCode:(long long)arg2 contextInfo:(void *)arg3;
+#else
+- (int)showModalPreferencesPanelForOwner:(id)arg1;
+- (int)showModalPreferencesPanel;
+- (void)confirmCloseSheetIsDone:(id)arg1 returnCode:(int)arg2 contextInfo:(void *)arg3;
+#endif
 
 @end

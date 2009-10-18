@@ -5,17 +5,21 @@
  *  so long as you retain this notice of authorship in the source code.
  */
 #import <QuartzCore/CoreAnimation.h>
+#import <objc/runtime.h>
 
 #import "LetterboxPreferencesModule.h"
 #import "LetterboxBundle.h"
 #import "NSPreferences+Letterbox.h"
 #import "NSPreferencesModule.h"
 #import "AWHFuzzyDisabledView.h"
+
 @implementation LetterboxPreferencesModule
 //
 // ------------------------------- init
 //
-
++ (void)load {
+	class_setSuperclass(self, NSClassFromString(@"NSPreferencesModule"));
+}
 
 - (void)awakeFromNib
 {

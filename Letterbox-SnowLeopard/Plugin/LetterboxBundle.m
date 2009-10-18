@@ -10,12 +10,12 @@
 #import "LetterboxPreferencesModule.h"
 // swizzling
 #import "NSObject+LetterboxSwizzle.h"
+#import <objc/runtime.h>
 // categories
 #import "MessageContentController+Letterbox.h"
 #import "MessageHeaderDisplay+Letterbox.h"
 #import "MessageViewer+Letterbox.h"
 #import "ExpandingSplitView+Letterbox.h"
-#import "NSSplitView+Letterbox.h"
 // models
 #import "BundleUserDefaults.h"
 #import "LetterboxConstants.h"
@@ -29,6 +29,9 @@
 #import "../SparklePlus/SUUtilities.h"
 
 @implementation LetterboxBundle
++ (void) load {
+	class_setSuperclass(self, NSClassFromString(@"MVMailBundle"));
+}
 // ---------------------------------- MVMailBundle methods ---------------------------------- 
 /*!
 	@method initialize
@@ -294,12 +297,12 @@
 	//    [LetterboxExpandingSplitView replaceMethod:@selector(adjustSubviews) withMethod:@selector(adjustSubviews) fromClass:[NSSplitView class]];
 
 	// MessageViewer
-	[MessageViewer Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
-	[MessageViewer Letterbox_swizzleMethod:@selector(validateMenuItem:) withMethod:@selector(Letterbox_validateMenuItem:)];
+	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
+	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(validateMenuItem:) withMethod:@selector(Letterbox_validateMenuItem:)];
 	
 	// ExpandingSplitView
-	[ExpandingSplitView Letterbox_swizzleMethod:@selector(dividerThickness) withMethod:@selector(Letterbox_dividerThickness)];
-	[ExpandingSplitView Letterbox_swizzleMethod:@selector(drawDividerInRect:) withMethod:@selector(Letterbox_drawDividerInRect:)];
+	[NSClassFromString(@"ExpandingSplitView") Letterbox_swizzleMethod:@selector(dividerThickness) withMethod:@selector(Letterbox_dividerThickness)];
+	[NSClassFromString(@"ExpandingSplitView") Letterbox_swizzleMethod:@selector(drawDividerInRect:) withMethod:@selector(Letterbox_drawDividerInRect:)];
 }
 
 
@@ -343,7 +346,7 @@
 - (IBAction)sendPluginFeedback:(id)sender
 {
 	NSArray *systemProfile = [[self updater] systemProfileInformationArray];
-	NSMutableString *body = [NSMutableString stringWithString:@"(feedback here)\n\nSystem information (delete this if you don't want it sent):\n"];
+	NSMutableString *body = [NSMutableString stringWithString:@"(feedback here)\n\n-------------------------\nOptional System information:\n"];
 	for (NSDictionary *item in systemProfile) {
 		[body appendFormat:@"%@: %@\n", [item objectForKey:@"visibleKey"], [item objectForKey:@"visibleValue"]];
 	}

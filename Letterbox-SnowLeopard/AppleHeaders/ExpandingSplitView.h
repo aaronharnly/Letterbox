@@ -2,30 +2,34 @@
 
 @interface ExpandingSplitView : NSSplitView
 {
-    float _oldSplitPosition;
-    int dividerToolTipTag;
     NSString *toolTipString;
     NSImage *splitterDimple;
     NSImage *splitterBackground;
-    float _dividerThickness;
     int _dividerType;
+    CGFloat _dividerThickness;
+#ifdef __X86_64__
+    long long dividerToolTipTag;
+#else
+    int dividerToolTipTag;
+#endif
+	
 }
 
 - (void)dealloc;
-- (void)finalize;
 - (int)dividerType;
-- (void)setDividerType:(int)fp8;
-- (void)mouseDown:(id)fp8;
-- (float)getSplitPercentage;
-- (BOOL)_isSubviewAtIndexVisible:(unsigned int)fp8;
+- (void)setDividerType:(int)arg1;
 - (BOOL)isSecondViewVisible;
 - (BOOL)isFirstViewVisible;
-- (void)resizeSubviewsToPercentage:(float)fp8;
-- (void)setDividerToolTip:(id)fp8;
-- (float)dividerThickness;
-- (struct _NSRect)dividerRect;
-- (void)drawDividerInRect:(struct _NSRect)fp8;
-- (id)accessibilityAttributeValue:(id)fp8;
-
+- (void)setDividerToolTip:(id)arg1;
+- (id)accessibilityAttributeValue:(id)arg1;
+- (void)drawDividerInRect:(NSRect)arg1;
+- (NSRect)_dividerRect;
+- (CGFloat)dividerThickness;
+- (CGFloat)getSplitPercentage;
+- (void)resizeSubviewsToPercentage:(CGFloat)arg1;
+#ifdef __X86_64__
+- (BOOL)_isSubviewAtIndexVisible:(unsigned long long)arg1;
+#else
+- (BOOL)_isSubviewAtIndexVisible:(unsigned int)arg1;
+#endif
 @end
-

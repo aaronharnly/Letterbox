@@ -19,34 +19,37 @@
 @implementation MessageViewer_Letterbox
 + (void) load {
 	NSString *targetClass = @"MessageViewer";
-	// Overrides
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(initializeMenus) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox__setUpWindowContents) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(selector:matchesPosition:) toClassNamed:targetClass];
+	// Swizzles
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_show) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox__setUpMenus) toClassNamed:targetClass];
 	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_validateMenuItem:) toClassNamed:targetClass];
+	// Additional methods
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_initializeMenus) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_initializeBindings) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_selector:matchesPosition:) toClassNamed:targetClass];
 	// Actions
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setPreviewPaneRight:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setPreviewPaneLeft:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setPreviewPaneBottom:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(togglePreviewPane:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(hidePreviewPane:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(showPreviewPane:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setPreviewPaneRight:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_setPreviewPaneRight:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_setPreviewPaneLeft:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_setPreviewPaneBottom:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_togglePreviewPane:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_hidePreviewPane:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_showPreviewPane:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_setPreviewPaneRight:) toClassNamed:targetClass];
 	// Accessors
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(contentController) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(splitView) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(tableManager) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(messageListTableView) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(drawsAlternatingRowColors) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setDrawsAlternatingRowColors:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(drawsDividerLines) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setDrawsDividerLines:) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(previewPanePosition) toClassNamed:targetClass];
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setPreviewPanePosition:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_contentController) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_splitView) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_tableManager) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_messageListTableView) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_drawsAlternatingRowColors) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setLetterbox_drawsAlternatingRowColors:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_drawsDividerLines) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setLetterbox_drawsDividerLines:) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_previewPanePosition) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(setLetterbox_previewPanePosition:) toClassNamed:targetClass];
 }
 
 // -------------------------- overrides ----------------------------
-- (void) initializeMenus
+- (void) Letterbox_initializeMenus
 {
 	NSMenu *mainMenu = [NSApp mainMenu];
 	NSMenu *viewMenu = [[mainMenu itemAtIndex:3] submenu];
@@ -55,78 +58,93 @@
 	BOOL haveMenuAdditions = NO;
 	if ([firstItem hasSubmenu]) {
 		NSMenuItem *firstSubitem = [[firstItem submenu] itemAtIndex:0];
-		if ([firstSubitem action] == @selector(togglePreviewPane:)) {
+		if ([firstSubitem action] == @selector(Letterbox_togglePreviewPane:)) {
 			haveMenuAdditions = YES;
 		}
 	}
 	if (! haveMenuAdditions) {
-		NSLog(@"Inserting PreviewPane menu...");
 		[viewMenu insertItem:[[LetterboxBundle sharedInstance] viewMenuAdditionPreviewPane] atIndex:0];
 		[viewMenu insertItem:[NSMenuItem separatorItem] atIndex:1];
 	}
 }
 
-- (void) Letterbox__setUpWindowContents
+- (void) Letterbox__setUpMenus
 {
-	[self Letterbox__setUpWindowContents];
-	// bind the preview pane position
-	[self bind:@"previewPanePosition" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
-	 [NSString stringWithFormat:@"values.%@", LetterboxPreviewPanePositionKey] options:nil];
-	// initialize our position, according to the current default
-	NSString *preferredPosition = [[[LetterboxBundle sharedInstance] defaults] objectForKey:LetterboxPreviewPanePositionKey];
-	[self setPreviewPanePosition:preferredPosition];
-
-	// initialize the menu items
-	[self initializeMenus];
-
-	// bind the list view settings
-	[self bind:@"drawsAlternatingRowColors" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
-		[NSString stringWithFormat:@"values.%@", LetterboxAlternatingRowColorsKey]
-		options:nil];
-
-	[self bind:@"drawsDividerLines" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
-		[NSString stringWithFormat:@"values.%@", LetterboxDividerLineKey]
-		options:nil];
-
-	// bind the divider settings
-	[[self splitView] bind:@"letterboxDividerType" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
-		[NSString stringWithFormat:@"values.%@", LetterboxDividerTypeKey]
-		options:nil];
+	// invoke the default method
+	[self Letterbox__setUpMenus];
 	
-//	NSLog(@"Stuff: %@", [[self splitView] ]);
+	// initialize our menu items
+	[self Letterbox_initializeMenus];
 }
 
-- (BOOL) selector:(SEL)selector matchesPosition:(NSString *)position
+- (void) Letterbox_initializeBindings
+{
+	NSLog(@"Initializing the Letterbox bindings");
+	// bind the list view settings
+	[self bind:@"Letterbox_drawsAlternatingRowColors" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+	 [NSString stringWithFormat:@"values.%@", LetterboxAlternatingRowColorsKey]
+	   options:nil];
+	
+	[self bind:@"Letterbox_drawsDividerLines" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+	 [NSString stringWithFormat:@"values.%@", LetterboxDividerLineKey]
+	   options:nil];
+	
+	// bind the divider settings
+	[[self Letterbox_splitView] bind:@"Letterbox_dividerType" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+	 [NSString stringWithFormat:@"values.%@", LetterboxDividerTypeKey]
+							 options:nil];
+	
+	// bind the preview pane position
+	[self bind:@"Letterbox_previewPanePosition" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
+	 [NSString stringWithFormat:@"values.%@", LetterboxPreviewPanePositionKey] options:nil];
+	
+	[[self Letterbox_ivars] setObject:@"done" forKey:@"initializedBindings"];
+	NSLog(@"Now I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
+}
+
+- (void) Letterbox_show
+{
+	// invoke the default method
+	[self Letterbox_show];
+	
+	// initialize bindings if necessary
+	NSLog(@"Deciding whether to redo bindings... I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
+	if (! [[[self Letterbox_ivars] objectForKey:@"initializedBindings"] isEqualToString:@"done"]) {
+		[self Letterbox_initializeBindings];
+	}
+}
+
+- (BOOL) Letterbox_selector:(SEL)selector matchesPosition:(NSString *)position
 {
 	return (
-		( (selector == @selector(setPreviewPaneRight:)) && ([position isEqualToString:LetterboxPreviewPanePositionRight]))
-		|| ( (selector == @selector(setPreviewPaneLeft:)) && ([position isEqualToString:LetterboxPreviewPanePositionLeft]))
-		|| ( (selector == @selector(setPreviewPaneBottom:)) && ([position isEqualToString:LetterboxPreviewPanePositionBottom]))
+		( (selector == @selector(Letterbox_setPreviewPaneRight:)) && ([position isEqualToString:LetterboxPreviewPanePositionRight]))
+		|| ( (selector == @selector(Letterbox_setPreviewPaneLeft:)) && ([position isEqualToString:LetterboxPreviewPanePositionLeft]))
+		|| ( (selector == @selector(Letterbox_setPreviewPaneBottom:)) && ([position isEqualToString:LetterboxPreviewPanePositionBottom]))
 	);
 }
 
 - (BOOL) Letterbox_validateMenuItem:(NSMenuItem *)item
 {
 	SEL itemSelector = [item action];
-	if (itemSelector == @selector(setPreviewPaneRight:)
-		|| itemSelector == @selector(setPreviewPaneLeft:)
-		|| itemSelector == @selector(setPreviewPaneBottom:)
-		|| itemSelector == @selector(togglePreviewPane:)
-		|| itemSelector == @selector(hidePreviewPane:)
-		|| itemSelector == @selector(showPreviewPane:)
+	if (itemSelector == @selector(Letterbox_setPreviewPaneRight:)
+		|| itemSelector == @selector(Letterbox_setPreviewPaneLeft:)
+		|| itemSelector == @selector(Letterbox_setPreviewPaneBottom:)
+		|| itemSelector == @selector(Letterbox_togglePreviewPane:)
+		|| itemSelector == @selector(Letterbox_hidePreviewPane:)
+		|| itemSelector == @selector(Letterbox_showPreviewPane:)
 	) {
 		// validate if we're not a single message viewer
 		BOOL shouldValidate = ! ([self isKindOfClass:NSClassFromString(@"SingleMessageViewer")]);
 		// Let's also take care of setting the state
 		if (shouldValidate) {
-			NSString *previewPanePosition = [[self splitView] previewPanePosition];
-			if (itemSelector == @selector(setPreviewPaneRight:)
-				|| itemSelector == @selector(setPreviewPaneLeft:)
-				|| itemSelector == @selector(setPreviewPaneBottom:)) {
-					[item setState:([self selector:itemSelector matchesPosition:previewPanePosition]) ?
+			NSString *previewPanePosition = [[self Letterbox_splitView] Letterbox_previewPanePosition];
+			if (itemSelector == @selector(Letterbox_setPreviewPaneRight:)
+				|| itemSelector == @selector(Letterbox_setPreviewPaneLeft:)
+				|| itemSelector == @selector(Letterbox_setPreviewPaneBottom:)) {
+					[item setState:([self Letterbox_selector:itemSelector matchesPosition:previewPanePosition]) ?
 						NSOnState : NSOffState];
-			} else if (itemSelector == @selector(togglePreviewPane:)) {
-				[item setTitle: ([self previewPaneVisible]) ?
+			} else if (itemSelector == @selector(Letterbox_togglePreviewPane:)) {
+				[item setTitle: ([self Letterbox_previewPaneVisible]) ?
 					NSLocalizedStringFromTable(@"Hide", @"Letterbox", @"Menu item")
 					: NSLocalizedStringFromTable(@"Show", @"Letterbox", @"Menu item")];
 			}
@@ -139,84 +157,84 @@
 }
 // ---------------------------- actions ----------------------------
 
-- (IBAction) setPreviewPaneRight:(id)sender
+- (IBAction) Letterbox_setPreviewPaneRight:(id)sender
 {
-	[self setPreviewPanePosition:LetterboxPreviewPanePositionRight];
+	[self setLetterbox_previewPanePosition:LetterboxPreviewPanePositionRight];
 }
-- (IBAction) setPreviewPaneLeft:(id)sender
+- (IBAction) Letterbox_setPreviewPaneLeft:(id)sender
 {
-	[self setPreviewPanePosition:LetterboxPreviewPanePositionLeft];
+	[self setLetterbox_previewPanePosition:LetterboxPreviewPanePositionLeft];
 }
-- (IBAction) setPreviewPaneBottom:(id)sender
+- (IBAction) Letterbox_setPreviewPaneBottom:(id)sender
 {
-	[self setPreviewPanePosition:LetterboxPreviewPanePositionBottom];
+	[self setLetterbox_previewPanePosition:LetterboxPreviewPanePositionBottom];
 }
 
-- (IBAction) togglePreviewPane:(id)sender
+- (IBAction) Letterbox_togglePreviewPane:(id)sender
 {
-	[self setPreviewPaneVisible:(! [self previewPaneVisible])];
+	[self setLetterbox_previewPaneVisible:(! [self Letterbox_previewPaneVisible])];
 }
-- (IBAction) hidePreviewPane:(id)sender
+- (IBAction) Letterbox_hidePreviewPane:(id)sender
 {
-	[self setPreviewPaneVisible:NO]; 
+	[self setLetterbox_previewPaneVisible:NO]; 
 }
-- (IBAction) showPreviewPane:(id)sender
+- (IBAction) Letterbox_showPreviewPane:(id)sender
 {
-	[self setPreviewPaneVisible:YES];
+	[self setLetterbox_previewPaneVisible:YES];
 }
 
 // --------------------------- accessors --------------------------
-- (id) contentController {
+- (id) Letterbox_contentController {
 	Ivar contentControllerIvar = class_getInstanceVariable(NSClassFromString(@"MessageViewer"), "_contentController");
 	return object_getIvar(self, contentControllerIvar);
 }
 
-- (id) splitView {
+- (id) Letterbox_splitView {
 	Ivar splitViewIvar = class_getInstanceVariable(NSClassFromString(@"MessageViewer"), "_splitView");
 	return object_getIvar(self, splitViewIvar);
 }
 
-- (id) tableManager {
+- (id) Letterbox_tableManager {
 	Ivar tableManagerIvar = class_getInstanceVariable(NSClassFromString(@"MessageViewer"), "_tableManager");
 	return object_getIvar(self, tableManagerIvar);
 }
 
-- (id) messageListTableView
+- (id) Letterbox_messageListTableView
 {
-	return [[[self splitView] messageListView] documentView];
+	return [[[self Letterbox_splitView] Letterbox_messageListView] documentView];
 }
 
-- (BOOL) drawsAlternatingRowColors
+- (BOOL) Letterbox_drawsAlternatingRowColors
 {
-	return [[self messageListTableView] usesAlternatingRowBackgroundColors];
+	return [[self Letterbox_messageListTableView] usesAlternatingRowBackgroundColors];
 }
 
-- (void) setDrawsAlternatingRowColors:(BOOL)drawAlternating
+- (void) setLetterbox_drawsAlternatingRowColors:(BOOL)drawAlternating
 {
-	[[self messageListTableView] setUsesAlternatingRowBackgroundColors:drawAlternating];
+	[[self Letterbox_messageListTableView] setUsesAlternatingRowBackgroundColors:drawAlternating];
 }
 
-- (BOOL) drawsDividerLines
+- (BOOL) Letterbox_drawsDividerLines
 {
-	return ([[self messageListTableView] gridStyleMask] == NSTableViewSolidHorizontalGridLineMask);
+	return ([[self Letterbox_messageListTableView] gridStyleMask] == NSTableViewSolidHorizontalGridLineMask);
 }
 
--(void) setDrawsDividerLines:(BOOL)drawDividers
+-(void) setLetterbox_drawsDividerLines:(BOOL)drawDividers
 {
-	[[self messageListTableView] setGridStyleMask:(drawDividers) ?
+	[[self Letterbox_messageListTableView] setGridStyleMask:(drawDividers) ?
 		NSTableViewSolidHorizontalGridLineMask
 		: NSTableViewGridNone];	
 }
 
-- (NSString *)previewPanePosition
+- (NSString *)Letterbox_previewPanePosition
 {
-	return [[self splitView] previewPanePosition];
+	return [[self Letterbox_splitView] Letterbox_previewPanePosition];
 }
-- (void)setPreviewPanePosition:(NSString *)position 
+- (void)setLetterbox_previewPanePosition:(NSString *)position 
 {
 	// When we change this window, we'll also change the default. 
 	// Dunno for sure whether that's the right thing to do.
 	[[[LetterboxBundle sharedInstance] defaults] setObject:position forKey:LetterboxPreviewPanePositionKey];
-	[[self splitView] setPreviewPanePosition:position];
+	[[self Letterbox_splitView] setLetterbox_previewPanePosition:position];
 }
 @end

@@ -13,20 +13,21 @@
 @interface ExpandingSplitView_Letterbox : NSObject
 // --- overrides --
 // --- methods ---
-- (void)forceRefresh;
+- (void)Letterbox_forceRefresh;
 - (CGFloat)Letterbox_dividerThickness;
 - (void)Letterbox_drawDividerInRect:(NSRect)rect;
 
 // --- accessors ---
-@property (readonly) NSScrollView *messageListView;
-@property (readonly) NSView *messagePaneView;
-@property (copy) NSString *previewPanePosition;
-@property (copy) NSString *letterboxDividerType;
-@property enum LetterboxPaneOrder paneOrder;
-@property CGFloat dividerThickness;
+@property (readonly) NSScrollView *Letterbox_messageListView;
+@property (readonly) NSView *Letterbox_messagePaneView;
+@property (copy) NSString *Letterbox_previewPanePosition;
+@property (copy) NSString *Letterbox_dividerType;
+@property enum LetterboxPaneOrder Letterbox_paneOrder;
+@property CGFloat Letterbox_dividerThickness;
 @end
 
 @interface ExpandingSplitView_Letterbox (ExpandingSplitView)
+- (void) setSubviews:(NSArray *)subviews;
 - (BOOL) isVertical;
 - (void) adjustSubviews;
 - (NSArray *) subviews;

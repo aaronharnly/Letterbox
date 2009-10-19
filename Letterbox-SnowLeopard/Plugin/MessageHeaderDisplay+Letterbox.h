@@ -10,5 +10,5 @@
 //#import "../AppleHeaders/MessageHeaderDisplay.h"
 
 @interface MessageHeaderDisplay_Letterbox : NSObject
-@property (readonly) id headerView; // returns a MessageHeaderView
+@property (readonly) id Letterbox_headerView; // returns a MessageHeaderView
 @end

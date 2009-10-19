@@ -15,13 +15,13 @@
  * We tweak the sharedPreferences method to insert our preferences module
  *  when first accessed.
  */
-+ (id) sharedPreferences_Letterbox
++ (id) Letterbox_sharedPreferences
 {
     static BOOL haveAdded = NO;
 	// we want the value that would be returned by the normal implementation;
 	// so we'll send the message for *this method*, which will have been swizzled
 	// with the original method.
-    id preferences = [NSPreferences sharedPreferences_Letterbox]; 
+    id preferences = [NSPreferences Letterbox_sharedPreferences]; 
     
     if (preferences != nil && !haveAdded) {
 		haveAdded = YES;
@@ -35,7 +35,7 @@
 	@abstract Gives us access to the preferences window.
 	@discussion
  */
-- (NSWindow *)preferencesPanel
+- (NSWindow *)Letterbox_preferencesPanel
 {
 	return _preferencesPanel;
 }
@@ -45,7 +45,7 @@
 	@abstract Gives us access to the preferences modules
 	@discussion
  */
-- (NSArray *)preferenceModules
+- (NSArray *)Letterbox_preferenceModules
 {
 	return [NSArray arrayWithArray:_preferenceModules];
 }

@@ -23,18 +23,18 @@
 	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_dividerThickness) toClassNamed:targetClass];
 	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_drawDividerInRect:) toClassNamed:targetClass];
 	// Methods
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(forceRefresh) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_forceRefresh) toClassNamed:targetClass];
 	// Accessors
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(messageListView) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(messagePaneView) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(paneOrder) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setPaneOrder:) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setPreviewPanePosition:) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(previewPanePosition) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(dividerThickness) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setDividerThickness:) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(letterboxDividerType) toClassNamed:targetClass];
-	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setLetterboxDividerType:) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_messageListView) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_messagePaneView) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_paneOrder) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setLetterbox_paneOrder:) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setLetterbox_previewPanePosition:) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_previewPanePosition) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_dividerThickness) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setLetterbox_dividerThickness:) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(Letterbox_dividerType) toClassNamed:targetClass];
+	[ExpandingSplitView_Letterbox Letterbox_addMethod:@selector(setLetterbox_dividerType:) toClassNamed:targetClass];
 
 
 }
@@ -44,19 +44,15 @@
 {
 	CGFloat valueToReturn = [self Letterbox_dividerThickness]; // default
 	id storedValue = [[self Letterbox_ivars] objectForKey:@"DividerThickness"];
-#ifdef __X86_64__
-	if ((storedValue != nil) && ([storedValue respondsToSelector:@selector(doubleValue)]))
-		valueToReturn = [storedValue doubleValue];
-#else
-	if ((storedValue != nil) && ([storedValue respondsToSelector:@selector(floatValue)]))
-		valueToReturn = [storedValue floatValue];
-#endif
+	if (storedValue != nil) {
+		valueToReturn = [storedValue cgFloatValue];
+	}
 	return valueToReturn;
 }
 
 - (void)Letterbox_drawDividerInRect:(NSRect)rect
 {
-	if ([[self letterboxDividerType] isEqualToString:LetterboxDividerTypeHairline]) {
+	if ([[self Letterbox_dividerType] isEqualToString:LetterboxDividerTypeHairline]) {
 		[[NSColor darkGrayColor] set];
 		NSRectFill(rect);
 	} else {
@@ -81,19 +77,19 @@
 			[[NSImage imageNamed:@"divot"] compositeToPoint:divotPoint operation:NSCompositeSourceOver];
 		} else {
 			[self Letterbox_drawDividerInRect:rect];
-		}	
+		}
 	}
 }
 
 // ---------------------------- methods -----------------------------------
-- (void)forceRefresh
+- (void)Letterbox_forceRefresh
 {	
 	[self adjustSubviews];
 }
 
 // ---------------------------- accessors -----------------------------------
 
-- (NSScrollView *)messageListView
+- (NSScrollView *)Letterbox_messageListView
 {
 	NSView *messageListView = nil;
 	for(NSView *view in [self subviews]) {
@@ -102,7 +98,7 @@
 	}
 	return (NSScrollView *) messageListView;
 }
-- (NSView *)messagePaneView
+- (NSView *)Letterbox_messagePaneView
 {
 	NSView *messagePaneView = nil;
 	for (NSView *view in [self subviews]) {
@@ -112,7 +108,7 @@
 	return messagePaneView;
 }
 
-- (enum LetterboxPaneOrder)paneOrder;
+- (enum LetterboxPaneOrder)Letterbox_paneOrder;
 {
 	id paneOrderObj = [[self Letterbox_ivars] objectForKey:@"PaneOrder"];
 	if (paneOrderObj == nil)
@@ -121,30 +117,43 @@
 	return ([paneOrderObj intValue]);
 }
 
-- (void)setPaneOrder:(enum LetterboxPaneOrder)newOrder
+- (void)setLetterbox_paneOrder:(enum LetterboxPaneOrder)newOrder
 {
 	[[self Letterbox_ivars] setObject:[NSNumber numberWithInt:newOrder] forKey:@"PaneOrder"];
+    NSView *listPane = [self Letterbox_messageListView];
+    NSView *messagePane = [self Letterbox_messagePaneView];
+    
+    // remove the panes
+    
+    // and add in appropriate order
+	NSArray *intendedOrder;
+	if (newOrder == LetterboxPaneOrderMailboxListFirst) {
+		intendedOrder = [NSArray arrayWithObjects:listPane, messagePane, nil];
+	} else {
+		intendedOrder = [NSArray arrayWithObjects:messagePane, listPane, nil];
+	}
+	[self setSubviews:intendedOrder];
 }
 
-- (void)setPreviewPanePosition:(NSString *)newPosition
+- (void)setLetterbox_previewPanePosition:(NSString *)newPosition
 {
 	if ([newPosition isEqualToString:LetterboxPreviewPanePositionRight]) {
 		[self setVertical:YES];
-		[self setPaneOrder:LetterboxPaneOrderMailboxListFirst];
+		[self setLetterbox_paneOrder:LetterboxPaneOrderMailboxListFirst];
 	} else if ([newPosition isEqualToString:LetterboxPreviewPanePositionLeft]) {
 		[self setVertical:YES];
-		[self setPaneOrder:LetterboxPaneOrderMailboxListLast];
+		[self setLetterbox_paneOrder:LetterboxPaneOrderMailboxListLast];
 	} else if ([newPosition isEqualToString:LetterboxPreviewPanePositionBottom]) {
 		[self setVertical:NO];
-		[self setPaneOrder:LetterboxPaneOrderMailboxListFirst];
+		[self setLetterbox_paneOrder:LetterboxPaneOrderMailboxListFirst];
 	}
-	[self forceRefresh];
+	[self Letterbox_forceRefresh];
 }
 
-- (NSString *)previewPanePosition
+- (NSString *)Letterbox_previewPanePosition
 {
 	if ([self isVertical]) {
-		if ([self paneOrder] == LetterboxPaneOrderMailboxListFirst)
+		if ([self Letterbox_paneOrder] == LetterboxPaneOrderMailboxListFirst)
 			return LetterboxPreviewPanePositionRight;
 		else
 			return LetterboxPreviewPanePositionLeft;
@@ -153,27 +162,27 @@
 	}
 }
 
-- (void) setDividerThickness:(CGFloat)newThickness
+- (void) setLetterbox_dividerThickness:(CGFloat)newThickness
 {
 	[[self Letterbox_ivars] setObject:[NSNumber numberWithCGFloat:newThickness] forKey:@"DividerThickness"];
 }
 
-- (NSString *) letterboxDividerType
+- (NSString *) Letterbox_dividerType
 {
 	return [[self Letterbox_ivars] objectForKey:LetterboxDividerTypeKey];
 }
 
-- (void) setLetterboxDividerType:(NSString *)newDividerType
+- (void) setLetterbox_dividerType:(NSString *)newDividerType
 {
 	[[self Letterbox_ivars] setObject:newDividerType forKey:LetterboxDividerTypeKey];
 	if ([newDividerType isEqualToString:LetterboxDividerTypeHairline]) {
-		[[self animator] setDividerThickness:1.0];
+		[[self animator] setLetterbox_dividerThickness:1.0];
 	} else {
-		[[self animator] setDividerThickness:[self Letterbox_dividerThickness]];
+		[[self animator] setLetterbox_dividerThickness:[self Letterbox_dividerThickness]];
 	}
-	[self forceRefresh];
+	[self Letterbox_forceRefresh];
 }
 
-@dynamic dividerThickness;
+@dynamic Letterbox_dividerThickness;
 
 @end

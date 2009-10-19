@@ -9,9 +9,9 @@
 
 
 @implementation NSPreferencesModule (Letterbox)
-- (NSSize)minSize_Letterbox
+- (NSSize)Letterbox_minSize
 {
-	NSSize originalSize = [self minSize_Letterbox];
+	NSSize originalSize = [self Letterbox_minSize];
 	// we might want to make this wider, so that the list of preferences modules
 	// isn't cut off on the top.
 //	return NSMakeSize(750.0, originalSize.height);

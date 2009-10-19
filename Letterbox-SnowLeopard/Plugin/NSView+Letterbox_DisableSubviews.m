@@ -9,15 +9,15 @@
 
 
 @implementation NSView (Letterbox_DisableSubviews)
-- (void)disableSubViews
+- (void)Letterbox_disableSubViews
 {
-	[self setSubViewsEnabled:NO];
+	[self Letterbox_setSubViewsEnabled:NO];
 }
-- (void)enableSubViews
+- (void)Letterbox_enableSubViews
 {
-	[self setSubViewsEnabled:YES];
+	[self Letterbox_setSubViewsEnabled:YES];
 }
-- (void)setSubViewsEnabled:(BOOL)newEnabled
+- (void)Letterbox_setSubViewsEnabled:(BOOL)newEnabled
 {
 	// Disable subviews
 	for (NSView *subview in [self subviews]) {
@@ -25,8 +25,8 @@
 			[(NSControl*) subview setEnabled:newEnabled];
 		}
 
-		if ([subview respondsToSelector:@selector(setSubViewsEnabled:)])
-			[subview setSubViewsEnabled:newEnabled];
+		if ([subview respondsToSelector:@selector(Letterbox_setSubViewsEnabled:)])
+			[subview Letterbox_setSubViewsEnabled:newEnabled];
 
 	}
 	
@@ -39,8 +39,8 @@
 				[(NSControl*) itemView setEnabled:newEnabled];
 			}
 
-			if ([itemView respondsToSelector:@selector(setSubViewsEnabled:)])
-				[itemView setSubViewsEnabled:newEnabled];
+			if ([itemView respondsToSelector:@selector(Letterbox_setSubViewsEnabled:)])
+				[itemView Letterbox_setSubViewsEnabled:newEnabled];
 		}
 	}
 }

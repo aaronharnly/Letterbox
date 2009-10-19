@@ -12,8 +12,8 @@
 
 
 @interface NSView (Letterbox_DisableSubviews)
-- (void)disableSubViews;
-- (void)enableSubViews;
-- (void)setSubViewsEnabled:(BOOL)newEnabled;
+- (void)Letterbox_disableSubViews;
+- (void)Letterbox_enableSubViews;
+- (void)Letterbox_setSubViewsEnabled:(BOOL)newEnabled;
 
 @end

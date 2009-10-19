@@ -118,6 +118,7 @@
 		93234C640CF9DD50003470B5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93234C630CF9DD50003470B5 /* QuartzCore.framework */; };
 		93234CB00CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */; };
 		93234CED0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m in Sources */ = {isa = PBXBuildFile; fileRef = 93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */; };
+		93431639108BEEEC0097D000 /* TableViewManager+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 93431638108BEEEC0097D000 /* TableViewManager+Letterbox.m */; };
 		935B11FC1057BA7200D7882E /* NSNumber+CGFloatSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 935B11FB1057BA7200D7882E /* NSNumber+CGFloatSupport.m */; };
 		935CF28A0D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */; };
 		935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */; };
@@ -303,6 +304,8 @@
 		93234CAF0CF9F0E9003470B5 /* Plugin/AWHFuzzyDisabledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plugin/AWHFuzzyDisabledView.m; sourceTree = "<group>"; };
 		93234CEB0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Plugin/NSView+Letterbox_DisableSubviews.h"; sourceTree = "<group>"; };
 		93234CEC0CF9FA1A003470B5 /* Plugin/NSView+Letterbox_DisableSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Plugin/NSView+Letterbox_DisableSubviews.m"; sourceTree = "<group>"; };
+		93431637108BEEEC0097D000 /* TableViewManager+Letterbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TableViewManager+Letterbox.h"; path = "Plugin/TableViewManager+Letterbox.h"; sourceTree = "<group>"; };
+		93431638108BEEEC0097D000 /* TableViewManager+Letterbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "TableViewManager+Letterbox.m"; path = "Plugin/TableViewManager+Letterbox.m"; sourceTree = "<group>"; };
 		935B1060105788B300D7882E /* AppKit-10.6-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.6-32.h"; path = "AppleHeaders/AppKit-10.6-32.h"; sourceTree = "<group>"; };
 		935B1061105788B300D7882E /* AppKit-10.6-64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "AppKit-10.6-64.h"; path = "AppleHeaders/AppKit-10.6-64.h"; sourceTree = "<group>"; };
 		935B1062105788BF00D7882E /* Mail.app-4.0-32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Mail.app-4.0-32.h"; path = "AppleHeaders/Mail.app-4.0-32.h"; sourceTree = "<group>"; };
@@ -938,6 +941,8 @@
 				93B66DBA0D048C0C00DBC3AC /* MessageContentController+Letterbox.m */,
 				935CF2880D048D45008435F8 /* MessageHeaderDisplay+Letterbox.h */,
 				935CF2890D048D45008435F8 /* MessageHeaderDisplay+Letterbox.m */,
+				93431637108BEEEC0097D000 /* TableViewManager+Letterbox.h */,
+				93431638108BEEEC0097D000 /* TableViewManager+Letterbox.m */,
 				935CF28B0D048DE0008435F8 /* MessageViewer+Letterbox.h */,
 				935CF28C0D048DE0008435F8 /* MessageViewer+Letterbox.m */,
 				935CF2900D049808008435F8 /* ExpandingSplitView+Letterbox.h */,
@@ -1561,6 +1566,7 @@
 				935CF28D0D048DE0008435F8 /* MessageViewer+Letterbox.m in Sources */,
 				935CF2920D049808008435F8 /* ExpandingSplitView+Letterbox.m in Sources */,
 				935B11FC1057BA7200D7882E /* NSNumber+CGFloatSupport.m in Sources */,
+				93431639108BEEEC0097D000 /* TableViewManager+Letterbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

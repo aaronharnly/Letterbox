@@ -12,7 +12,7 @@
 #import "NSPreferences.h"
 
 @interface NSPreferences (Letterbox)
-+ (id)sharedPreferences_Letterbox;
-- (NSWindow *)preferencesPanel;
-- (NSArray *)preferenceModules;
++ (id)Letterbox_sharedPreferences;
+- (NSWindow *)Letterbox_preferencesPanel;
+- (NSArray *)Letterbox_preferenceModules;
 @end

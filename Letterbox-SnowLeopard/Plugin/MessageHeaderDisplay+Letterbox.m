@@ -12,10 +12,10 @@
 
 @implementation MessageHeaderDisplay_Letterbox
 + (void) load {
-	[MessageHeaderDisplay_Letterbox Letterbox_addMethod:@selector(headerView) toClassNamed:@"MessageHeaderDisplay"];
+	[MessageHeaderDisplay_Letterbox Letterbox_addMethod:@selector(Letterbox_headerView) toClassNamed:@"MessageHeaderDisplay"];
 }
 
--(id)headerView // returns a MessageHeaderView
+-(id)Letterbox_headerView // returns a MessageHeaderView
 {
 	Ivar headerViewIvar = class_getInstanceVariable(NSClassFromString(@"MessageHeaderDisplay"), "headerView");
 	return object_getIvar(self, headerViewIvar);

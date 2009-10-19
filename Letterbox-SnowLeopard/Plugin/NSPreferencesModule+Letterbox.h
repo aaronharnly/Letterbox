@@ -12,5 +12,5 @@
 #import "NSPreferencesModule.h"
 
 @interface NSPreferencesModule (Letterbox)
-- (NSSize)minSize_Letterbox;
+- (NSSize)Letterbox_minSize;
 @end

@@ -12,16 +12,16 @@
 
 @implementation MessageContentController_Letterbox
 + (void) load {
-	[MessageContentController_Letterbox Letterbox_addMethod:@selector(headerDisplay) toClassNamed:@"MessageContentController"];
-	[MessageContentController_Letterbox Letterbox_addMethod:@selector(contentContainerView) toClassNamed:@"MessageContentController"];
+	[MessageContentController_Letterbox Letterbox_addMethod:@selector(Letterbox_headerDisplay) toClassNamed:@"MessageContentController"];
+	[MessageContentController_Letterbox Letterbox_addMethod:@selector(Letterbox_contentContainerView) toClassNamed:@"MessageContentController"];
 }
 
-- (id) headerDisplay // returns MessageHeaderDisplay
+- (id) Letterbox_headerDisplay // returns MessageHeaderDisplay
 {
 	Ivar headerDisplayIvar = class_getInstanceVariable(NSClassFromString(@"MessageContentController"), "headerDisplay");
 	return object_getIvar(self, headerDisplayIvar);
 }
-- (NSView *) contentContainerView
+- (NSView *) Letterbox_contentContainerView
 {
 	Ivar contentContainerViewIvar = class_getInstanceVariable(NSClassFromString(@"MessageContentController"), "contentContainer");
 	return object_getIvar(self, contentContainerViewIvar);

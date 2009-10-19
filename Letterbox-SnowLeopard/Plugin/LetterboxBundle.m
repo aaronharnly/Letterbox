@@ -224,10 +224,11 @@
 	NSDictionary *initialDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		@"YES", ENABLED_KEY,
 		uuid, @"UUID",
-		LetterboxPreviewPanePositionRight,LetterboxPreviewPanePositionKey, // set your own defaults here
+		LetterboxPreviewPanePositionRight, LetterboxPreviewPanePositionKey,
 		[NSNumber numberWithBool:NO], LetterboxAlternatingRowColorsKey,
 		[NSNumber numberWithBool:NO], LetterboxDividerLineKey,
 		LetterboxDividerTypeNormal, LetterboxDividerTypeKey,
+		[NSNumber numberWithBool:NO], LetterboxShowTwoLineColumnKey,
 		nil];
 	
 	// register the defaults
@@ -252,8 +253,8 @@
 	// For reasons not obvious to me, calling [[NSPreferences sharedPreferences] addPreferenceNamed:]
 	//   from here doesn't seem to work. Perhaps the preferences aren't initialized until later?
 	// So anyway, we have to make an NSPreferences category and use that to add our preference module.
-	[NSPreferences Letterbox_swizzleClassMethod:@selector(sharedPreferences_Letterbox) withClassMethod:@selector(sharedPreferences)];
-	[NSPreferencesModule Letterbox_swizzleMethod:@selector(minSize) withMethod:@selector(minSize_Letterbox)];
+	[NSPreferences Letterbox_swizzleClassMethod:@selector(Letterbox_sharedPreferences) withClassMethod:@selector(sharedPreferences)];
+	[NSPreferencesModule Letterbox_swizzleMethod:@selector(minSize) withMethod:@selector(Letterbox_minSize)];
 }
 
 /*!
@@ -297,12 +298,18 @@
 	//    [LetterboxExpandingSplitView replaceMethod:@selector(adjustSubviews) withMethod:@selector(adjustSubviews) fromClass:[NSSplitView class]];
 
 	// MessageViewer
-	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
+	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(show) withMethod:@selector(Letterbox_show)];
+	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(_setUpMenus) withMethod:@selector(Letterbox__setUpMenus)];
 	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(validateMenuItem:) withMethod:@selector(Letterbox_validateMenuItem:)];
 	
 	// ExpandingSplitView
 	[NSClassFromString(@"ExpandingSplitView") Letterbox_swizzleMethod:@selector(dividerThickness) withMethod:@selector(Letterbox_dividerThickness)];
 	[NSClassFromString(@"ExpandingSplitView") Letterbox_swizzleMethod:@selector(drawDividerInRect:) withMethod:@selector(Letterbox_drawDividerInRect:)];
+	
+	// TableViewManager
+	[NSClassFromString(@"TableViewManager") Letterbox_swizzleMethod:@selector(tableView:objectValueForTableColumn:row:) withMethod:@selector(Letterbox_tableView:objectValueForTableColumn:row:)];
+	[NSClassFromString(@"TableViewManager") Letterbox_swizzleMethod:@selector(updateTableViewRowHeight) withMethod:@selector(Letterbox_updateTableViewRowHeight)];
+	[NSClassFromString(@"TableViewManager") Letterbox_swizzleMethod:@selector(awakeFromNib) withMethod:@selector(Letterbox_awakeFromNib)];
 }
 
 

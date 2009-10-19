@@ -49,7 +49,7 @@
 @synthesize enabled;
 -(void)setEnabled:(BOOL)newEnabled {
 	enabled = newEnabled;
-	[self setSubViewsEnabled:newEnabled];
+	[self Letterbox_setSubViewsEnabled:newEnabled];
 	[self setEffects];
 	[self setNeedsDisplay: YES];
 }

@@ -98,7 +98,7 @@
     [alert setInformativeText:NSLocalizedString(@"The plugin will be removed, and Mail relaunched.",@"Alert text")];
     [alert setAlertStyle:NSWarningAlertStyle];
     
-    [alert beginSheetModalForWindow:[[NSPreferences sharedPreferences] preferencesPanel] modalDelegate:self didEndSelector:@selector(uninstallAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    [alert beginSheetModalForWindow:[[NSPreferences sharedPreferences] Letterbox_preferencesPanel] modalDelegate:self didEndSelector:@selector(uninstallAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (void) uninstallAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo
@@ -116,7 +116,7 @@
 	[profileInfoView addSubview:updaterView];
 	[updaterView setFrame:[profileInfoView frame]];
 	
-	[NSApp beginSheet:profileInfoWindow modalForWindow:[[NSPreferences sharedPreferences] preferencesPanel] modalDelegate:self didEndSelector:@selector(showAnonymousProfileInfoDidEnd:returnCode:contextInfo:) contextInfo:nil];
+	[NSApp beginSheet:profileInfoWindow modalForWindow:[[NSPreferences sharedPreferences] Letterbox_preferencesPanel] modalDelegate:self didEndSelector:@selector(showAnonymousProfileInfoDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (IBAction)closeAnonymousProfileInfo:(id)sender

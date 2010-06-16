@@ -51,10 +51,7 @@
 			NSAttributedString *subject = [[self Letterbox_tableView:tableView objectValueForTableColumn:subjectColumn row:row] copy];
 			NSTableColumn *fromColumn = [self _columnWithIdentifierTag:LetterboxFromColumnTag];
 			NSAttributedString *from = [[self Letterbox_tableView:tableView objectValueForTableColumn:fromColumn row:row] copy];
-			NSTableColumn *receivedColumn = [self _columnWithIdentifierTag:LetterboxReceivedColumnTag];
-			NSAttributedString *received = [[self Letterbox_tableView:tableView objectValueForTableColumn:receivedColumn row:row] copy];
-			NSLog(@"Have received: %@", received);
-			NSString *combinedString = [NSString stringWithFormat:@"%@   %@\n%@", [from string], [received string], [subject string]];
+			NSString *combinedString = [NSString stringWithFormat:@"%@\n%@", [from string], [subject string]];
 			NSMutableAttributedString *formatted = [[[NSMutableAttributedString alloc] initWithString:combinedString] autorelease];
 			
 			NSFont *standardFont = [self font];

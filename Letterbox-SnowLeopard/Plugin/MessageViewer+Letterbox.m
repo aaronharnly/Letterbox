@@ -97,9 +97,6 @@
 	// bind the preview pane position
 	[self bind:@"Letterbox_previewPanePosition" toObject:[[LetterboxBundle sharedInstance] defaultsController] withKeyPath:
 	 [NSString stringWithFormat:@"values.%@", LetterboxPreviewPanePositionKey] options:nil];
-	
-	[[self Letterbox_ivars] setObject:@"done" forKey:@"initializedBindings"];
-	NSLog(@"Now I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
 }
 
 - (void) Letterbox__setUpWindowContents
@@ -108,10 +105,7 @@
 	[self Letterbox__setUpWindowContents];
 	
 	// initialize bindings if necessary
-	NSLog(@"Deciding whether to redo bindings... I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
-	if (! [[[self Letterbox_ivars] objectForKey:@"initializedBindings"] isEqualToString:@"done"]) {
-		[self Letterbox_initializeBindings];
-	}
+	[self Letterbox_initializeBindings];
 }
 
 - (BOOL) Letterbox_selector:(SEL)selector matchesPosition:(NSString *)position

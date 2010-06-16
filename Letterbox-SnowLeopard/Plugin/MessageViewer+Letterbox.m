@@ -20,7 +20,7 @@
 + (void) load {
 	NSString *targetClass = @"MessageViewer";
 	// Swizzles
-	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_show) toClassNamed:targetClass];
+	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox__setUpWindowContents) toClassNamed:targetClass];
 	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox__setUpMenus) toClassNamed:targetClass];
 	[MessageViewer_Letterbox Letterbox_addMethod:@selector(Letterbox_validateMenuItem:) toClassNamed:targetClass];
 	// Additional methods
@@ -102,10 +102,10 @@
 	NSLog(@"Now I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
 }
 
-- (void) Letterbox_show
+- (void) Letterbox__setUpWindowContents
 {
 	// invoke the default method
-	[self Letterbox_show];
+	[self Letterbox__setUpWindowContents];
 	
 	// initialize bindings if necessary
 	NSLog(@"Deciding whether to redo bindings... I have: %@", [[self Letterbox_ivars] objectForKey:@"initializedBindings"]);
@@ -182,7 +182,6 @@
 {
 	[self setLetterbox_previewPaneVisible:YES];
 }
-
 // --------------------------- accessors --------------------------
 - (id) Letterbox_contentController {
 	Ivar contentControllerIvar = class_getInstanceVariable(NSClassFromString(@"MessageViewer"), "_contentController");
@@ -237,4 +236,11 @@
 	[[[LetterboxBundle sharedInstance] defaults] setObject:position forKey:LetterboxPreviewPanePositionKey];
 	[[self Letterbox_splitView] setLetterbox_previewPanePosition:position];
 }
+- (BOOL) Letterbox_previewPaneVisible {
+	return [[self Letterbox_splitView] Letterbox_previewPaneVisible];
+}
+- (void)setLetterbox_previewPaneVisible:(BOOL)visible {
+	[[self Letterbox_splitView] setLetterbox_previewPaneVisible:visible];
+}
+
 @end

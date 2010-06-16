@@ -12,11 +12,6 @@
 #import "LetterboxBundle.h"
 
 @implementation TableViewManager_Letterbox
-+ (void) initialize {
-	LetterboxSubjectColumn = [[NSTableColumn alloc] initWithIdentifier:LetterboxSubjectColumnIdentifier];
-	LetterboxFromColumn = [[NSTableColumn alloc] initWithIdentifier:LetterboxFromColumnIdentifier];
-	LetterboxReceivedColumn = [[NSTableColumn alloc] initWithIdentifier:LetterboxReceivedColumnIdentifier];	
-}
 
 + (void) load {
 	NSString *targetClass = @"TableViewManager";
@@ -37,7 +32,6 @@
 	// attach observer
 	NSLog(@"Attaching observer");
 	[[[LetterboxBundle sharedInstance] defaultsController] addObserver:self forKeyPath:[NSString stringWithFormat:@"values.%@", LetterboxShowTwoLineColumnKey] options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:nil];
-
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -53,13 +47,23 @@
 	id defaultValue = [self Letterbox_tableView:tableView objectValueForTableColumn:column row:row];
 	if ([[column identifier] isEqualToString:LetterboxSubjectColumnIdentifier]) {
 		if ([self Letterbox_showTwoLineSubjectColumn]) {
-			NSAttributedString *subject = [[self Letterbox_tableView:tableView objectValueForTableColumn:LetterboxSubjectColumn row:row] copy];
-			NSAttributedString *from = [[self Letterbox_tableView:tableView objectValueForTableColumn:LetterboxFromColumn row:row] copy];
-//			NSAttributedString *received = [[self Letterbox_tableView:tableView objectValueForTableColumn:LetterboxReceivedColumn row:row] copy];
-			NSString *combinedString = [NSString stringWithFormat:@"%@\n%@", [from string], [subject string]];
+			NSTableColumn *subjectColumn = [self _columnWithIdentifierTag:LetterboxSubjectColumnTag];
+			NSAttributedString *subject = [[self Letterbox_tableView:tableView objectValueForTableColumn:subjectColumn row:row] copy];
+			NSTableColumn *fromColumn = [self _columnWithIdentifierTag:LetterboxFromColumnTag];
+			NSAttributedString *from = [[self Letterbox_tableView:tableView objectValueForTableColumn:fromColumn row:row] copy];
+			NSTableColumn *receivedColumn = [self _columnWithIdentifierTag:LetterboxReceivedColumnTag];
+			NSAttributedString *received = [[self Letterbox_tableView:tableView objectValueForTableColumn:receivedColumn row:row] copy];
+			NSLog(@"Have received: %@", received);
+			NSString *combinedString = [NSString stringWithFormat:@"%@   %@\n%@", [from string], [received string], [subject string]];
+			NSMutableAttributedString *formatted = [[[NSMutableAttributedString alloc] initWithString:combinedString] autorelease];
+			
+			NSFont *standardFont = [self font];
+			NSFont *boldFont = [[NSFontManager sharedFontManager] convertFont:standardFont toHaveTrait:NSBoldFontMask];
+			[formatted addAttribute:NSFontAttributeName value:boldFont range:NSMakeRange(0, [from length])];
+			
 			//NSAttributedString *combined = [[NSAttributedString alloc] initWithString:combinedString];
 			//NSLog(@"Making custom two-line value: %@", combined);
-			return combinedString;
+			return formatted;
 		}
 	}
 	return defaultValue;

@@ -8,10 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-static NSTableColumn *LetterboxSubjectColumn;
-static NSTableColumn *LetterboxFromColumn;
-static NSTableColumn *LetterboxReceivedColumn;
-
 @interface TableViewManager_Letterbox : NSObject {
 
 }
@@ -27,4 +23,5 @@ static NSTableColumn *LetterboxReceivedColumn;
 - (NSTableView *) tableView;
 - (void) updateTableViewRowHeight;
 - (NSFont *)font;
+- (NSTableColumn *)_columnWithIdentifierTag:(long long)arg1;
 @end

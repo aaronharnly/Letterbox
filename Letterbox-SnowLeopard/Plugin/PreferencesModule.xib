@@ -2,17 +2,17 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">10B504</string>
-		<string key="IBDocument.InterfaceBuilderVersion">732</string>
-		<string key="IBDocument.AppKitVersion">1038.2</string>
-		<string key="IBDocument.HIToolboxVersion">437.00</string>
+		<string key="IBDocument.SystemVersion">10C540</string>
+		<string key="IBDocument.InterfaceBuilderVersion">740</string>
+		<string key="IBDocument.AppKitVersion">1038.25</string>
+		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">732</string>
+			<string key="NS.object.0">740</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="6"/>
+			<integer value="257"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -352,7 +352,7 @@
 																<characters key="NS.bytes">2</characters>
 															</object>
 															<object class="NSView" key="NSView" id="417589250">
-																<nil key="NSNextResponder"/>
+																<reference key="NSNextResponder" ref="620919197"/>
 																<int key="NSvFlags">256</int>
 																<object class="NSMutableArray" key="NSSubviews">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
@@ -627,7 +627,7 @@
 																						<object class="NSButtonCell" key="NSCell" id="586331463">
 																							<int key="NSCellFlags">-2080244224</int>
 																							<int key="NSCellFlags2">0</int>
-																							<string key="NSContents">Show two-line Subject column (EXPERIMENTAL AND BARE-BONES)</string>
+																							<string key="NSContents">Show combined From/Subject column (EXPERIMENTAL AND FLAKEY!!)</string>
 																							<reference key="NSSupport" ref="145225691"/>
 																							<reference key="NSControlView" ref="50462549"/>
 																							<int key="NSButtonFlags">1211912703</int>
@@ -667,6 +667,7 @@
 																	</object>
 																</object>
 																<string key="NSFrame">{{10, 33}, {503, 254}}</string>
+																<reference key="NSSuperview" ref="620919197"/>
 															</object>
 															<string key="NSLabel">Options</string>
 															<reference key="NSColor" ref="523143457"/>
@@ -815,7 +816,7 @@
 																<characters key="NS.bytes">1</characters>
 															</object>
 															<object class="NSView" key="NSView" id="543075225">
-																<reference key="NSNextResponder" ref="620919197"/>
+																<nil key="NSNextResponder"/>
 																<int key="NSvFlags">256</int>
 																<object class="NSMutableArray" key="NSSubviews">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
@@ -992,21 +993,20 @@ IGFueSBhbW91bnQuA</string>
 																	</object>
 																</object>
 																<string key="NSFrame">{{10, 33}, {503, 254}}</string>
-																<reference key="NSSuperview" ref="620919197"/>
 															</object>
 															<string key="NSLabel">About</string>
 															<reference key="NSColor" ref="523143457"/>
 															<reference key="NSTabView" ref="620919197"/>
 														</object>
 													</object>
-													<reference key="NSSelectedTabViewItem" ref="840986545"/>
+													<reference key="NSSelectedTabViewItem" ref="800907695"/>
 													<reference key="NSFont" ref="145225691"/>
 													<int key="NSTvFlags">0</int>
 													<bool key="NSAllowTruncatedLabels">YES</bool>
 													<bool key="NSDrawsBackground">YES</bool>
 													<object class="NSMutableArray" key="NSSubviews">
 														<bool key="EncodedWithXMLCoder">YES</bool>
-														<reference ref="543075225"/>
+														<reference ref="417589250"/>
 													</object>
 												</object>
 											</object>

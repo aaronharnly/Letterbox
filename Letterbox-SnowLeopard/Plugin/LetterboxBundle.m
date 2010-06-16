@@ -298,7 +298,7 @@
 	//    [LetterboxExpandingSplitView replaceMethod:@selector(adjustSubviews) withMethod:@selector(adjustSubviews) fromClass:[NSSplitView class]];
 
 	// MessageViewer
-	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(show) withMethod:@selector(Letterbox_show)];
+	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(_setUpWindowContents) withMethod:@selector(Letterbox__setUpWindowContents)];
 	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(_setUpMenus) withMethod:@selector(Letterbox__setUpMenus)];
 	[NSClassFromString(@"MessageViewer") Letterbox_swizzleMethod:@selector(validateMenuItem:) withMethod:@selector(Letterbox_validateMenuItem:)];
 	

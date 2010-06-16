@@ -23,3 +23,7 @@ NSString *LetterboxDividerTypeHairline = @"Hairline";
 NSString *LetterboxSubjectColumnIdentifier = @"2";
 NSString *LetterboxFromColumnIdentifier = @"5";
 NSString *LetterboxReceivedColumnIdentifier = @"3";
+
+long long LetterboxSubjectColumnTag = 2;
+long long LetterboxFromColumnTag = 5;
+long long LetterboxReceivedColumnTag = 3;

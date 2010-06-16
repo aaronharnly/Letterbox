@@ -25,6 +25,10 @@ extern NSString *LetterboxSubjectColumnIdentifier;
 extern NSString *LetterboxFromColumnIdentifier;
 extern NSString *LetterboxReceivedColumnIdentifier;
 
+extern long long LetterboxSubjectColumnTag;
+extern long long LetterboxFromColumnTag;
+extern long long LetterboxReceivedColumnTag;
+
 enum LetterboxPaneOrder {
 	LetterboxPaneOrderMailboxListFirst,
 	LetterboxPaneOrderMailboxListLast

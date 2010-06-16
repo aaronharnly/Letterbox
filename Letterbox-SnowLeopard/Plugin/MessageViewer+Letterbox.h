@@ -12,7 +12,7 @@
 
 @interface MessageViewer_Letterbox : NSObject
 // swizzles
-- (void) Letterbox_show;
+- (void) Letterbox__setUpWindowContents;
 - (void) Letterbox__setUpMenus;
 - (BOOL) Letterbox_validateMenuItem:(NSMenuItem *)item;
 

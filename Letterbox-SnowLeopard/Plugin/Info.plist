@@ -27,9 +27,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.24b7</string>
+	<string>0.24b8</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.24b7</string>
+	<string>0.24b8</string>
 	<key>NSPrincipalClass</key>
 	<string>LetterboxBundle</string>
 	<key>SUExpectsDSASignature</key>
@@ -67,6 +67,8 @@ apH17U6x1iUfv5bhU/7gMy7FBXqrW0+i42RqemiZ5/6JY+JJxqIeOgQuyyAq4+a/
 		<string>0CB5F2A0-A173-4809-86E3-9317261F1745</string><!-- 10.6.2 Message.framework -->
 		<string>B842F7D0-4D81-4DDF-A672-129CA5B32D57</string><!-- 10.6.4 Mail.app -->
 		<string>E71BD599-351A-42C5-9B63-EA5C47F7CE8E</string><!-- 10.6.4 Message.framework -->
+		<string>BDD81F4D-6881-4A8D-94A7-E67410089EEB</string><!-- 10.6.5 Mail.app -->
+		<string>857A142A-AB81-4D99-BECC-D1B55A86D94E</string><!-- 10.6.5 Message.framework -->
 	</array>
 </dict>
 </plist>
